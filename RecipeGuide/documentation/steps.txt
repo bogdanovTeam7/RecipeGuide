@@ -1,0 +1,54 @@
+Model - Controller - View
+
+Model
+1. Main classes + exceptions
+2. Filters (ex., categories)
+3. Statistic (calculate statistic dates)
+4. Formatting (ex. date, measuring)
+5. Tuning classes (main tuning, styles, language constants, actionClasses)
+
+
+Database
+1. Wrapper
+2. Save, load files
+3. Base for save.
+4. Dates from net.?
+
+Basic user interface
+1. Main windows.
+2. Interfaces.
+3. Main menu.
+4. Buttons
+5. Toolbar
+6. Toolbar for ("Add", "Upload", "Delete")
+7. DatePicker
+8. FileChooser
+
+Dialog windows
+1. Mistake.
+2. Sucsess
+3. Info
+4. Abstract window for change dates
+5. Change concret dates
+
+Output dates for user
+1. Left pannel
+2. Right pannel classes
+3. Abstract table
+4. Abstract table
+5. Menu for table
+6. Panel for filter
+7. Hotkeys
+
+Statistic
+1. Histogramms
+2. Panel for change statistic
+
+Event handling
+1. Menupoints events
+2. Toolbars
+3. Main windows (not saved dates)
+4. Filter events
+5. Panel for change statistic
+6. Dialog windows
+7. Mooving table menu events

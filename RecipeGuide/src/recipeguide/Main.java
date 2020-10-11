@@ -1,3 +1,4 @@
+package recipeguide;
 
 public class Main {
 
