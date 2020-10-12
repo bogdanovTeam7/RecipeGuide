@@ -5,10 +5,10 @@ import recipeguide.model.AbstractEntity;
 public class FoodCategory extends AbstractEntity {
 	private String name;
 
-	private FoodCategory() {
+	public FoodCategory() {
 	}
 
-	private FoodCategory(String name) {
+	public FoodCategory(String name) {
 		this.name = name;
 	}
 

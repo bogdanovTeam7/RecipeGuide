@@ -6,10 +6,10 @@ public class IngredientType extends AbstractEntity {
 
 	private String name;
 
-	private IngredientType() {
+	public IngredientType() {
 	}
 
-	private IngredientType(String name) {
+	public IngredientType(String name) {
 		this.name = name;
 	}
 

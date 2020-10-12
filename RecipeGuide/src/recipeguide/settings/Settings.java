@@ -2,6 +2,7 @@ package recipeguide.settings;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.util.prefs.Preferences;
 
@@ -9,7 +10,15 @@ import org.ini4j.Ini;
 import org.ini4j.IniPreferences;
 import org.ini4j.Wini;
 
+import recipeguide.model.entities.MeasuryUnit;
+
 public final class Settings {
+
+	public static final List<MeasuryUnit> BASIC_UNITS = List.of(new MeasuryUnit("piece", "pc"),
+			new MeasuryUnit("liter", "l"), new MeasuryUnit("deciliter", "dl"), new MeasuryUnit("milliliter", "ml"),
+			new MeasuryUnit("kilogram", "kg"), new MeasuryUnit("decagram", "dcg"), new MeasuryUnit("gram", "g"),
+			new MeasuryUnit("tablespoon", "tbs"), new MeasuryUnit("teaspoon", "tsp"),
+			new MeasuryUnit("coffee spoon", "cfs"), new MeasuryUnit("cup", "c"), new MeasuryUnit("drop", "dr"));
 
 	public static final File FONT_KURALE = new File("fonts/Kurale.ttf");
 	public static final File SAVE_DIR = new File("saves/");

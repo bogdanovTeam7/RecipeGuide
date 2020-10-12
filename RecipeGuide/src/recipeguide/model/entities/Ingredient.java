@@ -7,10 +7,10 @@ public class Ingredient extends AbstractEntity {
 	private String name;
 	private IngredientType type;
 
-	private Ingredient() {
+	public Ingredient() {
 	}
 
-	private Ingredient(String name, IngredientType type) {
+	public Ingredient(String name, IngredientType type) {
 		this.name = name;
 		this.type = type;
 	}

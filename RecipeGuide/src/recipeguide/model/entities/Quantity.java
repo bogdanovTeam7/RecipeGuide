@@ -4,10 +4,10 @@ public class Quantity {
 	private MeasuryUnit unit;
 	private double amount;
 
-	private Quantity() {
+	public Quantity() {
 	}
 
-	private Quantity(MeasuryUnit unit, double amount) {
+	public Quantity(MeasuryUnit unit, double amount) {
 		this.unit = unit;
 		this.amount = amount;
 	}

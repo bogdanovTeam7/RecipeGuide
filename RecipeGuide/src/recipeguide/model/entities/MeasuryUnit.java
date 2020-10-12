@@ -7,10 +7,10 @@ public class MeasuryUnit extends AbstractEntity {
 	private String name;
 	private String abbreviation;
 
-	private MeasuryUnit() {
+	public MeasuryUnit() {
 	}
 
-	private MeasuryUnit(String name, String abbreviation) {
+	public MeasuryUnit(String name, String abbreviation) {
 		this.name = name;
 		this.abbreviation = abbreviation;
 	}
