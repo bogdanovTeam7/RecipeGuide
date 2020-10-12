@@ -1,6 +1,8 @@
 package recipeguide.model;
 
-public interface Dao {
+public interface Entity {
+
+	String getDescription();
 
 	void postAdd();
 

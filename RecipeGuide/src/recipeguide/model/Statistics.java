@@ -3,7 +3,8 @@ package recipeguide.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import recipeguide.entities.FoodCategory;
+import recipeguide.model.entities.FoodCategory;
+import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
 
 public class Statistics {

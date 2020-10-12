@@ -3,8 +3,6 @@ package recipeguide.settings;
 import java.util.HashMap;
 import java.util.Map;
 
-import recipeguide.entities.IngredientType;
-
 final public class Text {
 
 	private static final Map<String, String> data = new HashMap<>();
@@ -44,12 +42,5 @@ final public class Text {
 		data.put("errorIngredientsEmpty", "Üres alapanyag");
 		data.put("errorUnknown", "Ismeretlen hiba");
 
-		for (IngredientType type : IngredientType.values()) {
-			if (type.equals(IngredientType.EGGS)) {
-				data.put(type.toString(), "Tojás");
-				// TODO tovább minden enumot
-				// TODO MeaszryUnit szintén u.a.
-			}
-		}
 	}
 }

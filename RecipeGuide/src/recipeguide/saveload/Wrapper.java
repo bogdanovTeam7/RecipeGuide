@@ -2,32 +2,24 @@ package recipeguide.saveload;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import recipeguide.model.entities.FoodCategory;
 import recipeguide.model.entities.Ingredient;
 import recipeguide.model.entities.IngredientType;
 import recipeguide.model.entities.MeasuryUnit;
 import recipeguide.model.entities.Recipe;
 
-public class SaveData {
-
-	private static SaveData instance;
-
+@XmlRootElement(name = "data")
+public class Wrapper {
 	private List<Ingredient> ingredients;
 	private List<IngredientType> types;
 	private List<MeasuryUnit> units;
 	private List<Recipe> recipes;
 	private List<FoodCategory> categories;
 
-	private SaveData() {
-	}
-
-	public static SaveData getInstance() {
-		if (instance == null) {
-			instance = new SaveData();
-		}
-		return instance;
-	}
-
+	@XmlElement(name = "ingredients")
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
@@ -36,6 +28,7 @@ public class SaveData {
 		this.ingredients = ingredients;
 	}
 
+	@XmlElement(name = "types")
 	public List<IngredientType> getTypes() {
 		return types;
 	}
@@ -44,6 +37,7 @@ public class SaveData {
 		this.types = types;
 	}
 
+	@XmlElement(name = "units")
 	public List<MeasuryUnit> getUnits() {
 		return units;
 	}
@@ -52,6 +46,7 @@ public class SaveData {
 		this.units = units;
 	}
 
+	@XmlElement(name = "recipes")
 	public List<Recipe> getRecipes() {
 		return recipes;
 	}
@@ -60,29 +55,13 @@ public class SaveData {
 		this.recipes = recipes;
 	}
 
+	@XmlElement(name = "categories")
 	public List<FoodCategory> getCategories() {
 		return categories;
 	}
 
 	public void setCategories(List<FoodCategory> categories) {
 		this.categories = categories;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("SaveData [ingredients=");
-		builder.append(ingredients);
-		builder.append(", types=");
-		builder.append(types);
-		builder.append(", units=");
-		builder.append(units);
-		builder.append(", recipes=");
-		builder.append(recipes);
-		builder.append(", categories=");
-		builder.append(categories);
-		builder.append("]");
-		return builder.toString();
 	}
 
 }

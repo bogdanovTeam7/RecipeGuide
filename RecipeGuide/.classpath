@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/dev/ini4j-0.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/dev/javax.xml.bind_2.2.0.v201105210648.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

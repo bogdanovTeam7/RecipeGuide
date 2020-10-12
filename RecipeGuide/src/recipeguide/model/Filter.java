@@ -3,9 +3,10 @@ package recipeguide.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import recipeguide.entities.FoodCategory;
-import recipeguide.entities.Ingredient;
-import recipeguide.entities.IngredientType;
+import recipeguide.model.entities.FoodCategory;
+import recipeguide.model.entities.Ingredient;
+import recipeguide.model.entities.IngredientType;
+import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
 
 public class Filter {
