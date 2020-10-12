@@ -4,12 +4,12 @@ import recipeguide.entities.Ingredient;
 import recipeguide.entities.MeasuryUnit;
 import recipeguide.exceptions.ModalException;
 
-public class IngredientInRecipe extends AbstractDao {
+public class IngredientWithMeasure extends AbstractDao {
 	private Ingredient ingredient;
 	private MeasuryUnit unit;
 	private double amount;
 
-	private IngredientInRecipe(Builder builder) {
+	private IngredientWithMeasure(Builder builder) {
 		this.ingredient = builder.ingredient;
 		this.unit = builder.unit;
 		this.amount = builder.amount;
@@ -51,8 +51,8 @@ public class IngredientInRecipe extends AbstractDao {
 			return this;
 		}
 
-		public IngredientInRecipe build() {
-			return new IngredientInRecipe(this);
+		public IngredientWithMeasure build() {
+			return new IngredientWithMeasure(this);
 		}
 	}
 
@@ -83,7 +83,7 @@ public class IngredientInRecipe extends AbstractDao {
 	@Override
 	public String toString() {
 		StringBuilder builder2 = new StringBuilder();
-		builder2.append("IngredientInRecipe [ingredient=");
+		builder2.append("IngredientWithMeasure [ingredient=");
 		builder2.append(ingredient);
 		builder2.append(", unit=");
 		builder2.append(unit);

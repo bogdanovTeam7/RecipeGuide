@@ -2,8 +2,13 @@ package recipeguide.model;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import recipeguide.entities.FoodCategory;
+import recipeguide.entities.Ingredient;
+import recipeguide.entities.IngredientType;
 import recipeguide.exceptions.ModalException;
 import recipeguide.settings.Text;
 
@@ -11,14 +16,14 @@ import java.util.Collections;
 
 public class Recipe extends AbstractDao {
 
-	private List<IngredientInRecipe> ingredients;
+	private List<IngredientWithMeasure> ingredientsWithMeasure;
 	private String description;
 	private FoodCategory category;
 	private Duration preparingTime;
 	private Duration cookingTime;
 
 	private Recipe(Builder builder) {
-		this.ingredients = builder.ingredients;
+		this.ingredientsWithMeasure = builder.ingredientsWithMeasure;
 		this.description = builder.description;
 		this.category = builder.category;
 		this.preparingTime = builder.preparingTime;
@@ -30,7 +35,7 @@ public class Recipe extends AbstractDao {
 	}
 
 	public static final class Builder {
-		private List<IngredientInRecipe> ingredients = Collections.emptyList();
+		private List<IngredientWithMeasure> ingredientsWithMeasure = Collections.emptyList();
 		private String description = Text.get("NoDescription");
 		private FoodCategory category = FoodCategory.OTHER;
 		private Duration preparingTime = Duration.ZERO;
@@ -39,11 +44,12 @@ public class Recipe extends AbstractDao {
 		private Builder() {
 		}
 
-		public Builder withIngredients(List<IngredientInRecipe> ingredients) throws ModalException {
-			if (ingredients.size() < 1) {
+		public Builder withIngredientsWithMeasure(List<IngredientWithMeasure> ingredientsWithMeasure)
+				throws ModalException {
+			if (ingredientsWithMeasure.size() < 1) {
 				throw new ModalException(ModalException.INGREDIENT_LIST_EMPTY);
 			}
-			this.ingredients = ingredients;
+			this.ingredientsWithMeasure = ingredientsWithMeasure;
 			return this;
 		}
 
@@ -72,12 +78,12 @@ public class Recipe extends AbstractDao {
 		}
 	}
 
-	public List<IngredientInRecipe> getIngredients() {
-		return ingredients;
+	public List<IngredientWithMeasure> getIngredientsWithMeasure() {
+		return ingredientsWithMeasure;
 	}
 
-	public void setIngredients(List<IngredientInRecipe> ingredients) {
-		this.ingredients = ingredients;
+	public void setIngredientsWithMeasure(List<IngredientWithMeasure> ingredientsWithMeasure) {
+		this.ingredientsWithMeasure = ingredientsWithMeasure;
 	}
 
 	public String getDescription() {
@@ -112,11 +118,23 @@ public class Recipe extends AbstractDao {
 		this.cookingTime = cookingTime;
 	}
 
+	public List<Ingredient> getIngredients() {
+		return ingredientsWithMeasure.stream()
+				.map(ingWithM -> ingWithM.getIngredient())
+				.collect(Collectors.toList());
+	}
+
+	public Set<IngredientType> getIngredientTypes() {
+		return getIngredients().stream()
+				.map(ing -> ing.getType())
+				.collect(Collectors.toSet());
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder2 = new StringBuilder();
-		builder2.append("Recipe [ingredients=");
-		builder2.append(ingredients);
+		builder2.append("Recipe [ingredientsWithMeasure=");
+		builder2.append(ingredientsWithMeasure);
 		builder2.append(", description=");
 		builder2.append(description);
 		builder2.append(", category=");
@@ -146,4 +164,5 @@ public class Recipe extends AbstractDao {
 		// TODO Auto-generated method stub
 
 	}
+
 }

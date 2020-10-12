@@ -9,11 +9,13 @@ import java.io.IOException;
 import recipeguide.entities.Ingredient;
 import recipeguide.entities.IngredientType;
 import recipeguide.exceptions.ModalException;
+import recipeguide.settings.Settings;
 import recipeguide.settings.Text;
 
 public class Main {
 
 	public static void main(String[] args) {
+
 		init();
 
 		System.out.println(Text.get("May"));
@@ -30,9 +32,10 @@ public class Main {
 	}
 
 	private static void init() {
+		Settings.init();
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		try {
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("fonts//Kurale.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, Settings.FONT_KURALE));
 		} catch (FontFormatException | IOException e) {
 			e.printStackTrace();
 		}
