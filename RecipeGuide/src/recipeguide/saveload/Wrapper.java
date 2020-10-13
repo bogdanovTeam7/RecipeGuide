@@ -13,11 +13,15 @@ import recipeguide.model.entities.Recipe;
 
 @XmlRootElement(name = "data")
 public class Wrapper {
+
 	private List<Ingredient> ingredients;
 	private List<IngredientType> types;
 	private List<MeasuryUnit> units;
 	private List<Recipe> recipes;
 	private List<FoodCategory> categories;
+
+	public Wrapper() {
+	}
 
 	@XmlElement(name = "ingredients")
 	public List<Ingredient> getIngredients() {

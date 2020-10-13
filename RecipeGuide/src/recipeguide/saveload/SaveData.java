@@ -1,11 +1,12 @@
 package recipeguide.saveload;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import recipeguide.exceptions.ModalException;
-import recipeguide.model.Entity;
+import recipeguide.exceptions.ModelException;
 import recipeguide.model.Filter;
+import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.FoodCategory;
 import recipeguide.model.entities.Ingredient;
 import recipeguide.model.entities.IngredientType;
@@ -17,25 +18,25 @@ public final class SaveData {
 
 	private static SaveData instance;
 
-	private List<Ingredient> ingredients;
-	private List<IngredientType> types;
-	private List<MeasuryUnit> units;
-	private List<Recipe> recipes;
-	private List<FoodCategory> categories;
+	private List<Ingredient> ingredients = new ArrayList<>();
+	private List<IngredientType> types = new ArrayList<>();
+	private List<MeasuryUnit> units = new ArrayList<>();
+	private List<Recipe> recipes = new ArrayList<>();
+	private List<FoodCategory> categories = new ArrayList<>();
 
-	private final Filter filter;
+	private static Filter filter;
 	private Entity oldEntity;
 	private boolean isSaved;
 
 	private SaveData() {
 		load();
-		filter = new Filter();
 	}
 
 	public static SaveData getInstance() {
 		if (instance == null) {
 			instance = new SaveData();
 		}
+		filter = new Filter(instance);
 		return instance;
 	}
 
@@ -140,15 +141,65 @@ public final class SaveData {
 		this.categories = categories;
 	}
 
-	public void add(Entity entity, List<Entity> entities) throws ModalException {
-		if (entities.contains(entity)) {
-			throw new ModalException(ModalException.IS_EXIST);
-		} else {
-			entities.add(entity);
+	public void add(Entity entity) throws ModelException {
+		if (isEntityExist(entity)) {
+			throw new ModelException(ModelException.ENTITY_EXISTS);
+		} else if (entity instanceof Ingredient) {
+			ingredients.add((Ingredient) entity);
+		} else if (entity instanceof IngredientType) {
+			types.add((IngredientType) entity);
+		} else if (entity instanceof MeasuryUnit) {
+			units.add((MeasuryUnit) entity);
+		} else if (entity instanceof Recipe) {
+			recipes.add((Recipe) entity);
+		} else if (entity instanceof FoodCategory) {
+			categories.add((FoodCategory) entity);
 		}
-		entity.postAdd();
+		entity.postAdd(this);
 		sort();
 		isSaved = false;
+	}
+
+	public void delete(Entity entity) throws ModelException {
+		if (filter.isEntityDefault(entity)) {
+			throw new ModelException(ModelException.ENTITY_DEFAULT);
+		} else if (entity instanceof Ingredient) {
+			ingredients.remove((Ingredient) entity);
+		} else if (entity instanceof IngredientType) {
+			types.remove((IngredientType) entity);
+		} else if (entity instanceof MeasuryUnit) {
+			units.remove((MeasuryUnit) entity);
+		} else if (entity instanceof Recipe) {
+			recipes.remove((Recipe) entity);
+		} else if (entity instanceof FoodCategory) {
+			categories.remove((FoodCategory) entity);
+		}
+		entity.postDelete(this);
+		isSaved = false;
+	}
+
+	public void edit(Entity entityOld, Entity entityNew) throws ModelException {
+		if (isEntityExist(entityNew)) {
+			throw new ModelException(ModelException.ENTITY_EXISTS);
+		} else if (entityNew instanceof Ingredient) {
+			oldEntity = ingredients.remove(ingredients.indexOf(entityOld));
+		} else if (entityNew instanceof IngredientType) {
+			oldEntity = types.remove(types.indexOf(entityOld));
+		} else if (entityNew instanceof MeasuryUnit) {
+			oldEntity = units.remove(units.indexOf(entityOld));
+		} else if (entityNew instanceof Recipe) {
+			oldEntity = recipes.remove(recipes.indexOf(entityOld));
+		} else if (entityNew instanceof FoodCategory) {
+			oldEntity = categories.remove(categories.indexOf(entityOld));
+		}
+		entityNew.postEdit(this);
+		sort();
+		isSaved = false;
+	}
+
+	private boolean isEntityExist(Entity entity) {
+		return ingredients.contains(entity) || types.contains(entity) || units.contains(entity)
+				|| recipes.contains(entity) || categories.contains(entity);
 	}
 
 	@Override

@@ -10,12 +10,10 @@ import recipeguide.settings.Settings;
 public class SaveLoad {
 
 	public static void load(SaveData saveData) {
-		JAXBContext context;
 		try {
-			context = JAXBContext.newInstance(Wrapper.class);
-			Unmarshaller unmarshaller = context.createUnmarshaller();
-
-			Wrapper wrapper = (Wrapper) unmarshaller.unmarshal(Settings.getFileSave());
+			JAXBContext context = JAXBContext.newInstance(Wrapper.class);
+			Unmarshaller um = context.createUnmarshaller();
+			Wrapper wrapper = (Wrapper) um.unmarshal(Settings.getFileSave());
 
 			saveData.setCategories(wrapper.getCategories());
 			saveData.setIngredients(wrapper.getIngredients());

@@ -4,28 +4,15 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import recipeguide.model.Entity;
-import recipeguide.model.entities.Ingredient;
+import recipeguide.saveload.SaveData;
+import recipeguide.saveload.SaveLoad;
 import recipeguide.settings.Settings;
-import recipeguide.settings.Text;
+import recipeguide.tests.TestDates;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Entity e = new Ingredient("krumpli", null);
-		Ingredient i = new Ingredient("répa", null);
-		System.out.println(e.getClass());
-		System.out.println(i.getClass());
-		List<Ingredient>l=new ArrayList<>();
-		l.add((Ingredient)e);
-		i=(Ingredient)e;
-
 		init();
-
-		System.out.println(Text.get("May"));
 
 	}
 
@@ -37,5 +24,7 @@ public class Main {
 		} catch (FontFormatException | IOException e) {
 			e.printStackTrace();
 		}
+		SaveData saveData = SaveData.getInstance();
+
 	}
 }

@@ -1,4 +1,6 @@
-package recipeguide.model.entities;
+package recipeguide.model;
+
+import recipeguide.model.entities.MeasuryUnit;
 
 public class Quantity {
 	private MeasuryUnit unit;

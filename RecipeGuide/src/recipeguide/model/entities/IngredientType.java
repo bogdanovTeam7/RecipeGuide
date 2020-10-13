@@ -1,16 +1,15 @@
 package recipeguide.model.entities;
 
-import recipeguide.model.AbstractEntity;
+import recipeguide.saveload.SaveData;
+import recipeguide.settings.Settings;
 
 public class IngredientType extends AbstractEntity {
-
-	private String name;
 
 	public IngredientType() {
 	}
 
 	public IngredientType(String name) {
-		this.name = name;
+		super.name = name;
 	}
 
 	public String getName() {
@@ -18,7 +17,7 @@ public class IngredientType extends AbstractEntity {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		super.name = name;
 	}
 
 	@Override
@@ -28,6 +27,26 @@ public class IngredientType extends AbstractEntity {
 		builder.append(name);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	@Override
+	public void postEdit(SaveData saveData) {
+		for (Ingredient ingredient : saveData.getIngredients()) {
+			if (ingredient.getType()
+					.equals((IngredientType) saveData.getOldEntity())) {
+				ingredient.setType(this);
+			}
+		}
+	}
+
+	@Override
+	public void postDelete(SaveData saveData) {
+		for (Ingredient ingredient : saveData.getIngredients()) {
+			if (ingredient.getType()
+					.equals(this)) {
+				ingredient.setType(Settings.INGREDIENT_TYPE_DEFAULT);
+			}
+		}
 	}
 
 }

@@ -5,7 +5,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import recipeguide.model.AbstractEntity;
+import recipeguide.model.Quantity;
+
 import java.util.Collections;
 
 public class Recipe extends AbstractEntity {
@@ -15,8 +16,11 @@ public class Recipe extends AbstractEntity {
 	private Map<Ingredient, Quantity> ingredientsWihQuantity;
 	private int ration;
 	private String description;
-	private Duration preparingTime;
-	private Duration cookingTime;
+	private long preparingTimeInSeconds;
+	private long cookingTimeInSeconds;
+
+	public Recipe() {
+	}
 
 	private Recipe(Builder builder) {
 		this.name = builder.name;
@@ -24,8 +28,12 @@ public class Recipe extends AbstractEntity {
 		this.ingredientsWihQuantity = builder.ingredientsWihQuantity;
 		this.ration = builder.ration;
 		this.description = builder.description;
-		this.preparingTime = builder.preparingTime;
-		this.cookingTime = builder.cookingTime;
+		if (builder.preparingTime != null) {
+			this.preparingTimeInSeconds = builder.preparingTime.toSeconds();
+		}
+		if (builder.cookingTime != null) {
+			this.cookingTimeInSeconds = builder.cookingTime.toSeconds();
+		}
 	}
 
 	public static Builder builder() {
@@ -124,31 +132,20 @@ public class Recipe extends AbstractEntity {
 		this.description = description;
 	}
 
-	public Duration getPreparingTime() {
-		return preparingTime;
+	public long getPreparingTimeInSeconds() {
+		return preparingTimeInSeconds;
 	}
 
-	public void setPreparingTime(Duration preparingTime) {
-		this.preparingTime = preparingTime;
+	public void setPreparingTimeInSeconds(long preparingTimeInSeconds) {
+		this.preparingTimeInSeconds = preparingTimeInSeconds;
 	}
 
-	public Duration getCookingTime() {
-		return cookingTime;
+	public long getCookingTimeInSeconds() {
+		return cookingTimeInSeconds;
 	}
 
-	public void setCookingTime(Duration cookingTime) {
-		this.cookingTime = cookingTime;
-	}
-
-	private Recipe(String name, FoodCategory category, Map<Ingredient, Quantity> ingredientsWihQuantity, int ration,
-			String description, Duration preparingTime, Duration cookingTime) {
-		this.name = name;
-		this.category = category;
-		this.ingredientsWihQuantity = ingredientsWihQuantity;
-		this.ration = ration;
-		this.description = description;
-		this.preparingTime = preparingTime;
-		this.cookingTime = cookingTime;
+	public void setCookingTimeInSeconds(long cookingTimeInSeconds) {
+		this.cookingTimeInSeconds = cookingTimeInSeconds;
 	}
 
 	public Set<IngredientType> getIngredientTypes() {

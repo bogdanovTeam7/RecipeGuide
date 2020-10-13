@@ -8,7 +8,10 @@ final public class Text {
 	private static final Map<String, String> data = new HashMap<>();
 
 	public static String get(String key) {
-		return data.get(key);
+		if (data.containsKey(key)) {
+			return data.get(key);
+		}
+		return "not definition for key. " + key;
 	}
 
 	static {
