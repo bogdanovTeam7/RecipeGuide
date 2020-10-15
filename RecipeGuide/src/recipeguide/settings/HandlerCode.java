@@ -1,5 +1,7 @@
 package recipeguide.settings;
 
+import java.awt.event.ActionListener;
+
 public final class HandlerCode {
 
 	public static final String MENU_FILE_NEW = "menuFileNew";
@@ -16,5 +18,24 @@ public final class HandlerCode {
 	public static final String SAVE = "save";
 	public static final String CANCEL = "cancel";
 	public static final String DELETE = "delete";
+	public static final String MENU_EDIT_ADD = null;
+	public static final String MENU_EDIT_EDIT = null;
+	public static final String MENU_EDIT_DELETE = null;
+	public static final String MENU_INGREDIENT_TYPES = null;
+	public static final String MENU_VIEW_INGREDIENTS = null;
+	public static final String MENU_VIEW_MEASURY_UNITS = null;
+	public static final String MENU_VIEW_FOOD_CATEGORIES = null;
+	public static final String MENU_VIEW_OVERVIEW = null;
+	public static final String MENU_VIEW_RECIPES = null;
+	public static final String MENU_HELP_ABOUT = null;
+	public static final ActionListener TOOLBAR_OVERVIEW = null;
+	public static final ActionListener TOOLBAR_MEASURY_UNITS = null;
+	public static final ActionListener TOOLBAR_INGREDIENT_TYPES = null;
+	public static final ActionListener TOOLBAR_INGREDIENTS = null;
+	public static final ActionListener TOOLBAR_FOOD_CATEGORIES = null;
+	public static final ActionListener TOOLBAR_RECIPES = null;
+	public static final ActionListener TOOLBAR_ADD = null;
+	public static final ActionListener TOOLBAR_EDIT = null;
+	public static final ActionListener TOOLBAR_DELETE = null;
 
 }

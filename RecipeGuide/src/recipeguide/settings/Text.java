@@ -16,10 +16,35 @@ final public class Text {
 
 	static {
 		data.put("ProgramName", "Recept könyv");
-		data.put("MenuFile", "Fájl");
-		data.put("MenuEdit", "Modosítás");
-		data.put("MenuView", "Nézet");
-		data.put("MenuHelp", "Segitség");
+		data.put("menuFile", "Fájl");
+		data.put("menuEdit", "Szerkesztés");
+		data.put("menuView", "Nézet");
+		data.put("menuHelp", "Segitség");
+
+		data.put("menuFileNew", "Új fájl létrehozása");
+		data.put("menuFileOpen", "Betöltés");
+		data.put("menuFileSave", "Mentés");
+		data.put("menuFileExit", "Kilépés");
+
+		data.put("menuEditAdd", "Hozzáadás");
+		data.put("menuEditEdit", "Modosítás");
+		data.put("menuEditDelete", "Törlés");
+
+		data.put("menuViewOverview", "Általános");
+		data.put("menuViewIngredientTypes", "Alapanyagok csoportosítása");
+		data.put("menuViewIngredients", "Alapanyagok");
+		data.put("menuViewMeasuryUnits", "Mérési egységek");
+		data.put("menuViewFoodCategories", "Ételek csoportosítása");
+		data.put("menuViewRecipes", "Receptek");
+
+		data.put("menuHelpAbout", "Programról");
+
+		data.put("toolbarOverview", "Általános");
+		data.put("toolbarIngredientTypes", "Alapanyagok csoportosítása");
+		data.put("toolbarIngredients", "Alapanyagok");
+		data.put("toolbarMeasuryUnits", "Mérési egységek");
+		data.put("toolbarFoodCategories", "Ételek csoportosítása");
+		data.put("toolbarRecipes", "Receptek");
 
 		data.put("NoDescription", "Nincs leírás");
 
@@ -44,6 +69,9 @@ final public class Text {
 		data.put("errorIngredientsListEmpty", "Üres alapanyagok listaja");
 		data.put("errorIngredientsEmpty", "Üres alapanyag");
 		data.put("errorUnknown", "Ismeretlen hiba");
+		data.put("toolbarAdd", "Hozzáadás");
+		data.put("toolbarEdit", "Modosítás");
+		data.put("toolbarDelete", "Törlés");
 
 	}
 }

@@ -33,6 +33,11 @@ public final class Settings {
 	public static final List<Entity> ENTITIES_DEFAULT = new ArrayList<>();
 
 	public static final File FONT_KURALE = new File("fonts/Kurale.ttf");
+	public static final File FONT_ARIAL_CURIVE = new File("fonts/arialCurive.otf");
+	public static final File FONT_NEXA_SCRIPT_LIGHT = new File("fonts/NexaScriptLight.ttf");
+	public static final File FONT_VINQUE_RG_REGULAR = new File("fonts/VinqueRg_Regular.ttf");
+	public static final File FONT_XARROVV = new File("fonts/Xarrovv.otf");
+
 	public static final File SAVE_DIR = new File("saves/");
 	public static final String SAVE_FILE_EXT = "userfile";
 
