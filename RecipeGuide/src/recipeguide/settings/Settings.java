@@ -29,9 +29,8 @@ public final class Settings {
 	public static final IngredientType INGREDIENT_TYPE_DEFAULT = new IngredientType("other");
 	public static final FoodCategory FOOD_CATEGORY_DEFAULT = new FoodCategory("common");
 	public static final Ingredient INGREDIENT_DEFAULT = new Ingredient("no ingredient", new IngredientType("no type"));
-	
-	public static final List<Entity> ENTITIES_DEFAULT=new ArrayList<>();
-	
+
+	public static final List<Entity> ENTITIES_DEFAULT = new ArrayList<>();
 
 	public static final File FONT_KURALE = new File("fonts/Kurale.ttf");
 	public static final File SAVE_DIR = new File("saves/");
@@ -72,10 +71,11 @@ public final class Settings {
 					.get("fileSave", null);
 			if (path != null) {
 				fileSave = new File(path);
+			} else {
+				saveToNode();
 			}
 			setLocale();
 		} catch (IOException e) {
-			saveToNode();
 			e.printStackTrace();
 		}
 	}

@@ -24,11 +24,12 @@ public final class SaveData {
 	private List<Recipe> recipes = new ArrayList<>();
 	private List<FoodCategory> categories = new ArrayList<>();
 
-	private static Filter filter;
+	private Filter filter;
 	private Entity oldEntity;
 	private boolean isSaved;
 
 	private SaveData() {
+		filter = new Filter(instance);
 		load();
 	}
 
@@ -36,7 +37,6 @@ public final class SaveData {
 		if (instance == null) {
 			instance = new SaveData();
 		}
-		filter = new Filter(instance);
 		return instance;
 	}
 

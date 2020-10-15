@@ -165,4 +165,48 @@ public class Recipe extends AbstractEntity {
 		return ingredients;
 	}
 
+	public void changeMeasuryUnits(MeasuryUnit unitOld, MeasuryUnit unitNew) {
+		for (Map.Entry<Ingredient, Quantity> entry : ingredientsWihQuantity.entrySet()) {
+			if (entry.getValue()
+					.getUnit()
+					.equals(unitOld)) {
+				Ingredient key = entry.getKey();
+				Quantity newValue = new Quantity(unitNew, 0);
+				ingredientsWihQuantity.put(key, newValue);
+			}
+		}
+	}
+
+	public void changeIngredient(Ingredient ingredientOld, Ingredient ingredientNew) {
+		for (Map.Entry<Ingredient, Quantity> entry : ingredientsWihQuantity.entrySet()) {
+			if (entry.getKey()
+					.equals(ingredientOld)) {
+				Ingredient newKey = ingredientNew;
+				Quantity value = ingredientsWihQuantity.remove(entry.getKey());
+				ingredientsWihQuantity.put(newKey, value);
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder2 = new StringBuilder();
+		builder2.append("Recipe [name=");
+		builder2.append(name);
+		builder2.append(", category=");
+		builder2.append(category);
+		builder2.append(", ingredientsWihQuantity=");
+		builder2.append(ingredientsWihQuantity);
+		builder2.append(", ration=");
+		builder2.append(ration);
+		builder2.append(", description=");
+		builder2.append(description);
+		builder2.append(", preparingTimeInSeconds=");
+		builder2.append(preparingTimeInSeconds);
+		builder2.append(", cookingTimeInSeconds=");
+		builder2.append(cookingTimeInSeconds);
+		builder2.append("]");
+		return builder2.toString();
+	}
+
 }

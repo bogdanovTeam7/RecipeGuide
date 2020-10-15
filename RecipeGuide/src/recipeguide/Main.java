@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
+
+import recipeguide.gui.MainFrame;
 import recipeguide.saveload.SaveData;
 import recipeguide.saveload.SaveLoad;
 import recipeguide.settings.Settings;
@@ -13,7 +15,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		init();
+		SaveData saveData = SaveData.getInstance();
 
+		MainFrame frame = new MainFrame();
+		frame.setVisible(true);
+
+		System.out.println(saveData);
 	}
 
 	private static void init() {
@@ -24,7 +31,5 @@ public class Main {
 		} catch (FontFormatException | IOException e) {
 			e.printStackTrace();
 		}
-		SaveData saveData = SaveData.getInstance();
-
 	}
 }

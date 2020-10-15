@@ -1,11 +1,9 @@
 package recipeguide.model.entities;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.List;
 
-import recipeguide.model.Quantity;
 import recipeguide.saveload.SaveData;
+import recipeguide.settings.Settings;
 import recipeguide.settings.Text;
 
 public class MeasuryUnit extends AbstractEntity {
@@ -53,30 +51,21 @@ public class MeasuryUnit extends AbstractEntity {
 
 	@Override
 	public void postEdit(SaveData saveData) {
-
-		for (Recipe recipe : saveData.getFilter()
-				.getRecipesByMesuryUnit((MeasuryUnit) saveData.getOldEntity())) {
-			Map<Ingredient, Quantity> ingredientsWihQuantity = recipe.getIngredientsWihQuantity();
-
-			for (Map.Entry<Ingredient, Quantity> entry : recipe.getIngredientsWihQuantity()
-					.entrySet()) {
-				if (entry.getValue()
-						.getUnit()
-						.equals((MeasuryUnit) saveData.getOldEntity())) {
-					Ingredient key = entry.getKey();
-					Quantity value = new Quantity(this, 0);
-					ingredientsWihQuantity.put(key, value);
-				}
-			}
-			recipe.setIngredientsWihQuantity(ingredientsWihQuantity);
-			recipe.setDescription(Text.get("measuryChangedInRecipies") + "\n" + recipe.getDescription());
-		}
+		changeMesuryUnitsInRecepts(saveData, (MeasuryUnit) saveData.getOldEntity(), this);
 	}
 
 	@Override
 	public void postDelete(SaveData saveData) {
-		// TODO Auto-generated method stub
-		super.postDelete(saveData);
+		changeMesuryUnitsInRecepts(saveData, this, Settings.MEASURY_UNIT_DEFAULT);
+	}
+
+	public void changeMesuryUnitsInRecepts(SaveData saveData, MeasuryUnit unitOld, MeasuryUnit unitNew) {
+		List<Recipe> recipesByMesuryUnit = saveData.getFilter()
+				.getRecipesByMesuryUnit(unitOld);
+		for (Recipe recipe : recipesByMesuryUnit) {
+			recipe.changeMeasuryUnits(unitOld, unitNew);
+			recipe.setDescription(Text.get("measuryChangedInRecipies") + "\n" + recipe.getDescription());
+		}
 	}
 
 }
