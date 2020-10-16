@@ -38,14 +38,14 @@ public final class Settings {
 	public static final File FONT_VINQUE_RG_REGULAR = new File("fonts/VinqueRg_Regular.ttf");
 	public static final File FONT_XARROVV = new File("fonts/Xarrovv.otf");
 
-	public static final File SAVE_DIR = new File("saves/");
-	public static final String SAVE_FILE_EXT = "userfile";
-
 	public static final String FORMAT_DOUBLE = "%.2f";
 	public static final String FORMAT_DATE = "yyyy.MM.dd";
 
+	public static final File SAVE_DIR = new File("saves/");
+	public static final String SAVE_FILE_EXT = "userfile";
+
 	private static final File FILE_SETTINGS = new File("saves/settings.ini");
-	private static File fileSave = new File("saves/default.user");
+	private static File fileSave = new File("saves/default.userfile");
 
 	public static File getFileSave() {
 		return fileSave;

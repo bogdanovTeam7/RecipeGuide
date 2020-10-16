@@ -17,6 +17,7 @@ public final class Style {
 	public static final Font FONT_MENU_BUTTON = new Font("Kurale", Font.BOLD, 14);
 	public static final Font FONT_MENU_ITEM = new Font("Kurale", Font.BOLD, 14);
 	public static final Font FONT_TOOLBAR_BUTTON = new Font("Kurale", Font.BOLD, 14);
+	public static final Object FONT_MAIN_FILE_CHOOSER = new Font("Kurale", Font.BOLD, 12);
 
 	public static final EmptyBorder BORDER_MENU_BAR = new EmptyBorder(10, 10, 10, 10);
 	public static final EmptyBorder BORDER_TOOLBAR_MAIN = new EmptyBorder(10, 10, 10, 10);

@@ -32,6 +32,9 @@ public class MainFrame extends JFrame implements Refresh {
 
 		setLayout(new GridBagLayout());
 
+		MainFaleChooser faleChooser = new MainFaleChooser(this);
+		faleChooser.open();
+
 		constraints = new GridBagConstraints();
 
 		constraints.gridx = 0;

@@ -16,12 +16,12 @@ final public class Text {
 
 	static {
 		data.put("ProgramName", "Recept könyv");
-		data.put("menuFile", "Fájl");
+		data.put("menuFile", "Könyvtár");
 		data.put("menuEdit", "Szerkesztés");
 		data.put("menuView", "Nézet");
 		data.put("menuHelp", "Segitség");
 
-		data.put("menuFileNew", "Új fájl létrehozása");
+		data.put("menuFileNew", "Új könyv létrehozása");
 		data.put("menuFileOpen", "Betöltés");
 		data.put("menuFileSave", "Mentés");
 		data.put("menuFileExit", "Kilépés");
