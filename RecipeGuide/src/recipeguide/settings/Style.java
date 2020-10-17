@@ -14,10 +14,13 @@ public final class Style {
 	public static final Color COLOR_BUTTON_BG_NORMAL = new Color(240, 240, 240);
 	public static final Color COLOR_BUTTON_BG_HOVER = Color.YELLOW;
 
-	public static final Font FONT_MENU_BUTTON = new Font("Kurale", Font.BOLD, 14);
-	public static final Font FONT_MENU_ITEM = new Font("Kurale", Font.BOLD, 14);
-	public static final Font FONT_TOOLBAR_BUTTON = new Font("Kurale", Font.BOLD, 14);
-	public static final Object FONT_MAIN_FILE_CHOOSER = new Font("Kurale", Font.BOLD, 12);
+	public static final Font FONT_MENU_BUTTON = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_MENU_ITEM = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_TOOLBAR_BUTTON = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_MAIN_FILE_CHOOSER = new Font(Settings.FONT_NAME, Font.BOLD, 12);
+	public static final Font FONT_ERROR_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
+	public static final Font FONT_CONFIRM_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
+	public static final Font FONT_ABOUT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 
 	public static final EmptyBorder BORDER_MENU_BAR = new EmptyBorder(10, 10, 10, 10);
 	public static final EmptyBorder BORDER_TOOLBAR_MAIN = new EmptyBorder(10, 10, 10, 10);
@@ -58,5 +61,7 @@ public final class Style {
 	public static final ImageIcon ICON_TOOLBAR_ADD = new ImageIcon("images/toolbarAdd.png");
 	public static final ImageIcon ICON_TOOLBAR_EDIT = new ImageIcon("images/toolbarEdit.png");
 	public static final ImageIcon ICON_TOOLBAR_DELETE = new ImageIcon("images/toolbarDelete.png");
+
+	public static final ImageIcon ICON_DIALOG_ABOUT = new ImageIcon("images/menuHelpAbout.png");
 
 }

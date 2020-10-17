@@ -3,6 +3,8 @@ package recipeguide.settings;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.UIManager;
+
 final public class Text {
 
 	private static final Map<String, String> data = new HashMap<>();
@@ -15,7 +17,7 @@ final public class Text {
 	}
 
 	static {
-		data.put("ProgramName", "Recept könyv");
+		data.put("ProgramName", "Receptek");
 		data.put("menuFile", "Könyvtár");
 		data.put("menuEdit", "Szerkesztés");
 		data.put("menuView", "Nézet");
@@ -48,6 +50,9 @@ final public class Text {
 
 		data.put("NoDescription", "Nincs leírás");
 
+		data.put("yes", "Igen");
+		data.put("no", "Nem");
+
 		data.put("January", "Január");
 		data.put("February", "Február");
 		data.put("March", "Március");
@@ -61,6 +66,13 @@ final public class Text {
 		data.put("November", "November");
 		data.put("December", "December");
 
+		data.put("Kurale", "kurale");
+		data.put("Nexa Script Light", "nexaScriptLight");
+		data.put("Vinque Rg", "vinqueRG");
+		data.put("Michroma", "michroma");
+		data.put("RF Krabuler", "rFKrabuler");
+
+		data.put("error", "Hiba");
 		data.put("errorTitleEmpty", "Üres a megnevezés");
 		data.put("errorIsExist", "Ilyen nev már létezik");
 		data.put("errorNumberFormat", "Hibás szám");
@@ -68,10 +80,41 @@ final public class Text {
 		data.put("errorTypeEmpty", "Üres típus");
 		data.put("errorIngredientsListEmpty", "Üres alapanyagok listaja");
 		data.put("errorIngredientsEmpty", "Üres alapanyag");
+		data.put("errorNetConnection", "Internet csatlakozási hiba");
 		data.put("errorUnknown", "Ismeretlen hiba");
+		
+		
 		data.put("toolbarAdd", "Hozzáadás");
 		data.put("toolbarEdit", "Modosítás");
 		data.put("toolbarDelete", "Törlés");
+
+		data.put("FileChooserSaveDialogTitleText", "Mentés");
+		data.put("FileChooserOpenDialogTitleText", "Nyítás");
+		data.put("FileChooserSaveButtonToolTipText", "Mentés");
+		data.put("FileChooserSaveButtonToolTipText", "Kiválasztótt fájl mentése");
+		data.put("FileChooserOpenButtonText", "Nyítás");
+		data.put("FileChooserOpenButtonToolTipText", "Kiválasztótt fájl nyítása");
+		data.put("FileChooserCancelButtonText", "Törlés");
+		data.put("FileChooserCancelButtonToolTipText", "Kiválasztótt fájl törlése");
+		data.put("FileChooserFileNameLabelText", "Fájl neve:");
+		data.put("FileChooserFilesOfTypeLabelText", "Fájl típusa:");
+		data.put("FileChooserLookInLabelText", "Könyvtár:");
+		data.put("FileChooserSaveInLabelText", "Mentés könyvtárba:");
+		data.put("FileChooserFolderNameLabelText", "Elérési út:");
+		data.put("FileChooserUpFolderToolTipText", "Egy szinttel fel felé");
+		data.put("FileChooserNewFolderToolTipText", "Új könyvtár");
+		data.put("FileChooserHomeFolderToolTipText", "Fő könyvtár");
+		data.put("FileChooserListViewButtonToolTipText", "Lista nézet");
+		data.put("FileChooserDetailsViewButtonToolTipText", "Részletek");
+		data.put("FileChooserFileNameHeaderText", "Név");
+		data.put("FileChooserFileSizeHeaderText", "Méret ");
+		data.put("FileChooserFileTypeHeaderText", "Típus");
+		data.put("FileChooserFileDateHeaderText", "Dátum");
+		data.put("FileChooserFileAttrHeaderText", "Attributumok");
+		data.put("FileChooserAcceptAllFilesFilterText", "Összes fájl");
+
+		data.put("dialogAboutTitle", "Programról");
+		data.put("aboutProgramm", "Programról");
 
 	}
 }

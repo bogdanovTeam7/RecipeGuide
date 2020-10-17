@@ -32,20 +32,25 @@ public final class Settings {
 
 	public static final List<Entity> ENTITIES_DEFAULT = new ArrayList<>();
 
-	public static final File FONT_KURALE = new File("fonts/Kurale.ttf");
-	public static final File FONT_ARIAL_CURIVE = new File("fonts/arialCurive.otf");
-	public static final File FONT_NEXA_SCRIPT_LIGHT = new File("fonts/NexaScriptLight.ttf");
-	public static final File FONT_VINQUE_RG_REGULAR = new File("fonts/VinqueRg_Regular.ttf");
-	public static final File FONT_XARROVV = new File("fonts/Xarrovv.otf");
+	public static final String FONT_DIR = "fonts/";
+	public static final String FONT_NAME = "Kurale";
+	public static final String FONT_FILE_NAME = Text.get(FONT_NAME);
+	public static final String FONT_EXT = "ttf";
+	public static final File FONT_FILE = new File(FONT_DIR + FONT_FILE_NAME + "." + FONT_EXT);
+	public static final File FONT_KURALE = new File("fonts/kurale.ttf");
+	public static final File FONT_NEXA_SCRIPT_LIGHT = new File("fonts/nexaScriptLight.ttf");
+	public static final File FONT_VINQUE_RG_REGULAR = new File("fonts/vinqueRg.ttf");
 
 	public static final String FORMAT_DOUBLE = "%.2f";
 	public static final String FORMAT_DATE = "yyyy.MM.dd";
 
 	public static final File SAVE_DIR = new File("saves/");
-	public static final String SAVE_FILE_EXT = "userfile";
+	public static final String SAVE_FILE_EXT = "book";
 
 	private static final File FILE_SETTINGS = new File("saves/settings.ini");
-	private static File fileSave = new File("saves/default.userfile");
+	private static File fileSave = new File("saves/default.book");
+
+	public static final File ABOUT_FILE = new File("res/aboutProgram.html");
 
 	public static File getFileSave() {
 		return fileSave;

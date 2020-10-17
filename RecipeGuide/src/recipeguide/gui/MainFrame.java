@@ -1,11 +1,19 @@
 package recipeguide.gui;
 
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.Arrays;
+import java.util.Map.Entry;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.border.TitledBorder;
 
+import recipeguide.gui.dialog.AboutDialog;
+import recipeguide.gui.dialog.ConfirmDialog;
+import recipeguide.gui.dialog.ErrorDialog;
 import recipeguide.gui.menu.MainMenu;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
@@ -32,8 +40,8 @@ public class MainFrame extends JFrame implements Refresh {
 
 		setLayout(new GridBagLayout());
 
-		MainFaleChooser faleChooser = new MainFaleChooser(this);
-		faleChooser.open();
+		AboutDialog dialog = new AboutDialog();
+		dialog.setVisible(true);
 
 		constraints = new GridBagConstraints();
 
@@ -53,6 +61,17 @@ public class MainFrame extends JFrame implements Refresh {
 		// TODO leftpanel
 		pack();
 		setLocationRelativeTo(null);
+	}
+
+	public void setFont(Font font) {
+		for (Entry<Object, Object> e : UIManager.getDefaults()
+				.entrySet()) {
+			if (e.getKey()
+					.toString()
+					.contains("font")) {
+				UIManager.put(e.getKey(), font);
+			}
+		}
 	}
 
 	@Override

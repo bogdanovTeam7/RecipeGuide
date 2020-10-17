@@ -27,7 +27,7 @@ public class Main {
 		Settings.init();
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		try {
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, Settings.FONT_KURALE));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, Settings.FONT_FILE));
 		} catch (FontFormatException | IOException e) {
 			e.printStackTrace();
 		}
