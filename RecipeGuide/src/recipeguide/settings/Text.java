@@ -3,8 +3,6 @@ package recipeguide.settings;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.UIManager;
-
 final public class Text {
 
 	private static final Map<String, String> data = new HashMap<>();
@@ -18,6 +16,16 @@ final public class Text {
 
 	static {
 		data.put("ProgramName", "Receptek");
+
+		data.put("ingredientType", "Alapanyagok csoportja");
+		data.put("ingredient", "Alapanyag");
+		data.put("ingredientName", "Alapanyag neve");
+		data.put("measuryUnit", "Mérési egység");
+		data.put("measuryUnitName", "Mérési egység neve");
+		data.put("measuryUnitAbbreviation", "Mérési egység rövíditése");
+		data.put("foodCategory", "Ételek csoportja");
+		data.put("recipe", "Recept");
+
 		data.put("menuFile", "Könyvtár");
 		data.put("menuEdit", "Szerkesztés");
 		data.put("menuView", "Nézet");
@@ -52,6 +60,9 @@ final public class Text {
 
 		data.put("yes", "Igen");
 		data.put("no", "Nem");
+		data.put("add", "Hozzaadás");
+		data.put("edit", "Modosítás");
+		data.put("cancel", "Visszavonás");
 
 		data.put("January", "Január");
 		data.put("February", "Február");
@@ -82,8 +93,7 @@ final public class Text {
 		data.put("errorIngredientsEmpty", "Üres alapanyag");
 		data.put("errorNetConnection", "Internet csatlakozási hiba");
 		data.put("errorUnknown", "Ismeretlen hiba");
-		
-		
+
 		data.put("toolbarAdd", "Hozzáadás");
 		data.put("toolbarEdit", "Modosítás");
 		data.put("toolbarDelete", "Törlés");

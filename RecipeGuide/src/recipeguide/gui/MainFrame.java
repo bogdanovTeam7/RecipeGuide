@@ -14,9 +14,17 @@ import javax.swing.border.TitledBorder;
 import recipeguide.gui.dialog.AboutDialog;
 import recipeguide.gui.dialog.ConfirmDialog;
 import recipeguide.gui.dialog.ErrorDialog;
+import recipeguide.gui.dialog.FoodCategoryAddEditDialog;
+import recipeguide.gui.dialog.IngredientAddEditDialog;
+import recipeguide.gui.dialog.IngredientTypeAddEditDialog;
+import recipeguide.gui.dialog.MeasuryUnitAddEditDialog;
 import recipeguide.gui.menu.MainMenu;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
+import recipeguide.model.entities.FoodCategory;
+import recipeguide.model.entities.Ingredient;
+import recipeguide.model.entities.IngredientType;
+import recipeguide.model.entities.MeasuryUnit;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 
@@ -30,6 +38,27 @@ public class MainFrame extends JFrame implements Refresh {
 
 	public MainFrame() {
 		super(Text.get("ProgramName"));
+
+//		IngredientTypeAddEditDialog ingredientTypeAddEditDialog = new IngredientTypeAddEditDialog(this);
+//		IngredientType type = new IngredientType("water");
+//		ingredientTypeAddEditDialog.setEntity(type);
+//		ingredientTypeAddEditDialog.showDialog();
+
+//		MeasuryUnitAddEditDialog measuryUnitAddEditDialog = new MeasuryUnitAddEditDialog(this);
+//		MeasuryUnit unit = new MeasuryUnit("tonna", "t");
+//		measuryUnitAddEditDialog.setEntity(unit);
+//		measuryUnitAddEditDialog.showDialog();
+
+//		FoodCategoryAddEditDialog foodCategoryAddEditDialog = new FoodCategoryAddEditDialog(this);
+//		FoodCategory category = new FoodCategory("soup");
+//		foodCategoryAddEditDialog.setEntity(category);
+//		foodCategoryAddEditDialog.showDialog();
+
+//		IngredientAddEditDialog ingredientAddEditDialog = new IngredientAddEditDialog(this);
+//		Ingredient ingredient = new Ingredient("salt", new IngredientType("minerals"));
+//		ingredientAddEditDialog.setEntity(ingredient);
+//		ingredientAddEditDialog.showDialog();
+
 		setResizable(false);
 		setIconImage(Style.ICON_MAIN.getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,9 +68,6 @@ public class MainFrame extends JFrame implements Refresh {
 		setJMenuBar(menubar);
 
 		setLayout(new GridBagLayout());
-
-		AboutDialog dialog = new AboutDialog();
-		dialog.setVisible(true);
 
 		constraints = new GridBagConstraints();
 

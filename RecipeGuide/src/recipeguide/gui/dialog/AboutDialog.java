@@ -47,6 +47,8 @@ public class AboutDialog extends JDialog {
 			JScrollPane scrollPane = new JScrollPane();
 			getContentPane().add(scrollPane, BorderLayout.CENTER);
 			scrollPane.setViewportView(pane);
+			pack();
+			setLocationRelativeTo(null);
 
 			pane.addHyperlinkListener(new HyperlinkListener() {
 
@@ -66,8 +68,6 @@ public class AboutDialog extends JDialog {
 				}
 			});
 
-			pack();
-			setLocationRelativeTo(null);
 		}
 	}
 

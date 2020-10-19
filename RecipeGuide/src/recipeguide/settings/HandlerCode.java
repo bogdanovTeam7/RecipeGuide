@@ -15,6 +15,7 @@ public final class HandlerCode {
 	public static final String TOOLBAR_FILE_SAVE = "toolbarFileSave";
 
 	public static final String ADD = "add";
+	public static final String EDIT = "edit";
 	public static final String SAVE = "save";
 	public static final String CANCEL = "cancel";
 	public static final String DELETE = "delete";

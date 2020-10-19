@@ -4,7 +4,7 @@ import recipeguide.saveload.SaveData;
 
 public interface Entity {
 
-	String getTitle();
+	String getNameToDisplay();
 
 	void postAdd(SaveData saveData);
 

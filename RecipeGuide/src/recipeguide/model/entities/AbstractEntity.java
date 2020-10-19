@@ -7,8 +7,8 @@ public abstract class AbstractEntity implements Entity {
 	protected String name;
 
 	@Override
-	public String getTitle() {
-		return Text.get(name);
+	public String getNameToDisplay() {
+		return name;
 	}
 
 	@Override
