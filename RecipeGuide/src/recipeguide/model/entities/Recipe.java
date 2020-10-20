@@ -11,7 +11,6 @@ import java.util.Collections;
 
 public class Recipe extends AbstractEntity {
 
-	private String name;
 	private FoodCategory category;
 	private Map<Ingredient, Quantity> ingredientsWihQuantity;
 	private int ration;
@@ -23,7 +22,7 @@ public class Recipe extends AbstractEntity {
 	}
 
 	private Recipe(Builder builder) {
-		this.name = builder.name;
+		super.name = builder.name;
 		this.category = builder.category;
 		this.ingredientsWihQuantity = builder.ingredientsWihQuantity;
 		this.ration = builder.ration;

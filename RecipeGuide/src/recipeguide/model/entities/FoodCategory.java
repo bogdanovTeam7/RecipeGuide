@@ -31,6 +31,14 @@ public class FoodCategory extends AbstractEntity {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof FoodCategory) {
+			return name.equals(((FoodCategory) obj).getName());
+		}
+		return false;
+	}
+
+	@Override
 	public void postEdit(SaveData saveData) {
 		for (Recipe recipe : saveData.getFilter()
 				.getRecipesByCategory((FoodCategory) saveData.getOldEntity())) {

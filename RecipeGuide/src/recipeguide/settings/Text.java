@@ -20,11 +20,18 @@ final public class Text {
 		data.put("ingredientType", "Alapanyagok csoportja");
 		data.put("ingredient", "Alapanyag");
 		data.put("ingredientName", "Alapanyag neve");
+		data.put("ingredientNew", "Új alapanyag");
+		data.put("ingredientsWithMeasure", "Alapanyagok adagolással");
+
 		data.put("measuryUnit", "Mérési egység");
 		data.put("measuryUnitName", "Mérési egység neve");
+		data.put("measuryUnitNew", "Új mérési egység");
 		data.put("measuryUnitAbbreviation", "Mérési egység rövíditése");
+
 		data.put("foodCategory", "Ételek csoportja");
+
 		data.put("recipe", "Recept");
+		data.put("recipeName", "Recept megnevezése");
 
 		data.put("menuFile", "Könyvtár");
 		data.put("menuEdit", "Szerkesztés");
@@ -57,11 +64,17 @@ final public class Text {
 		data.put("toolbarRecipes", "Receptek");
 
 		data.put("NoDescription", "Nincs leírás");
+		data.put("description", "Leírás");
+
+		data.put("amount", "Mennyiség");
 
 		data.put("yes", "Igen");
 		data.put("no", "Nem");
+
 		data.put("add", "Hozzaadás");
+		data.put("addIngredientWihQuantity", "Új alapanyg és mennyiségét hozzaadása");
 		data.put("edit", "Modosítás");
+		data.put("delete", "Törlés");
 		data.put("cancel", "Visszavonás");
 
 		data.put("January", "Január");

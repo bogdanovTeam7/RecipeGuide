@@ -32,6 +32,8 @@ public final class Style {
 	public static final Dimension DIMENSION_DIALOG_TEXT_FIELD = new Dimension(200, 30);
 
 	public static final int PADDING_DIALOG = 15;
+	public static final int PADDING_DIALOG_GRID_HORIZONTAL = 10;
+	public static final int PADDING_DIALOG_GRID_VERTICAL = 10;
 
 	public static final ImageIcon ICON_MAIN = new ImageIcon("images/main.png");
 
@@ -80,5 +82,9 @@ public final class Style {
 	public static final ImageIcon ICON_DIALOG_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
 	public static final ImageIcon ICON_DIALOG_FOOD_CATEGORY = new ImageIcon("images/menuViewFoodCategories.png");
 	public static final ImageIcon ICON_DIALOG_INGREDIENT = new ImageIcon("images/menuViewIngredients.png");
+	public static final ImageIcon ICON_DIALOG_INGREDIENT_WITH_MEASURE = new ImageIcon("images/menuViewIngredients.png");
+	public static final ImageIcon ICON_DIALOG_RECIPE_NAME = new ImageIcon("images/menuViewRecipes.png");
+	public static final ImageIcon ICON_DIALOG_DESCRIPTION = new ImageIcon("images/menuViewRecipes.png");
+	public static final ImageIcon ICON_DIALOG_AMOUNT = new ImageIcon("images/dialogAmount.png");
 
 }

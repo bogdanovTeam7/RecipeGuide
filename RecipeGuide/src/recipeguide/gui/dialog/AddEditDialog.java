@@ -16,6 +16,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import recipeguide.exceptions.ModelException;
@@ -40,11 +41,13 @@ public abstract class AddEditDialog extends JDialog {
 	protected Map<String, ImageIcon> icons = new LinkedHashMap<>();
 	protected Map<String, Object> values = new LinkedHashMap<>();
 	protected Entity entity;
+	protected DialogType dialogType;
 	protected Font font = Style.FONT_ADD_EDIT_DIALOG;
 
-	public AddEditDialog(MainFrame frame) {
-		super(frame, Text.get("add"), true);
+	public AddEditDialog(MainFrame frame, DialogType type) {
+		super(frame, Text.get(type.getAction()), true);
 		this.frame = frame;
+		this.dialogType = type;
 		setResizable(false);
 	}
 
@@ -60,8 +63,14 @@ public abstract class AddEditDialog extends JDialog {
 		return entity;
 	}
 
-	public void setEntity(Entity entity) {
-		this.entity = entity;
+	abstract void setEntity(Entity entity);
+
+	public DialogType getDialogType() {
+		return dialogType;
+	}
+
+	public void setDialogType(DialogType dialogType) {
+		this.dialogType = dialogType;
 	}
 
 	public void showDialog() {
@@ -84,11 +93,7 @@ public abstract class AddEditDialog extends JDialog {
 		setComponents();
 		setIcons();
 		setValues();
-		Image image = Style.ICON_DIALOG_ADD.getImage();
-		if (getEntity() != null) {
-			setTitle(Text.get("edit"));
-			image = Style.ICON_DIALOG_EDIT.getImage();
-		}
+		Image image = chooseImageIcon().getImage();
 		setIconImage(image);
 		frame.setFont(font);
 
@@ -102,22 +107,32 @@ public abstract class AddEditDialog extends JDialog {
 
 			JComponent component = (JComponent) entry.getValue();
 			Object item = values.get(key);
-			
+
 			if (component instanceof JTextField) {
 				((JTextField) component).setText((values.containsKey(key)) ? ("" + item) : "");
 				component.setPreferredSize(Style.DIMENSION_DIALOG_TEXT_FIELD);
-			
+
 			} else if (component instanceof JComboBox) {
 				if (values.containsKey(key)) {
 					JComboBox<?> box = (JComboBox<?>) component;
+					System.out.println("item " + item);
 					box.setSelectedItem(item);
+					System.out.println("box.setSelectedItem(item) " + box.getSelectedItem());
 					if (!box.getSelectedItem()
 							.equals(item)) {
+						System.out.println("box.setSelectedItem(item).equals(item) " + box.getSelectedItem()
+								.equals(item));
 						((JComboBox<?>) component).setSelectedIndex(-1);
 					}
 				} else {
 					((JComboBox<?>) component).setSelectedIndex(-1);
 				}
+			} else if (component instanceof JTextArea) {
+				String text = "";
+				if (values.containsKey(key)) {
+					text = (String) values.get(key);
+				}
+				((JTextArea) component).setText(text);
 			}
 
 			component.setAlignmentX(JComponent.LEFT_ALIGNMENT);
@@ -129,9 +144,9 @@ public abstract class AddEditDialog extends JDialog {
 		}
 
 		MainButton okButton = MainButton.builder()
-				.withTitle(entity == null ? Text.get("add") : Text.get("edit"))
-				.withIcon(entity == null ? Style.ICON_BUTTON_ADD : Style.ICON_BUTTON_EDIT)
-				.withAction(entity == null ? HandlerCode.ADD : HandlerCode.EDIT)
+				.withTitle(Text.get(dialogType.getAction()))
+				.withIcon(chooseImageIcon())
+				.withAction(chooseHandlerCode())
 				.build();
 
 		MainButton cancelButton = MainButton.builder()
@@ -151,12 +166,35 @@ public abstract class AddEditDialog extends JDialog {
 		setLocationRelativeTo(null);
 	}
 
+	private String chooseHandlerCode() {
+		switch (dialogType) {
+		case EDIT:
+			return HandlerCode.EDIT;
+		case ADD:
+			return HandlerCode.ADD;
+		default:
+			return null;
+		}
+	}
+
+	private ImageIcon chooseImageIcon() {
+		switch (dialogType) {
+		case EDIT:
+			return Style.ICON_BUTTON_EDIT;
+		case ADD:
+			return Style.ICON_BUTTON_ADD;
+		default:
+			return null;
+		}
+	}
+
 	protected class MainComboBox extends JComboBox<Object> {
 
 		private static final long serialVersionUID = 1L;
 
-		public MainComboBox() {
+		public MainComboBox(List<Entity> items) {
 			super();
+			addItems(items);
 			setRenderer(new DefaultListCellRenderer() {
 
 				private static final long serialVersionUID = 1L;
@@ -175,7 +213,7 @@ public abstract class AddEditDialog extends JDialog {
 			});
 		}
 
-		public void addItems(List<Entity> items) {
+		private void addItems(List<Entity> items) {
 			for (Entity item : items) {
 				addItem(item);
 			}
