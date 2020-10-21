@@ -23,6 +23,7 @@ import recipeguide.gui.dialog.IngredientWithMeasuringAddEditDialog;
 import recipeguide.gui.dialog.MeasuryUnitAddEditDialog;
 import recipeguide.gui.dialog.RecipeAddEditDialog;
 import recipeguide.gui.menu.MainMenu;
+import recipeguide.gui.panel.LeftPanel;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
 import recipeguide.model.Quantity;
@@ -35,6 +36,7 @@ import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
+import recipeguide.tests.TestDialogs;
 
 public class MainFrame extends JFrame implements Refresh {
 
@@ -42,50 +44,11 @@ public class MainFrame extends JFrame implements Refresh {
 
 	private GridBagConstraints constraints;
 	private MainMenu menubar;
+	private LeftPanel leftPanel;
 	private MainToolbar mainToolbar;
 
 	public MainFrame() {
 		super(Text.get("ProgramName"));
-
-		DialogType dialogType = DialogType.ADD;
-//		IngredientTypeAddEditDialog ingredientTypeAddEditDialog = new IngredientTypeAddEditDialog(this, dialogType);
-//		IngredientType type = new IngredientType("water");
-//		ingredientTypeAddEditDialog.setEntity(type);
-//		ingredientTypeAddEditDialog.showDialog();
-//
-//		MeasuryUnitAddEditDialog measuryUnitAddEditDialog = new MeasuryUnitAddEditDialog(this, dialogType);
-//		MeasuryUnit unit = new MeasuryUnit("tonna", "t");
-//		measuryUnitAddEditDialog.setEntity(unit);
-//		measuryUnitAddEditDialog.showDialog();
-//
-//		FoodCategoryAddEditDialog foodCategoryAddEditDialog = new FoodCategoryAddEditDialog(this, dialogType);
-//		FoodCategory category = new FoodCategory("soup");
-//		foodCategoryAddEditDialog.setEntity(category);
-//		foodCategoryAddEditDialog.showDialog();
-//
-//		IngredientAddEditDialog ingredientAddEditDialog = new IngredientAddEditDialog(this, dialogType);
-//		Ingredient ingredient = new Ingredient("salt", SaveData.getInstance()
-//				.getTypes()
-//				.get(3));
-//		ingredientAddEditDialog.setEntity(ingredient);
-//		ingredientAddEditDialog.showDialog();
-//
-//		RecipeAddEditDialog recipeAddEditDialog = new RecipeAddEditDialog(this, dialogType);
-//		Recipe recipe = SaveData.getInstance()
-//				.getRecipes()
-//				.get(2);
-//		recipeAddEditDialog.setEntity(recipe);
-//		recipeAddEditDialog.showDialog();
-
-		IngredientWithMeasuringAddEditDialog ingredientWithMeasuringAddEditDialog = new IngredientWithMeasuringAddEditDialog(
-				this, dialogType);
-		ingredientWithMeasuringAddEditDialog.setEntity(new IngredientWithQuantity(SaveData.getInstance()
-				.getIngredients()
-				.get(0),
-				new Quantity(SaveData.getInstance()
-						.getUnits()
-						.get(0), 100)));
-		ingredientWithMeasuringAddEditDialog.showDialog();
 
 		setResizable(false);
 		setIconImage(Style.ICON_MAIN.getImage());
@@ -110,7 +73,8 @@ public class MainFrame extends JFrame implements Refresh {
 		constraints.gridwidth = 1;
 		constraints.anchor = GridBagConstraints.NORTH;
 
-		add(new EditorToolbar(), constraints);
+		leftPanel = new LeftPanel(this);
+		add(leftPanel, constraints);
 
 		// TODO leftpanel
 		pack();
@@ -132,6 +96,7 @@ public class MainFrame extends JFrame implements Refresh {
 	public void refresh() {
 		SwingUtilities.updateComponentTreeUI(this);
 		menubar.refresh();
+		leftPanel.refresh();
 		pack();
 
 	}

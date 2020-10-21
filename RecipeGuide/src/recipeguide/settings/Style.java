@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public final class Style {
@@ -14,6 +16,7 @@ public final class Style {
 	public static final Color COLOR_MAIN_MENU_FOREGROUND = Color.ORANGE;
 	public static final Color COLOR_BUTTON_BG_NORMAL = new Color(240, 240, 240);
 	public static final Color COLOR_BUTTON_BG_HOVER = Color.YELLOW;
+	public static final Color COLOR_LEFT_PANEL_INFO_PANEL = Color.WHITE;
 
 	public static final Font FONT_MENU_BUTTON = new Font(Settings.FONT_NAME, Font.BOLD, 14);
 	public static final Font FONT_MENU_ITEM = new Font(Settings.FONT_NAME, Font.BOLD, 14);
@@ -23,17 +26,21 @@ public final class Style {
 	public static final Font FONT_CONFIRM_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_ABOUT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_ADD_EDIT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_LEFT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 16);
+	public static final Font FONT_LEFT_PANEL_INFO_PANEL = new Font(Settings.FONT_NAME, Font.BOLD, 14);
 
 	public static final EmptyBorder BORDER_MENU_BAR = new EmptyBorder(10, 10, 10, 10);
 	public static final EmptyBorder BORDER_TOOLBAR_MAIN = new EmptyBorder(10, 10, 10, 10);
 	public static final EmptyBorder BORDER_TOOLBAR_EDITOR = new EmptyBorder(5, 5, 5, 5);
 	public static final EmptyBorder BORDER_DIALOG = new EmptyBorder(10, 10, 10, 10);
+	public static final EmptyBorder BORDER_PANEL = new EmptyBorder(10, 10, 10, 10);
 
 	public static final Dimension DIMENSION_DIALOG_TEXT_FIELD = new Dimension(200, 30);
 
 	public static final int PADDING_DIALOG = 15;
 	public static final int PADDING_DIALOG_GRID_HORIZONTAL = 10;
 	public static final int PADDING_DIALOG_GRID_VERTICAL = 10;
+	public static final int PADDING_LEFT_PANEL_INFO_PANEL = 5;
 
 	public static final ImageIcon ICON_MAIN = new ImageIcon("images/main.png");
 
@@ -86,5 +93,7 @@ public final class Style {
 	public static final ImageIcon ICON_DIALOG_RECIPE_NAME = new ImageIcon("images/menuViewRecipes.png");
 	public static final ImageIcon ICON_DIALOG_DESCRIPTION = new ImageIcon("images/menuViewRecipes.png");
 	public static final ImageIcon ICON_DIALOG_AMOUNT = new ImageIcon("images/dialogAmount.png");
+
+	public static final ImageIcon ICON_LEFT_PANEL_TITLE = new ImageIcon("images/leftPanelTitle.png");
 
 }

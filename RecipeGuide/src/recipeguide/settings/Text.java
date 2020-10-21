@@ -19,6 +19,7 @@ final public class Text {
 
 		data.put("ingredientType", "Alapanyagok csoportja");
 		data.put("ingredient", "Alapanyag");
+		data.put("ingredientsTotal", "Alapanyagok összesen:");
 		data.put("ingredientName", "Alapanyag neve");
 		data.put("ingredientNew", "Új alapanyag");
 		data.put("ingredientsWithMeasure", "Alapanyagok adagolással");
@@ -31,6 +32,7 @@ final public class Text {
 		data.put("foodCategory", "Ételek csoportja");
 
 		data.put("recipe", "Recept");
+		data.put("recipesTotal", "Receptek összesen:");
 		data.put("recipeName", "Recept megnevezése");
 
 		data.put("menuFile", "Könyvtár");
@@ -76,6 +78,8 @@ final public class Text {
 		data.put("edit", "Modosítás");
 		data.put("delete", "Törlés");
 		data.put("cancel", "Visszavonás");
+
+		data.put("recipeBookContains:", "Ez a recept könyv tartalmazz:");
 
 		data.put("January", "Január");
 		data.put("February", "Február");

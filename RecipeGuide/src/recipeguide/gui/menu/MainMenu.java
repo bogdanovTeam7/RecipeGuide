@@ -2,14 +2,18 @@ package recipeguide.gui.menu;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import recipeguide.gui.EnableElement;
+import recipeguide.gui.MainButton;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
 import recipeguide.settings.HandlerCode;
