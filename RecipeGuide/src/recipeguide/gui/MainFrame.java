@@ -23,7 +23,9 @@ import recipeguide.gui.dialog.IngredientWithMeasuringAddEditDialog;
 import recipeguide.gui.dialog.MeasuryUnitAddEditDialog;
 import recipeguide.gui.dialog.RecipeAddEditDialog;
 import recipeguide.gui.menu.MainMenu;
+import recipeguide.gui.panel.IngredientsPanel;
 import recipeguide.gui.panel.LeftPanel;
+import recipeguide.gui.panel.RightPanel;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
 import recipeguide.model.Quantity;
@@ -45,6 +47,7 @@ public class MainFrame extends JFrame implements Refresh {
 	private GridBagConstraints constraints;
 	private MainMenu menubar;
 	private LeftPanel leftPanel;
+	private RightPanel rightPanel;
 	private MainToolbar mainToolbar;
 
 	public MainFrame() {
@@ -76,9 +79,26 @@ public class MainFrame extends JFrame implements Refresh {
 		leftPanel = new LeftPanel(this);
 		add(leftPanel, constraints);
 
+		setRightPanel(new IngredientsPanel(this));
+
 		// TODO leftpanel
 		pack();
 		setLocationRelativeTo(null);
+	}
+
+	private void setRightPanel(RightPanel panel) {
+		if (rightPanel != null) {
+			remove(rightPanel);
+		}
+		constraints.gridy = 1;
+		constraints.gridx = 1;
+		rightPanel = panel;
+		add(rightPanel, constraints);
+		pack();
+	}
+
+	public MainMenu getMenu() {
+		return menubar;
 	}
 
 	public void setFont(Font font) {

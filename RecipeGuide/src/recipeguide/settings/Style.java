@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public final class Style {
@@ -28,6 +26,9 @@ public final class Style {
 	public static final Font FONT_ADD_EDIT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 14);
 	public static final Font FONT_LEFT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 16);
 	public static final Font FONT_LEFT_PANEL_INFO_PANEL = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_RIGHT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 16);
+	public static final Font FONT_TABLE_HEADER = new Font(Settings.FONT_NAME, Font.BOLD, 16);
+	public static final Font FONT_TABLE = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 
 	public static final EmptyBorder BORDER_MENU_BAR = new EmptyBorder(10, 10, 10, 10);
 	public static final EmptyBorder BORDER_TOOLBAR_MAIN = new EmptyBorder(10, 10, 10, 10);
@@ -36,11 +37,14 @@ public final class Style {
 	public static final EmptyBorder BORDER_PANEL = new EmptyBorder(10, 10, 10, 10);
 
 	public static final Dimension DIMENSION_DIALOG_TEXT_FIELD = new Dimension(200, 30);
+	public static final Dimension DIMENSION_TABLE = new Dimension(800, 400);
 
 	public static final int PADDING_DIALOG = 15;
 	public static final int PADDING_DIALOG_GRID_HORIZONTAL = 10;
 	public static final int PADDING_DIALOG_GRID_VERTICAL = 10;
 	public static final int PADDING_LEFT_PANEL_INFO_PANEL = 5;
+	public static final int PADDING_RIGHT_PANEL = 10;
+	public static final int PADDING_TABLE_ROW_ADD = 15;
 
 	public static final ImageIcon ICON_MAIN = new ImageIcon("images/main.png");
 
@@ -95,5 +99,9 @@ public final class Style {
 	public static final ImageIcon ICON_DIALOG_AMOUNT = new ImageIcon("images/dialogAmount.png");
 
 	public static final ImageIcon ICON_LEFT_PANEL_TITLE = new ImageIcon("images/leftPanelTitle.png");
+
+	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/menuViewIngredients.png");
+	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
+	public static final ImageIcon ICON_LEFT_PANEL_INGREDIENT = new ImageIcon("images/menuViewIngredients.png");
 
 }

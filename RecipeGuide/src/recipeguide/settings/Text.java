@@ -19,6 +19,7 @@ final public class Text {
 
 		data.put("ingredientType", "Alapanyagok csoportja");
 		data.put("ingredient", "Alapanyag");
+		data.put("ingredients", "Alapanyagok");
 		data.put("ingredientsTotal", "Alapanyagok összesen:");
 		data.put("ingredientName", "Alapanyag neve");
 		data.put("ingredientNew", "Új alapanyag");
