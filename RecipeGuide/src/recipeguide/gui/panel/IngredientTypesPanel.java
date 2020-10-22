@@ -3,17 +3,17 @@ package recipeguide.gui.panel;
 import java.util.List;
 
 import recipeguide.gui.MainFrame;
-import recipeguide.gui.table.IngredientTableData;
+import recipeguide.gui.table.IngredientTypeTableData;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 
-public class IngredientsPanel extends RightPanel {
+public class IngredientTypesPanel extends RightPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public IngredientsPanel(MainFrame frame) {
-		super(frame, new IngredientTableData(), Text.get("ingredients"), Style.ICON_RIGHT_PANEL_INGREDIENT,
+	public IngredientTypesPanel(MainFrame frame) {
+		super(frame, new IngredientTypeTableData(), Text.get("ingredientTypes"), Style.ICON_RIGHT_PANEL_INGREDIENT_TYPE,
 				List.of(new EditorToolbar()));
 	}
 

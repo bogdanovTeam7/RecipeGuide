@@ -1,18 +1,16 @@
 package recipeguide.gui.table.model;
 
-import recipeguide.model.entities.Ingredient;
+import recipeguide.model.entities.IngredientType;
 import recipeguide.saveload.SaveData;
 
-public class IngredientsTableModel extends MainTableModel<Ingredient> {
+public class IngredientTypesTableModel extends MainTableModel<IngredientType> {
 
 	private static final long serialVersionUID = 1L;
-
 	private static final int name = 0;
-	private static final int type = 1;
 
-	public IngredientsTableModel() {
+	public IngredientTypesTableModel() {
 		super(SaveData.getInstance()
-				.getIngredients());
+				.getTypes());
 	}
 
 	@Override
@@ -20,13 +18,10 @@ public class IngredientsTableModel extends MainTableModel<Ingredient> {
 		if (datas.isEmpty()) {
 			return null;
 		}
-		Ingredient temp = datas.get(row);
+		IngredientType type = datas.get(row);
 		switch (column) {
 		case name:
-			return temp.getName();
-		case type:
-			return temp.getType()
-					.getNameToDisplay();
+			return type.getName();
 		default:
 			return null;
 		}
@@ -35,7 +30,7 @@ public class IngredientsTableModel extends MainTableModel<Ingredient> {
 	@Override
 	protected void updateData() {
 		datas = SaveData.getInstance()
-				.getIngredients();
+				.getTypes();
 	}
 
 }

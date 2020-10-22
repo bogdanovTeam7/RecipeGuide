@@ -100,8 +100,20 @@ public final class Style {
 
 	public static final ImageIcon ICON_LEFT_PANEL_TITLE = new ImageIcon("images/leftPanelTitle.png");
 
+	public static final ImageIcon ICON_RIGHT_PANEL_INGREDIENT = new ImageIcon("images/menuViewIngredients.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_INGREDIENT_TYPE = new ImageIcon(
+			"images/menuViewIngredientTypes.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_RECIPE = new ImageIcon("images/menuViewRecipes.png");
+
 	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
-	public static final ImageIcon ICON_LEFT_PANEL_INGREDIENT = new ImageIcon("images/menuViewIngredients.png");
+	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE_NAME = new ImageIcon("images/menuViewIngredientTypes.png");
+	public static final ImageIcon ICON_TABLE_RECIPE_NAME = null;
+	public static final ImageIcon ICON_TABLE_RECIPE_CATEGORY = null;
+	public static final ImageIcon ICON_TABLE_RECIPE_INGREDIENTS_WITH_QUANTITY = null;
+	public static final ImageIcon ICON_TABLE_RECIPE_RATION = null;
+	public static final ImageIcon ICON_TABLE_RECIPE_DESCRIPTION = null;
+	public static final ImageIcon ICON_TABLE_PREPARING_TIME = null;
+	public static final ImageIcon ICON_TABLE_COOKING_TIME = null;
 
 }

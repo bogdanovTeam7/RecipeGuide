@@ -18,6 +18,7 @@ final public class Text {
 		data.put("ProgramName", "Receptek");
 
 		data.put("ingredientType", "Alapanyagok csoportja");
+		data.put("ingredientTypes", "Alapanyagok csoportjai");
 		data.put("ingredient", "Alapanyag");
 		data.put("ingredients", "Alapanyagok");
 		data.put("ingredientsTotal", "Alapanyagok összesen:");

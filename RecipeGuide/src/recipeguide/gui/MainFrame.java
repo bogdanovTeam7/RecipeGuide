@@ -23,8 +23,10 @@ import recipeguide.gui.dialog.IngredientWithMeasuringAddEditDialog;
 import recipeguide.gui.dialog.MeasuryUnitAddEditDialog;
 import recipeguide.gui.dialog.RecipeAddEditDialog;
 import recipeguide.gui.menu.MainMenu;
+import recipeguide.gui.panel.IngredientTypesPanel;
 import recipeguide.gui.panel.IngredientsPanel;
 import recipeguide.gui.panel.LeftPanel;
+import recipeguide.gui.panel.RecipePanel;
 import recipeguide.gui.panel.RightPanel;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
@@ -79,7 +81,7 @@ public class MainFrame extends JFrame implements Refresh {
 		leftPanel = new LeftPanel(this);
 		add(leftPanel, constraints);
 
-		setRightPanel(new IngredientsPanel(this));
+		setRightPanel(new RecipePanel(this));
 
 		// TODO leftpanel
 		pack();
