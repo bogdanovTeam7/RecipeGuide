@@ -8,6 +8,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
 import recipeguide.gui.Refresh;
+import recipeguide.gui.renderer.TableCellRenderer;
+import recipeguide.gui.renderer.TableHeaderCellRenderer;
 import recipeguide.gui.table.model.MainTableModel;
 import recipeguide.settings.Style;
 
@@ -30,6 +32,23 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 		setAutoCreateRowSorter(true);
 		setPreferredScrollableViewportSize(Style.DIMENSION_TABLE);
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		setHeaderRenderer();
+		
+		setDefaultRenderer(String.class, new TableCellRenderer());
+		setDefaultRenderer(Number.class, new TableCellRenderer());
+		
+//		setToolTipRenderer();
+	}
+
+//	protected void setToolTipRenderer() {
+//		
+//	}
+
+	private void setHeaderRenderer() {
+		for (Map.Entry<String, ImageIcon> entry : columns.entrySet()) {
+			getColumn(entry.getKey()).setHeaderRenderer(new TableHeaderCellRenderer(entry.getValue()));
+		}
 	}
 
 	@Override

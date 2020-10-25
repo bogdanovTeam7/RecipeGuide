@@ -19,6 +19,7 @@ final public class Text {
 
 		data.put("ingredientType", "Alapanyagok csoportja");
 		data.put("ingredientTypes", "Alapanyagok csoportjai");
+
 		data.put("ingredient", "Alapanyag");
 		data.put("ingredients", "Alapanyagok");
 		data.put("ingredientsTotal", "Alapanyagok összesen:");
@@ -34,6 +35,7 @@ final public class Text {
 		data.put("foodCategory", "Ételek csoportja");
 
 		data.put("recipe", "Recept");
+		data.put("recipes", "Receptek");
 		data.put("recipesTotal", "Receptek összesen:");
 		data.put("recipeName", "Recept megnevezése");
 
@@ -71,6 +73,11 @@ final public class Text {
 		data.put("description", "Leírás");
 
 		data.put("amount", "Mennyiség");
+		data.put("name", "Név");
+		data.put("category", "Kategória");
+		data.put("ration", "Adagok száma");
+		data.put("preparingTimeInSeconds", "Előkeszítési idő");
+		data.put("cookingTimeInSeconds", "Főzési idő");
 
 		data.put("yes", "Igen");
 		data.put("no", "Nem");
@@ -83,6 +90,9 @@ final public class Text {
 
 		data.put("recipeBookContains:", "Ez a recept könyv tartalmazz:");
 
+		data.put("h", "ó");
+		data.put("min", "perc");
+		data.put("sec", "mp");
 		data.put("January", "Január");
 		data.put("February", "Február");
 		data.put("March", "Március");

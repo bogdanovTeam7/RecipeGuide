@@ -2,6 +2,7 @@ package recipeguide.gui.table.model;
 
 import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
+import recipeguide.settings.Format;
 
 public class RecipeTableModel extends MainTableModel<Recipe> {
 
@@ -33,14 +34,13 @@ public class RecipeTableModel extends MainTableModel<Recipe> {
 			return recipe.getCategory()
 					.getName();
 		case ingredientsWihQuantity:
-			return recipe.getIngredientsWihQuantity()
-					.size();
+			return recipe.printIngredientsWithQuantity();
 		case ration:
 			return recipe.getRation();
 		case preparingTimeInSeconds:
-			return recipe.getPreparingTimeInSeconds();
+			return Format.getTime(recipe.getPreparingTimeInSeconds());
 		case cookingTimeInSeconds:
-			return recipe.getCookingTimeInSeconds();
+			return Format.getTime(recipe.getCookingTimeInSeconds());
 		case description:
 			return recipe.getDescription();
 		default:

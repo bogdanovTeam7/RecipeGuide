@@ -1,7 +1,6 @@
 package recipeguide.model.entities;
 
 import recipeguide.saveload.SaveData;
-import recipeguide.settings.Text;
 
 public abstract class AbstractEntity implements Entity {
 	protected String name;

@@ -1,20 +1,12 @@
 package recipeguide.gui.dialog;
 
-import java.awt.Button;
-import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.LayoutManager;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;

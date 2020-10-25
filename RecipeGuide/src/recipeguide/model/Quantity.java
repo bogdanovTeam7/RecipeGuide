@@ -33,11 +33,9 @@ public class Quantity {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Quantity [unit=");
-		builder.append(unit);
-		builder.append(", amount=");
 		builder.append(amount);
-		builder.append("]");
+		builder.append(" ");
+		builder.append(unit.getAbbreviation());
 		return builder.toString();
 	}
 

@@ -46,6 +46,15 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 		init();
 	}
 
+	public RightPanel(MainFrame frame, String title, ImageIcon icon, List<JPanel> panels) {
+		super(frame);
+		this.tableData = null;
+		this.title = title;
+		this.icon = icon;
+		this.panels = panels;
+		init();
+	}
+
 	private void checkEnableElements() {
 		setEnableElements(false);
 		if (tableData != null) {

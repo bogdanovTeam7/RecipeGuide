@@ -187,6 +187,20 @@ public class Recipe extends AbstractEntity {
 		}
 	}
 
+	public String printIngredientsWithQuantity() {
+		StringBuilder result = new StringBuilder();
+		for (Map.Entry<Ingredient, Quantity> entry : ingredientsWihQuantity.entrySet()) {
+			result.append(", ")
+					.append(entry.getKey()
+							.getName())
+					.append(" ")
+					.append(entry.getValue())
+					.append("\n");
+		}
+		return result.substring(2)
+				.toString();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder2 = new StringBuilder();

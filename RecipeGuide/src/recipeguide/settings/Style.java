@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
 
@@ -37,7 +38,7 @@ public final class Style {
 	public static final EmptyBorder BORDER_PANEL = new EmptyBorder(10, 10, 10, 10);
 
 	public static final Dimension DIMENSION_DIALOG_TEXT_FIELD = new Dimension(200, 30);
-	public static final Dimension DIMENSION_TABLE = new Dimension(800, 400);
+	public static final Dimension DIMENSION_TABLE = new Dimension(1000, 400);
 
 	public static final int PADDING_DIALOG = 15;
 	public static final int PADDING_DIALOG_GRID_HORIZONTAL = 10;
@@ -108,12 +109,22 @@ public final class Style {
 	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
 	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE_NAME = new ImageIcon("images/menuViewIngredientTypes.png");
-	public static final ImageIcon ICON_TABLE_RECIPE_NAME = null;
-	public static final ImageIcon ICON_TABLE_RECIPE_CATEGORY = null;
-	public static final ImageIcon ICON_TABLE_RECIPE_INGREDIENTS_WITH_QUANTITY = null;
-	public static final ImageIcon ICON_TABLE_RECIPE_RATION = null;
-	public static final ImageIcon ICON_TABLE_RECIPE_DESCRIPTION = null;
-	public static final ImageIcon ICON_TABLE_PREPARING_TIME = null;
-	public static final ImageIcon ICON_TABLE_COOKING_TIME = null;
+
+	public static final ImageIcon ICON_TABLE_RECIPE_NAME = new ImageIcon("images/tableRecipeName.png");
+	public static final ImageIcon ICON_TABLE_RECIPE_CATEGORY = new ImageIcon("images/tableRecipeFoodCategories.png");
+	public static final ImageIcon ICON_TABLE_RECIPE_INGREDIENTS_WITH_QUANTITY = new ImageIcon(
+			"images/tableRecipeIngredients.png");
+	public static final ImageIcon ICON_TABLE_RECIPE_RATION = new ImageIcon("images/tableRecipeRation.png");
+	public static final ImageIcon ICON_TABLE_RECIPE_DESCRIPTION = new ImageIcon("images/tableRecipeDescription.png");
+	public static final ImageIcon ICON_TABLE_RECIPE_TIME = new ImageIcon("images/tableRecipeTime.png");
+	public static final ImageIcon ICON_TABLE_COOKING_TIME = new ImageIcon("images/tableRecipeTime.png");
+	public static final ImageIcon ICON_SEARCH_MAIN = null;
+	public static final int PADDING_SEARCH_PANEL_HORIZONTAL = 0;
+	public static final int PADDING_SEARCH_PANEL_VERTICAL = 0;
+	public static final Font FONT_SEARCH_PANEL = null;
+	public static final Icon ICON_SEARCH_NAME = null;
+	public static final Icon ICON_SEARCH_CATEGORY = null;
+	public static final Icon ICON_SEARCH_INGREDIENT = null;
+	public static final Icon ICON_SEARCH_INGREDIENT_TYPE = null;
 
 }
