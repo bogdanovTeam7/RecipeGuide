@@ -2,27 +2,23 @@ package recipeguide.gui.panel;
 
 import java.util.List;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-
 import recipeguide.gui.MainFrame;
-import recipeguide.gui.search.SearchModel;
+import recipeguide.gui.search.FoodCategorySearchPanel;
+import recipeguide.gui.search.IngredientSearchPanel;
+import recipeguide.gui.search.IngredientTypeSearchPanel;
+import recipeguide.gui.search.NameSearchPanel;
+import recipeguide.gui.search.button.SearchButtonPanel;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 
 public class SearchPanel extends RightPanel {
 
-	public SearchPanel(MainFrame frame, String title, ImageIcon icon, List<JPanel> panels) {
-		super(frame, title, icon, panels);
-		// TODO Auto-generated constructor stub
-	}
-
 	private static final long serialVersionUID = 1L;
 
-//	public SearchPanel(MainFrame frame) {
-//		super(frame, Text.get("Search"), Style.ICON_SEARCH_MAIN, List.of(new SearchModel()));
-//
-//		// TODO Auto-generated constructor stub
-//	}
+	public SearchPanel(MainFrame frame) {
+		super(frame, Text.get("search"), Style.ICON_SEARCH_MAIN,
+				List.of(new NameSearchPanel(), new FoodCategorySearchPanel(), new IngredientTypeSearchPanel(),
+						new IngredientSearchPanel(), new SearchButtonPanel()));
+	}
 
 }

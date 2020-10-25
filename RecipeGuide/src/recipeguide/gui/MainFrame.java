@@ -28,6 +28,7 @@ import recipeguide.gui.panel.IngredientsPanel;
 import recipeguide.gui.panel.LeftPanel;
 import recipeguide.gui.panel.RecipePanel;
 import recipeguide.gui.panel.RightPanel;
+import recipeguide.gui.panel.SearchPanel;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
 import recipeguide.model.Quantity;
@@ -81,7 +82,7 @@ public class MainFrame extends JFrame implements Refresh {
 		leftPanel = new LeftPanel(this);
 		add(leftPanel, constraints);
 
-		setRightPanel(new RecipePanel(this));
+		setRightPanel(new SearchPanel(this));
 
 		// TODO leftpanel
 		pack();

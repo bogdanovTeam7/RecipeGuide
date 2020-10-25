@@ -69,6 +69,8 @@ final public class Text {
 		data.put("toolbarFoodCategories", "Ételek csoportosítása");
 		data.put("toolbarRecipes", "Receptek");
 
+		data.put("search", "Keresés");
+
 		data.put("NoDescription", "Nincs leírás");
 		data.put("description", "Leírás");
 

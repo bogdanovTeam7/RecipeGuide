@@ -1,0 +1,14 @@
+package recipeguide.gui.search;
+
+import recipeguide.gui.search.checkboxdatas.FoodCategoryCheckBoxData;
+import recipeguide.settings.Text;
+
+public class FoodCategorySearchPanel extends MonoSearchPanel {
+
+	private static final long serialVersionUID = 1L;
+
+	public FoodCategorySearchPanel() {
+		super(Text.get("category"), new CheckBoxPanel<>(new FoodCategoryCheckBoxData().getData()));
+	}
+
+}
