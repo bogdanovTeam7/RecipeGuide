@@ -58,6 +58,10 @@ public final class Settings {
 
 	public static void setFileSave(File fileSave) {
 		Settings.fileSave = fileSave;
+	}
+
+	public static void saveFileSaveToIniFile(File fileSave) {
+		Settings.fileSave = fileSave;
 		saveToNode();
 	}
 

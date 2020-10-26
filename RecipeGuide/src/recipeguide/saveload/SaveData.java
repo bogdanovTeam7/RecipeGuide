@@ -202,6 +202,16 @@ public final class SaveData {
 				|| recipes.contains(entity) || categories.contains(entity);
 	}
 
+	public void clearAll() {
+		ingredients.clear();
+		categories.clear();
+		recipes.clear();
+		types.clear();
+		units.clear();
+		oldEntity = null;
+		isSaved = false;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

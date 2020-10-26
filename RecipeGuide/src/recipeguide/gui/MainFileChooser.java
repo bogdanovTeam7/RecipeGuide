@@ -1,6 +1,5 @@
 package recipeguide.gui;
 
-import java.util.Map.Entry;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;

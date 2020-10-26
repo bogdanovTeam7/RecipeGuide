@@ -11,6 +11,8 @@ import javax.swing.KeyStroke;
 import recipeguide.gui.EnableElement;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
+import recipeguide.gui.handler.Handler;
+import recipeguide.gui.handler.MenuFileHandler;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
@@ -36,13 +38,14 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		JMenu view = addMenu(Text.get("menuView"), Style.ICON_MENU_VIEW);
 		JMenu help = addMenu(Text.get("menuHelp"), Style.ICON_MENU_HELP);
 
-		addMenuItem(file, Text.get("menuFileNew"), Style.ICON_MENU_FILE_NEW, HandlerCode.MENU_FILE_NEW, KeyEvent.VK_N);
-		addMenuItem(file, Text.get("menuFileOpen"), Style.ICON_MENU_FILE_OPEN, HandlerCode.MENU_FILE_NEW,
-				KeyEvent.VK_O);
-		addMenuItem(file, Text.get("menuFileSave"), Style.ICON_MENU_FILE_SAVE, HandlerCode.MENU_FILE_NEW,
-				KeyEvent.VK_S);
-		addMenuItem(file, Text.get("menuFileExit"), Style.ICON_MENU_FILE_EXIT, HandlerCode.MENU_FILE_NEW,
-				KeyEvent.VK_E);
+		addMenuItem(file, Text.get("menuFileNew"), Style.ICON_MENU_FILE_NEW, HandlerCode.MENU_FILE_NEW,
+				new MenuFileHandler(frame), KeyEvent.VK_N);
+		addMenuItem(file, Text.get("menuFileOpen"), Style.ICON_MENU_FILE_OPEN, HandlerCode.MENU_FILE_OPEN,
+				new MenuFileHandler(frame), KeyEvent.VK_O);
+		addMenuItem(file, Text.get("menuFileSave"), Style.ICON_MENU_FILE_SAVE, HandlerCode.MENU_FILE_SAVE,
+				new MenuFileHandler(frame), KeyEvent.VK_S);
+		addMenuItem(file, Text.get("menuFileExit"), Style.ICON_MENU_FILE_EXIT, HandlerCode.MENU_FILE_EXIT,
+				new MenuFileHandler(frame), KeyEvent.VK_E);
 
 		addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.MENU_EDIT_ADD);
 		menuEdit = addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT, HandlerCode.MENU_EDIT_EDIT);
@@ -82,12 +85,13 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		return menu;
 	}
 
-	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, int key) {
+	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener, int key) {
 		JMenuItem item = new JMenuItem();
 		item.setText(title);
 		item.setFont(Style.FONT_MENU_ITEM);
 		item.setIcon(icon);
 		item.setActionCommand(action);
+		item.addActionListener(listener);
 		if (key != 0) {
 			int modifiers = Toolkit.getDefaultToolkit()
 					.getMenuShortcutKeyMaskEx();
@@ -99,8 +103,16 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		return item;
 	}
 
+	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener) {
+		return addMenuItem(menu, title, icon, action, listener, 0);
+	}
+
 	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action) {
-		return addMenuItem(menu, title, icon, action, 0);
+		return addMenuItem(menu, title, icon, action, null, 0);
+	}
+
+	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, int key) {
+		return addMenuItem(menu, title, icon, action, null, key);
 	}
 
 	@Override

@@ -115,6 +115,7 @@ final public class Text {
 		data.put("RF Krabuler", "rFKrabuler");
 
 		data.put("error", "Hiba");
+		data.put("errorFileFormat", "Hibas fájl formatuma");
 		data.put("errorTitleEmpty", "Üres a megnevezés");
 		data.put("errorIsExist", "Ilyen nev már létezik");
 		data.put("errorNumberFormat", "Hibás szám");
@@ -156,6 +157,8 @@ final public class Text {
 
 		data.put("dialogAboutTitle", "Programról");
 		data.put("aboutProgramm", "Programról");
+		data.put("confirmExitIntention", "Biztos ki akar lépni? Vannak nem mentett adatok!");
+		data.put("confirmationOfIntent", "Szandék megerősítése");
 
 	}
 }

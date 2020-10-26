@@ -12,6 +12,6 @@ public class ErrorDialog {
 
 		frame.setFont(Style.FONT_ERROR_DIALOG);
 
-		JOptionPane.showMessageDialog(frame, text, Text.get("error"), JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(frame, Text.get(text), Text.get("error"), JOptionPane.ERROR_MESSAGE);
 	}
 }

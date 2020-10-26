@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 public final class HandlerCode {
 
 	public static final String MENU_FILE_NEW = "menuFileNew";
-	public static final String MENU_FILE_EDIT = "menuFileEdit";
+	public static final String MENU_FILE_EXIT = "menuFileEdit";
 	public static final String MENU_FILE_OPEN = "menuFileOpen";
 	public static final String MENU_FILE_SAVE = "menuFileSave";
 
@@ -19,6 +19,7 @@ public final class HandlerCode {
 	public static final String SAVE = "save";
 	public static final String CANCEL = "cancel";
 	public static final String DELETE = "delete";
+	
 	public static final String MENU_EDIT_ADD = null;
 	public static final String MENU_EDIT_EDIT = null;
 	public static final String MENU_EDIT_DELETE = null;
@@ -29,6 +30,7 @@ public final class HandlerCode {
 	public static final String MENU_VIEW_OVERVIEW = null;
 	public static final String MENU_VIEW_RECIPES = null;
 	public static final String MENU_HELP_ABOUT = null;
+	
 	public static final ActionListener TOOLBAR_OVERVIEW = null;
 	public static final ActionListener TOOLBAR_MEASURY_UNITS = null;
 	public static final ActionListener TOOLBAR_INGREDIENT_TYPES = null;
