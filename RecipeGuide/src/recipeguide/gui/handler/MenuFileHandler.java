@@ -7,7 +7,9 @@ import javax.swing.JOptionPane;
 
 import recipeguide.gui.MainFileChooser;
 import recipeguide.gui.MainFrame;
+import recipeguide.gui.dialog.BookDialog;
 import recipeguide.gui.dialog.ConfirmDialog;
+import recipeguide.gui.dialog.DialogType;
 import recipeguide.gui.dialog.ErrorDialog;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.HandlerCode;
@@ -60,7 +62,7 @@ public class MenuFileHandler extends Handler {
 		String ext = path.substring(path.indexOf(".") + 1);
 		String requiredPath = path;
 		if (!Settings.SAVE_FILE_EXT.equals(ext)) {
-			requiredPath += Settings.SAVE_FILE_EXT;
+			requiredPath += "." + Settings.SAVE_FILE_EXT;
 		}
 		return requiredPath;
 	}
@@ -96,8 +98,10 @@ public class MenuFileHandler extends Handler {
 
 	public void createNewFile() {
 		Settings.setFileSave(null);
+		BookDialog dialog = new BookDialog(frame, DialogType.ADD);
 		SaveData.getInstance()
 				.clearAll();
+		dialog.showDialog();
 		frame.refresh();
 	}
 

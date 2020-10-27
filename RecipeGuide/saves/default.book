@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <data>
+    <book>
+        <author></author>
+        <lastEditedAt>1000-10-15T17:17:08.042+01:00</lastEditedAt>
+        <name></name>
+        <startedAt>2020-10-27T17:17:08.042+01:00</startedAt>
+    </book>
     <categories>
         <name>dessert</name>
     </categories>
@@ -10,9 +16,9 @@
         <name>main dish</name>
     </categories>
     <ingredients>
-        <name>potato</name>
+        <name>apple</name>
         <type>
-            <name>vegetables</name>
+            <name>fruit</name>
         </type>
     </ingredients>
     <ingredients>
@@ -28,6 +34,12 @@
         </type>
     </ingredients>
     <ingredients>
+        <name>potato</name>
+        <type>
+            <name>vegetables</name>
+        </type>
+    </ingredients>
+    <ingredients>
         <name>salt</name>
         <type>
             <name>spice</name>
@@ -39,54 +51,6 @@
             <name>spice</name>
         </type>
     </ingredients>
-    <ingredients>
-        <name>apple</name>
-        <type>
-            <name>fruit</name>
-        </type>
-    </ingredients>
-    <recipes>
-        <category>
-            <name>drink</name>
-        </category>
-        <cookingTimeInSeconds>1200</cookingTimeInSeconds>
-        <description>Very simple</description>
-        <ingredientsWihQuantity>
-            <entry>
-                <key>
-                    <name>milk</name>
-                    <type>
-                        <name>milk product</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>2.0</amount>
-                    <unit>
-                        <abbreviation>dl</abbreviation>
-                        <name>deciliter</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
-                    <name>sugar</name>
-                    <type>
-                        <name>spice</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>g</abbreviation>
-                        <name>gram</name>
-                    </unit>
-                </value>
-            </entry>
-        </ingredientsWihQuantity>
-        <name>Candy milk</name>
-        <preparingTimeInSeconds>300</preparingTimeInSeconds>
-        <ration>1</ration>
-    </recipes>
     <recipes>
         <category>
             <name>common</name>
@@ -131,11 +95,98 @@
     </recipes>
     <recipes>
         <category>
+            <name>drink</name>
+        </category>
+        <cookingTimeInSeconds>1200</cookingTimeInSeconds>
+        <description>Very simple</description>
+        <ingredientsWihQuantity>
+            <entry>
+                <key>
+                    <name>milk</name>
+                    <type>
+                        <name>milk product</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>2.0</amount>
+                    <unit>
+                        <abbreviation>dl</abbreviation>
+                        <name>deciliter</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>sugar</name>
+                    <type>
+                        <name>spice</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
+                    <unit>
+                        <abbreviation>g</abbreviation>
+                        <name>gram</name>
+                    </unit>
+                </value>
+            </entry>
+        </ingredientsWihQuantity>
+        <name>Candy milk</name>
+        <preparingTimeInSeconds>300</preparingTimeInSeconds>
+        <ration>1</ration>
+    </recipes>
+    <recipes>
+        <category>
             <name>main dish</name>
         </category>
         <cookingTimeInSeconds>120</cookingTimeInSeconds>
         <description>Just boiled</description>
         <ingredientsWihQuantity>
+            <entry>
+                <key>
+                    <name>apple</name>
+                    <type>
+                        <name>fruit</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>100.0</amount>
+                    <unit>
+                        <abbreviation>g</abbreviation>
+                        <name>gram</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>potato</name>
+                    <type>
+                        <name>vegetables</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>2.0</amount>
+                    <unit>
+                        <abbreviation>pc</abbreviation>
+                        <name>piece</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>salt</name>
+                    <type>
+                        <name>spice</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
+                    <unit>
+                        <abbreviation>approx</abbreviation>
+                        <name>mesure by eye</name>
+                    </unit>
+                </value>
+            </entry>
             <entry>
                 <key>
                     <name>milk</name>
@@ -166,58 +217,13 @@
                     </unit>
                 </value>
             </entry>
-            <entry>
-                <key>
-                    <name>apple</name>
-                    <type>
-                        <name>fruit</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>100.0</amount>
-                    <unit>
-                        <abbreviation>g</abbreviation>
-                        <name>gram</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
-                    <name>salt</name>
-                    <type>
-                        <name>spice</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>approx</abbreviation>
-                        <name>mesure by eye</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
-                    <name>potato</name>
-                    <type>
-                        <name>vegetables</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>2.0</amount>
-                    <unit>
-                        <abbreviation>pc</abbreviation>
-                        <name>piece</name>
-                    </unit>
-                </value>
-            </entry>
         </ingredientsWihQuantity>
         <name>Oh, my god</name>
         <preparingTimeInSeconds>60</preparingTimeInSeconds>
         <ration>1</ration>
     </recipes>
     <types>
-        <name>vegetables</name>
+        <name>fruit</name>
     </types>
     <types>
         <name>meat</name>
@@ -229,44 +235,8 @@
         <name>spice</name>
     </types>
     <types>
-        <name>fruit</name>
+        <name>vegetables</name>
     </types>
-    <units>
-        <abbreviation>pc</abbreviation>
-        <name>piece</name>
-    </units>
-    <units>
-        <abbreviation>l</abbreviation>
-        <name>liter</name>
-    </units>
-    <units>
-        <abbreviation>dl</abbreviation>
-        <name>deciliter</name>
-    </units>
-    <units>
-        <abbreviation>ml</abbreviation>
-        <name>milliliter</name>
-    </units>
-    <units>
-        <abbreviation>kg</abbreviation>
-        <name>kilogram</name>
-    </units>
-    <units>
-        <abbreviation>dcg</abbreviation>
-        <name>decagram</name>
-    </units>
-    <units>
-        <abbreviation>g</abbreviation>
-        <name>gram</name>
-    </units>
-    <units>
-        <abbreviation>tbs</abbreviation>
-        <name>tablespoon</name>
-    </units>
-    <units>
-        <abbreviation>tsp</abbreviation>
-        <name>teaspoon</name>
-    </units>
     <units>
         <abbreviation>cfs</abbreviation>
         <name>coffee spoon</name>
@@ -276,11 +246,47 @@
         <name>cup</name>
     </units>
     <units>
+        <abbreviation>dcg</abbreviation>
+        <name>decagram</name>
+    </units>
+    <units>
+        <abbreviation>dl</abbreviation>
+        <name>deciliter</name>
+    </units>
+    <units>
         <abbreviation>dr</abbreviation>
         <name>drop</name>
     </units>
     <units>
+        <abbreviation>g</abbreviation>
+        <name>gram</name>
+    </units>
+    <units>
+        <abbreviation>kg</abbreviation>
+        <name>kilogram</name>
+    </units>
+    <units>
+        <abbreviation>l</abbreviation>
+        <name>liter</name>
+    </units>
+    <units>
         <abbreviation>approx</abbreviation>
         <name>mesure by eye</name>
+    </units>
+    <units>
+        <abbreviation>ml</abbreviation>
+        <name>milliliter</name>
+    </units>
+    <units>
+        <abbreviation>pc</abbreviation>
+        <name>piece</name>
+    </units>
+    <units>
+        <abbreviation>tbs</abbreviation>
+        <name>tablespoon</name>
+    </units>
+    <units>
+        <abbreviation>tsp</abbreviation>
+        <name>teaspoon</name>
     </units>
 </data>

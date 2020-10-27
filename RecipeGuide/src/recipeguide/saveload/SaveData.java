@@ -6,6 +6,7 @@ import java.util.List;
 
 import recipeguide.exceptions.ModelException;
 import recipeguide.model.Filter;
+import recipeguide.model.entities.Book;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.FoodCategory;
 import recipeguide.model.entities.Ingredient;
@@ -23,6 +24,8 @@ public final class SaveData {
 	private List<MeasuryUnit> units = new ArrayList<>();
 	private List<Recipe> recipes = new ArrayList<>();
 	private List<FoodCategory> categories = new ArrayList<>();
+
+	private Book book = new Book();
 
 	private Filter filter;
 	private Entity oldEntity;
@@ -141,6 +144,14 @@ public final class SaveData {
 		this.categories = categories;
 	}
 
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
 	public void add(Entity entity) throws ModelException {
 		if (isEntityExist(entity)) {
 			throw new ModelException(ModelException.ENTITY_EXISTS);
@@ -154,6 +165,8 @@ public final class SaveData {
 			recipes.add((Recipe) entity);
 		} else if (entity instanceof FoodCategory) {
 			categories.add((FoodCategory) entity);
+		} else if (entity instanceof Book) {
+			book = (Book) entity;
 		}
 		entity.postAdd(this);
 		sort();
@@ -173,6 +186,8 @@ public final class SaveData {
 			recipes.remove((Recipe) entity);
 		} else if (entity instanceof FoodCategory) {
 			categories.remove((FoodCategory) entity);
+		} else if (entity instanceof Book) {
+			book = new Book();
 		}
 		entity.postDelete(this);
 		isSaved = false;
@@ -191,6 +206,9 @@ public final class SaveData {
 			oldEntity = recipes.remove(recipes.indexOf(entityOld));
 		} else if (entityNew instanceof FoodCategory) {
 			oldEntity = categories.remove(categories.indexOf(entityOld));
+		} else if (entityNew instanceof Book) {
+			oldEntity = book;
+			book = new Book();
 		}
 		entityNew.postEdit(this);
 		sort();
@@ -199,7 +217,7 @@ public final class SaveData {
 
 	private boolean isEntityExist(Entity entity) {
 		return ingredients.contains(entity) || types.contains(entity) || units.contains(entity)
-				|| recipes.contains(entity) || categories.contains(entity);
+				|| recipes.contains(entity) || categories.contains(entity) || book.equals(entity);
 	}
 
 	public void clearAll() {
@@ -208,6 +226,7 @@ public final class SaveData {
 		recipes.clear();
 		types.clear();
 		units.clear();
+		book = new Book();
 		oldEntity = null;
 		isSaved = false;
 	}
@@ -225,6 +244,14 @@ public final class SaveData {
 		builder.append(recipes);
 		builder.append(", categories=");
 		builder.append(categories);
+		builder.append(", book=");
+		builder.append(book);
+		builder.append(", filter=");
+		builder.append(filter);
+		builder.append(", oldEntity=");
+		builder.append(oldEntity);
+		builder.append(", isSaved=");
+		builder.append(isSaved);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -8,29 +8,39 @@ import java.util.Map;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
+import recipeguide.gui.Refresh;
+import recipeguide.gui.search.checkboxdatas.CheckBoxData;
 import recipeguide.settings.Style;
 
-public class CheckBoxPanel<E> extends JPanel implements EnableSearchElement {
+public class CheckBoxPanel<E> extends JPanel implements EnableSearchElement, Refresh {
 
 	private static final long serialVersionUID = 1L;
 
 	private Map<E, JCheckBox> datas;
+	private CheckBoxData<E> boxData;
 	private boolean enable;
 
-	public CheckBoxPanel(Map<E, String> items) {
+	public CheckBoxPanel(CheckBoxData<E> boxData) {
+		this.boxData = boxData;
+
+		init();
+	}
+
+	public void setDatasFromBoxDatas() {
 		datas = new LinkedHashMap<>();
-		for (Map.Entry<E, String> entry : items.entrySet()) {
+		for (Map.Entry<E, String> entry : boxData.getData()
+				.entrySet()) {
 			CheckBox checkbox = new CheckBox(entry.getValue());
 			checkbox.setBackground(Style.COLOR_SEARCH_MONO_PANEL);
 			checkbox.setFont(Style.FONT_SEARCH_CHECK_BOX);
 			datas.put(entry.getKey(), checkbox);
 		}
-		enable = false;
-
-		init();
 	}
 
 	private void init() {
+
+		setDatasFromBoxDatas();
+		enable = false;
 
 		setLayout(new FlowLayout(FlowLayout.LEFT, Style.PADDING_SEARCH_PANEL_HORIZONTAL,
 				Style.PADDING_SEARCH_PANEL_VERTICAL));
@@ -73,6 +83,11 @@ public class CheckBoxPanel<E> extends JPanel implements EnableSearchElement {
 
 		}
 
+	}
+
+	@Override
+	public void refresh() {
+		init();
 	}
 
 }

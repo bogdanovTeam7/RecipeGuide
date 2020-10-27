@@ -5,6 +5,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import recipeguide.gui.dialog.ErrorDialog;
 import recipeguide.settings.Settings;
 
 public class SaveLoad {
@@ -20,6 +21,7 @@ public class SaveLoad {
 			saveData.setRecipes(wrapper.getRecipes());
 			saveData.setTypes(wrapper.getTypes());
 			saveData.setUnits(wrapper.getUnits());
+			saveData.setBook(wrapper.getBook());
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
@@ -39,6 +41,7 @@ public class SaveLoad {
 			wrapper.setRecipes(saveData.getRecipes());
 			wrapper.setTypes(saveData.getTypes());
 			wrapper.setUnits(saveData.getUnits());
+			wrapper.setBook(saveData.getBook());
 
 			marshaller.marshal(wrapper, Settings.getFileSave());
 

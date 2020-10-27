@@ -6,16 +6,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import recipeguide.gui.MainButton;
+import recipeguide.gui.MainFrame;
+import recipeguide.gui.panel.AbstractPanel;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 
-public class SearchButtonPanel extends JPanel {
+public class SearchButtonPanel extends AbstractPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	private MainButton button;
 
-	public SearchButtonPanel() {
+	public SearchButtonPanel(MainFrame frame) {
+		super(frame);
 		setBorder(Style.BORDER_PANEL);
 
 		String action = null;
@@ -30,6 +33,11 @@ public class SearchButtonPanel extends JPanel {
 				.build();
 
 		add(button);
+	}
+
+	@Override
+	protected void init() {
+
 	}
 
 }

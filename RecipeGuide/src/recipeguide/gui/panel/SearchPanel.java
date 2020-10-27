@@ -17,8 +17,9 @@ public class SearchPanel extends RightPanel {
 
 	public SearchPanel(MainFrame frame) {
 		super(frame, Text.get("search"), Style.ICON_SEARCH_MAIN,
-				List.of(new NameSearchPanel(), new FoodCategorySearchPanel(), new IngredientTypeSearchPanel(),
-						new IngredientSearchPanel(), new SearchButtonPanel()));
+				List.of(new NameSearchPanel(frame), new FoodCategorySearchPanel(frame),
+						new IngredientTypeSearchPanel(frame), new IngredientSearchPanel(frame),
+						new SearchButtonPanel(frame)));
 	}
 
 }

@@ -1,10 +1,14 @@
+
 package recipeguide.saveload;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import recipeguide.model.entities.Book;
 import recipeguide.model.entities.FoodCategory;
 import recipeguide.model.entities.Ingredient;
 import recipeguide.model.entities.IngredientType;
@@ -14,11 +18,12 @@ import recipeguide.model.entities.Recipe;
 @XmlRootElement(name = "data")
 public class Wrapper {
 
-	private List<Ingredient> ingredients;
-	private List<IngredientType> types;
-	private List<MeasuryUnit> units;
-	private List<Recipe> recipes;
-	private List<FoodCategory> categories;
+	private List<Ingredient> ingredients = new ArrayList<>();
+	private List<IngredientType> types = new ArrayList<>();
+	private List<MeasuryUnit> units = new ArrayList<>();
+	private List<Recipe> recipes = new ArrayList<>();
+	private List<FoodCategory> categories = new ArrayList<>();
+	private Book book = new Book();
 
 	public Wrapper() {
 	}
@@ -66,6 +71,15 @@ public class Wrapper {
 
 	public void setCategories(List<FoodCategory> categories) {
 		this.categories = categories;
+	}
+
+	@XmlElement(name = "book")
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
 }

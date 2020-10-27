@@ -90,6 +90,11 @@ final public class Text {
 		data.put("delete", "Törlés");
 		data.put("cancel", "Visszavonás");
 
+		data.put("actualBook:", "Kiválasztótt könyv:");
+		data.put("bookDatas", "Könyv adatai");
+		data.put("bookAuthor", "Szerző");
+		data.put("startedAt", "Létrehozási dátuma");
+		data.put("lastEditedAt", "Utolsó szerkeztés");
 		data.put("recipeBookContains:", "Ez a recept könyv tartalmazz:");
 
 		data.put("h", "ó");

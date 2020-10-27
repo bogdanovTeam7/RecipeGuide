@@ -4,4 +4,5 @@ import java.util.Map;
 
 public interface CheckBoxData<E> {
 	Map<E, String> getData();
+
 }

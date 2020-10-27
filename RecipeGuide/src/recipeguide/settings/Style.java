@@ -16,6 +16,7 @@ public final class Style {
 	public static final Color COLOR_BUTTON_BG_NORMAL = new Color(240, 240, 240);
 	public static final Color COLOR_BUTTON_BG_HOVER = Color.YELLOW;
 	public static final Color COLOR_LEFT_PANEL_INFO_PANEL = Color.WHITE;
+	public static final Color COLOR_LEFT_PANEL_BOOK_PANEL = Color.WHITE;
 	public static final Color COLOR_SEARCH_MONO_PANEL = Color.WHITE;
 
 	public static final Font FONT_MENU_BUTTON = new Font(Settings.FONT_NAME, Font.BOLD, 14);
@@ -26,8 +27,9 @@ public final class Style {
 	public static final Font FONT_CONFIRM_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_ABOUT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_ADD_EDIT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 14);
-	public static final Font FONT_LEFT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 16);
-	public static final Font FONT_LEFT_PANEL_INFO_PANEL = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_LEFT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 14);
+	public static final Font FONT_LEFT_PANEL_INFO_PANEL = new Font(Settings.FONT_NAME, Font.BOLD, 12);
+	public static final Font FONT_LEFT_PANEL_BOOK_PANEL = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_RIGHT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 16);
 	public static final Font FONT_TABLE_HEADER = new Font(Settings.FONT_NAME, Font.BOLD, 16);
 	public static final Font FONT_TABLE = new Font(Settings.FONT_NAME, Font.BOLD, 12);
@@ -104,6 +106,8 @@ public final class Style {
 	public static final ImageIcon ICON_DIALOG_RECIPE_NAME = new ImageIcon("images/menuViewRecipes.png");
 	public static final ImageIcon ICON_DIALOG_DESCRIPTION = new ImageIcon("images/menuViewRecipes.png");
 	public static final ImageIcon ICON_DIALOG_AMOUNT = new ImageIcon("images/dialogAmount.png");
+	public static final ImageIcon ICON_DIALOG_BOOK_NAME = new ImageIcon("images/dialogBookName.png");
+	public static final ImageIcon ICON_DIALOG_BOOK_AUTHOR = new ImageIcon("images/dialogBookAuthor.png");
 
 	public static final ImageIcon ICON_LEFT_PANEL_TITLE = new ImageIcon("images/leftPanelTitle.png");
 
@@ -126,6 +130,7 @@ public final class Style {
 	public static final ImageIcon ICON_TABLE_COOKING_TIME = new ImageIcon("images/tableRecipeTime.png");
 
 	public static final ImageIcon ICON_SEARCH_MAIN = new ImageIcon("images/searchMain.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_BOOK = new ImageIcon("images/menuViewRecipes.png");
 
 	public static final int PADDING_SEARCH_PANEL_VERTICAL = 0;
 	public static final Icon ICON_SEARCH_NAME = null;

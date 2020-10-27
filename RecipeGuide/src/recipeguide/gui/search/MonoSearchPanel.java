@@ -3,17 +3,20 @@ package recipeguide.gui.search;
 import java.awt.FlowLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+import recipeguide.gui.MainFrame;
+import recipeguide.gui.Refresh;
+import recipeguide.gui.panel.AbstractPanel;
 import recipeguide.settings.Style;
 
-abstract public class MonoSearchPanel extends JPanel {
+abstract public class MonoSearchPanel extends AbstractPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	protected String labelText;
 	protected JComponent component;
 
-	public MonoSearchPanel(String labelText, JComponent component) {
+	public MonoSearchPanel(MainFrame frame, String labelText, JComponent component) {
+		super(frame);
 		this.labelText = labelText;
 		this.component = component;
 		init();
@@ -33,6 +36,14 @@ abstract public class MonoSearchPanel extends JPanel {
 		add(label);
 		add(component);
 
+	}
+
+	@Override
+	public void refresh() {
+		if (component instanceof Refresh) {
+			((Refresh) component).refresh();
+		}
+		super.refresh();
 	}
 
 }
