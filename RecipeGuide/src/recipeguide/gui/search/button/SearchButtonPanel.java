@@ -3,7 +3,6 @@ package recipeguide.gui.search.button;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 import recipeguide.gui.MainButton;
 import recipeguide.gui.MainFrame;

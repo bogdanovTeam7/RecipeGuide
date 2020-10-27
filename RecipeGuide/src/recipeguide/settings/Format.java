@@ -1,6 +1,8 @@
 package recipeguide.settings;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public final class Format {
 
@@ -27,6 +29,11 @@ public final class Format {
 		}
 		return String.format("%d %s : %02d %s : %02d %s", duration.toHours(), Text.get("h"), duration.toMinutesPart(),
 				Text.get("min"), duration.toSecondsPart(), Text.get("sec"));
+	}
+
+	public static String getFormattedDate(Date date) {
+		SimpleDateFormat format = new SimpleDateFormat(Text.get("dateFormatPattern"));
+		return format.format(date);
 	}
 
 }

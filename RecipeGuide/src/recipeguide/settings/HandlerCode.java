@@ -40,5 +40,9 @@ public final class HandlerCode {
 	public static final ActionListener TOOLBAR_ADD = null;
 	public static final ActionListener TOOLBAR_EDIT = null;
 	public static final ActionListener TOOLBAR_DELETE = null;
+	public static final String MENU_VIEW_BOOK = null;
+	public static final String MENU_VIEW_SEARCH = null;
+	public static final ActionListener TOOLBAR_BOOK = null;
+	public static final ActionListener TOOLBAR_SEARCH_RECIPES = null;
 
 }

@@ -70,22 +70,25 @@ public final class Style {
 	public static final ImageIcon ICON_MENU_EDIT_EDIT = new ImageIcon("images/menuEditEdit.png");
 	public static final ImageIcon ICON_MENU_EDIT_DELETE = new ImageIcon("images/menuEditDelete.png");
 
-	public static final ImageIcon ICON_MENU_VIEW_OVERVIEW = new ImageIcon("images/menuViewOverview.png");
+	public static final ImageIcon ICON_MENU_VIEW_BOOK = new ImageIcon("images/menuViewBook.png");
 	public static final ImageIcon ICON_MENU_VIEW_INGREDIENT_TYPES = new ImageIcon("images/menuViewIngredientTypes.png");
 	public static final ImageIcon ICON_MENU_VIEW_INGREDIENTS = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_MENU_VIEW_MEASURY_UNITS = new ImageIcon("images/menuViewMeasuryUnits.png");
 	public static final ImageIcon ICON_MENU_VIEW_FOOD_CATEGORIES = new ImageIcon("images/menuViewFoodCategories.png");
 	public static final ImageIcon ICON_MENU_VIEW_RECIPES = new ImageIcon("images/menuViewRecipes.png");
+	public static final ImageIcon ICON_MENU_VIEW_SEARCH = new ImageIcon("images/menuViewSearch.png");
 
 	public static final ImageIcon ICON_MENU_HELP_ABOUT = new ImageIcon("images/menuHelpAbout.png");
 
-	public static final ImageIcon ICON_TOOLBAR_OVERVIEW = new ImageIcon("images/toolbarOverview.png");
+	public static final ImageIcon ICON_TOOLBAR_BOOK = new ImageIcon("images/toolbarBook.png");
 	public static final ImageIcon ICON_TOOLBAR_MEASURY_UNITS = new ImageIcon("images/toolbarViewMeasuryUnits.png");
 	public static final ImageIcon ICON_TOOLBAR_INGREDIENT_TYPES = new ImageIcon(
 			"images/toolbarViewIngredientTypes.png");
 	public static final ImageIcon ICON_TOOLBAR_INGREDIENTS = new ImageIcon("images/toolbarViewIngredients.png");
 	public static final ImageIcon ICON_TOOLBAR_FOOD_CATEGORIES = new ImageIcon("images/toolbarViewFoodCategories.png");
 	public static final ImageIcon ICON_TOOLBAR_RECIPES = new ImageIcon("images/toolbarViewRecipes.png");
+	public static final ImageIcon ICON_TOOLBAR_SEARCH_RECIPES = new ImageIcon("images/toolbarSearchRecipes.png");
+
 	public static final ImageIcon ICON_TOOLBAR_ADD = new ImageIcon("images/toolbarAdd.png");
 	public static final ImageIcon ICON_TOOLBAR_EDIT = new ImageIcon("images/toolbarEdit.png");
 	public static final ImageIcon ICON_TOOLBAR_DELETE = new ImageIcon("images/toolbarDelete.png");
@@ -115,6 +118,12 @@ public final class Style {
 	public static final ImageIcon ICON_RIGHT_PANEL_INGREDIENT_TYPE = new ImageIcon(
 			"images/menuViewIngredientTypes.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_RECIPE = new ImageIcon("images/menuViewRecipes.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_BOOK = new ImageIcon("images/rightPanelBook.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_NAME = new ImageIcon("images/dialogBookName.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_AUTHOR = new ImageIcon("images/dialogBookAuthor.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_STARTED_AT = new ImageIcon(
+			"images/rightPanelBookStartedAt.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_EDITED_AT = new ImageIcon("images/rightPanelBookStartedAt.png");
 
 	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
@@ -130,7 +139,6 @@ public final class Style {
 	public static final ImageIcon ICON_TABLE_COOKING_TIME = new ImageIcon("images/tableRecipeTime.png");
 
 	public static final ImageIcon ICON_SEARCH_MAIN = new ImageIcon("images/searchMain.png");
-	public static final ImageIcon ICON_RIGHT_PANEL_BOOK = new ImageIcon("images/menuViewRecipes.png");
 
 	public static final int PADDING_SEARCH_PANEL_VERTICAL = 0;
 	public static final Icon ICON_SEARCH_NAME = null;

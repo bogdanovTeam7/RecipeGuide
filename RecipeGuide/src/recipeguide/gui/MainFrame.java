@@ -121,6 +121,7 @@ public class MainFrame extends JFrame implements Refresh {
 		SwingUtilities.updateComponentTreeUI(this);
 		menubar.refresh();
 		leftPanel.refresh();
+		rightPanel.refresh();
 		pack();
 
 	}

@@ -15,7 +15,7 @@ public final class MainToolbar extends AbstractToolbar {
 
 	@Override
 	protected void init() {
-		addMainButton(Text.get("toolbarOverview"), Style.ICON_TOOLBAR_OVERVIEW, HandlerCode.TOOLBAR_OVERVIEW, "", true);
+		addMainButton(Text.get("toolbarBook"), Style.ICON_TOOLBAR_BOOK, HandlerCode.TOOLBAR_BOOK, "", true);
 		addMainButton(Text.get("toolbarMeasuryUnits"), Style.ICON_TOOLBAR_MEASURY_UNITS,
 				HandlerCode.TOOLBAR_MEASURY_UNITS, "", true);
 		addMainButton(Text.get("toolbarIngredientTypes"), Style.ICON_TOOLBAR_INGREDIENT_TYPES,
@@ -25,6 +25,7 @@ public final class MainToolbar extends AbstractToolbar {
 		addMainButton(Text.get("toolbarFoodCategories"), Style.ICON_TOOLBAR_FOOD_CATEGORIES,
 				HandlerCode.TOOLBAR_FOOD_CATEGORIES, "", true);
 		addMainButton(Text.get("toolbarRecipes"), Style.ICON_TOOLBAR_RECIPES, HandlerCode.TOOLBAR_RECIPES, "", true);
+		addMainButton(Text.get("toolbarSearchRecipes"), Style.ICON_TOOLBAR_SEARCH_RECIPES, HandlerCode.TOOLBAR_SEARCH_RECIPES, "", true);
 	}
 
 }

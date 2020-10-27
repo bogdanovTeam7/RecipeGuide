@@ -2,8 +2,6 @@ package recipeguide.gui.table;
 
 import java.util.LinkedHashMap;
 
-import javax.swing.table.TableCellRenderer;
-
 import recipeguide.gui.table.model.RecipeTableModel;
 import recipeguide.model.entities.Recipe;
 import recipeguide.settings.Style;
@@ -28,6 +26,5 @@ public class RecipeTableData extends TableDate<Recipe> {
 			}
 		}, new RecipeTableModel());
 	}
-	
-	
+
 }

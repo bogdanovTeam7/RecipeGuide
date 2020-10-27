@@ -5,7 +5,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import recipeguide.gui.dialog.ErrorDialog;
 import recipeguide.settings.Settings;
 
 public class SaveLoad {

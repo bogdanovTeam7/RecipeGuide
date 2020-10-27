@@ -53,21 +53,23 @@ final public class Text {
 		data.put("menuEditEdit", "Modosítás");
 		data.put("menuEditDelete", "Törlés");
 
-		data.put("menuViewOverview", "Általános");
+		data.put("menuViewBook", "Könyv adatai");
 		data.put("menuViewIngredientTypes", "Alapanyagok csoportosítása");
 		data.put("menuViewIngredients", "Alapanyagok");
 		data.put("menuViewMeasuryUnits", "Mérési egységek");
 		data.put("menuViewFoodCategories", "Ételek csoportosítása");
 		data.put("menuViewRecipes", "Receptek");
+		data.put("menuViewSearchRecipes", "Receptek keresése");
 
 		data.put("menuHelpAbout", "Programról");
 
-		data.put("toolbarOverview", "Általános");
+		data.put("toolbarBook", "Könyv");
 		data.put("toolbarIngredientTypes", "Alapanyagok csoportosítása");
 		data.put("toolbarIngredients", "Alapanyagok");
 		data.put("toolbarMeasuryUnits", "Mérési egységek");
 		data.put("toolbarFoodCategories", "Ételek csoportosítása");
 		data.put("toolbarRecipes", "Receptek");
+		data.put("toolbarSearchRecipes", "Receptek keresése");
 
 		data.put("search", "Keresés");
 
@@ -92,6 +94,7 @@ final public class Text {
 
 		data.put("actualBook:", "Kiválasztótt könyv:");
 		data.put("bookDatas", "Könyv adatai");
+		data.put("bookName", "Cím");
 		data.put("bookAuthor", "Szerző");
 		data.put("startedAt", "Létrehozási dátuma");
 		data.put("lastEditedAt", "Utolsó szerkeztés");
@@ -100,6 +103,10 @@ final public class Text {
 		data.put("h", "ó");
 		data.put("min", "perc");
 		data.put("sec", "mp");
+
+		data.put("dateFormatPattern", "yyyy MMMM dd");
+		data.put("monthInflectionPrefix", "");
+
 		data.put("January", "Január");
 		data.put("February", "Február");
 		data.put("March", "Március");

@@ -2,6 +2,8 @@ package recipeguide.model.entities;
 
 import java.util.Date;
 
+import recipeguide.settings.Format;
+
 public class Book extends AbstractEntity {
 
 	private String name = "";
@@ -49,6 +51,14 @@ public class Book extends AbstractEntity {
 
 	public void setLastEditedAt(Date lastEditedAt) {
 		this.lastEditedAt = lastEditedAt;
+	}
+
+	public String getFormattedStartedAt() {
+		return Format.getFormattedDate(startedAt);
+	}
+
+	public String getFormattedLastEditedAt() {
+		return Format.getFormattedDate(lastEditedAt);
 	}
 
 	@Override

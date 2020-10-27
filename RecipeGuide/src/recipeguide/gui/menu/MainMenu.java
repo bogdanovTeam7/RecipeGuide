@@ -54,8 +54,8 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		menuEdit.setEnabled(false);
 		menuDelete.setEnabled(false);
 
-		addMenuItem(view, Text.get("menuViewOverview"), Style.ICON_MENU_VIEW_OVERVIEW, HandlerCode.MENU_VIEW_OVERVIEW,
-				KeyEvent.VK_V);
+		addMenuItem(view, Text.get("menuViewBook"), Style.ICON_MENU_VIEW_BOOK, HandlerCode.MENU_VIEW_BOOK,
+				KeyEvent.VK_B);
 		addMenuItem(view, Text.get("menuViewIngredientTypes"), Style.ICON_MENU_VIEW_INGREDIENT_TYPES,
 				HandlerCode.MENU_INGREDIENT_TYPES, KeyEvent.VK_T);
 		addMenuItem(view, Text.get("menuViewIngredients"), Style.ICON_MENU_VIEW_INGREDIENTS,
@@ -66,6 +66,7 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 				HandlerCode.MENU_VIEW_FOOD_CATEGORIES, KeyEvent.VK_C);
 		addMenuItem(view, Text.get("menuViewRecipes"), Style.ICON_MENU_VIEW_RECIPES, HandlerCode.MENU_VIEW_RECIPES,
 				KeyEvent.VK_R);
+		addMenuItem(view, Text.get("menuViewSearchRecipes"), Style.ICON_MENU_VIEW_SEARCH, HandlerCode.MENU_VIEW_SEARCH);
 
 		addMenuItem(help, Text.get("menuHelpAbout"), Style.ICON_MENU_HELP_ABOUT, HandlerCode.MENU_HELP_ABOUT);
 
@@ -101,10 +102,6 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		menu.add(item);
 		menu.addSeparator();
 		return item;
-	}
-
-	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener) {
-		return addMenuItem(menu, title, icon, action, listener, 0);
 	}
 
 	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action) {

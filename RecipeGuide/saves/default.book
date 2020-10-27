@@ -2,7 +2,7 @@
 <data>
     <book>
         <author></author>
-        <lastEditedAt>1000-10-15T17:17:08.042+01:00</lastEditedAt>
+        <lastEditedAt>1000-09-27T17:17:08.042+01:00</lastEditedAt>
         <name></name>
         <startedAt>2020-10-27T17:17:08.042+01:00</startedAt>
     </book>
@@ -60,6 +60,21 @@
         <ingredientsWihQuantity>
             <entry>
                 <key>
+                    <name>salt</name>
+                    <type>
+                        <name>spice</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
+                    <unit>
+                        <abbreviation>approx</abbreviation>
+                        <name>mesure by eye</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
                     <name>egg</name>
                     <type>
                         <name>other</name>
@@ -67,6 +82,75 @@
                 </key>
                 <value>
                     <amount>2.0</amount>
+                    <unit>
+                        <abbreviation>pc</abbreviation>
+                        <name>piece</name>
+                    </unit>
+                </value>
+            </entry>
+        </ingredientsWihQuantity>
+        <name>boiled eggs</name>
+        <preparingTimeInSeconds>60</preparingTimeInSeconds>
+        <ration>1</ration>
+    </recipes>
+    <recipes>
+        <category>
+            <name>drink</name>
+        </category>
+        <cookingTimeInSeconds>1200</cookingTimeInSeconds>
+        <description>Very simple</description>
+        <ingredientsWihQuantity>
+            <entry>
+                <key>
+                    <name>sugar</name>
+                    <type>
+                        <name>spice</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
+                    <unit>
+                        <abbreviation>g</abbreviation>
+                        <name>gram</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>milk</name>
+                    <type>
+                        <name>milk product</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>2.0</amount>
+                    <unit>
+                        <abbreviation>dl</abbreviation>
+                        <name>deciliter</name>
+                    </unit>
+                </value>
+            </entry>
+        </ingredientsWihQuantity>
+        <name>Candy milk</name>
+        <preparingTimeInSeconds>300</preparingTimeInSeconds>
+        <ration>1</ration>
+    </recipes>
+    <recipes>
+        <category>
+            <name>main dish</name>
+        </category>
+        <cookingTimeInSeconds>120</cookingTimeInSeconds>
+        <description>Just boiled</description>
+        <ingredientsWihQuantity>
+            <entry>
+                <key>
+                    <name>no ingredient</name>
+                    <type>
+                        <name>no type</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
                     <unit>
                         <abbreviation>pc</abbreviation>
                         <name>piece</name>
@@ -88,60 +172,6 @@
                     </unit>
                 </value>
             </entry>
-        </ingredientsWihQuantity>
-        <name>boiled eggs</name>
-        <preparingTimeInSeconds>60</preparingTimeInSeconds>
-        <ration>1</ration>
-    </recipes>
-    <recipes>
-        <category>
-            <name>drink</name>
-        </category>
-        <cookingTimeInSeconds>1200</cookingTimeInSeconds>
-        <description>Very simple</description>
-        <ingredientsWihQuantity>
-            <entry>
-                <key>
-                    <name>milk</name>
-                    <type>
-                        <name>milk product</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>2.0</amount>
-                    <unit>
-                        <abbreviation>dl</abbreviation>
-                        <name>deciliter</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
-                    <name>sugar</name>
-                    <type>
-                        <name>spice</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>g</abbreviation>
-                        <name>gram</name>
-                    </unit>
-                </value>
-            </entry>
-        </ingredientsWihQuantity>
-        <name>Candy milk</name>
-        <preparingTimeInSeconds>300</preparingTimeInSeconds>
-        <ration>1</ration>
-    </recipes>
-    <recipes>
-        <category>
-            <name>main dish</name>
-        </category>
-        <cookingTimeInSeconds>120</cookingTimeInSeconds>
-        <description>Just boiled</description>
-        <ingredientsWihQuantity>
             <entry>
                 <key>
                     <name>apple</name>
@@ -174,21 +204,6 @@
             </entry>
             <entry>
                 <key>
-                    <name>salt</name>
-                    <type>
-                        <name>spice</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>approx</abbreviation>
-                        <name>mesure by eye</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
                     <name>milk</name>
                     <type>
                         <name>milk product</name>
@@ -199,21 +214,6 @@
                     <unit>
                         <abbreviation>dl</abbreviation>
                         <name>deciliter</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
-                    <name>no ingredient</name>
-                    <type>
-                        <name>no type</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>pc</abbreviation>
-                        <name>piece</name>
                     </unit>
                 </value>
             </entry>
