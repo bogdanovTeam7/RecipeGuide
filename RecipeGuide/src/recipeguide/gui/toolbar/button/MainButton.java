@@ -1,4 +1,4 @@
-package recipeguide.gui;
+package recipeguide.gui.toolbar.button;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -13,8 +13,11 @@ public class MainButton extends JButton implements MouseListener {
 
 	private static final long serialVersionUID = 1L;
 
+	private ButtonType type;
+
 	private MainButton(Builder builder) {
 		super(builder.title);
+		this.type = builder.type;
 		setIcon(builder.icon);
 		setActionCommand(builder.action);
 		addActionListener(builder.actionListener);
@@ -35,6 +38,7 @@ public class MainButton extends JButton implements MouseListener {
 		private ImageIcon icon;
 		private ActionListener actionListener;
 		private String action;
+		private ButtonType type;
 
 		private Builder() {
 		}
@@ -59,9 +63,22 @@ public class MainButton extends JButton implements MouseListener {
 			return this;
 		}
 
+		public Builder withType(ButtonType type) {
+			this.type = type;
+			return this;
+		}
+
 		public MainButton build() {
 			return new MainButton(this);
 		}
+	}
+
+	public ButtonType getType() {
+		return type;
+	}
+
+	public void setType(ButtonType type) {
+		this.type = type;
 	}
 
 	@Override

@@ -6,11 +6,8 @@ import java.awt.GraphicsEnvironment;
 import java.io.IOException;
 
 import recipeguide.gui.MainFrame;
-import recipeguide.gui.dialog.IngredientTypeAddEditDialog;
 import recipeguide.saveload.SaveData;
-import recipeguide.saveload.SaveLoad;
 import recipeguide.settings.Settings;
-import recipeguide.tests.TestDates;
 
 public class Main {
 

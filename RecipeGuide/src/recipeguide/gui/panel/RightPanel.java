@@ -17,6 +17,7 @@ import recipeguide.gui.EnableElement;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
 import recipeguide.gui.table.TableDate;
+import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.settings.Style;
 
 abstract public class RightPanel extends AbstractPanel implements Refresh {
@@ -26,7 +27,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	protected TableDate<?> tableData;
 	private String title;
 	private ImageIcon icon;
-	private List<JPanel> panels;
+	protected List<JPanel> panels;
 
 	public RightPanel(MainFrame frame, TableDate<?> tableData, String title, ImageIcon icon, List<JPanel> panels) {
 		super(frame);
@@ -34,6 +35,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 		this.title = title;
 		this.icon = icon;
 		this.panels = panels;
+
 		init();
 	}
 
@@ -56,23 +58,25 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	}
 
 	private void checkEnableElements() {
-		setEnableElements(false);
+		List<ButtonType> types = List.of(ButtonType.ADD);
+		setEnableElements(types);
 		if (tableData != null) {
 			if (tableData.getSelectedRow() != -1) {
-				setEnableElements(true);
+				List<ButtonType> of = List.of(ButtonType.ADD, ButtonType.EDIT, ButtonType.DELETE);
+				setEnableElements(of);
 			}
 
 		}
 	}
 
-	public void setEnableElements(boolean enable) {
+	public void setEnableElements(List<ButtonType> types) {
 		for (JPanel jPanel : panels) {
 			if (jPanel instanceof EnableElement) {
-				((EnableElement) jPanel).setEnableElement(enable);
+				((EnableElement) jPanel).setEnableElement(types);
 			}
 		}
 		frame.getMenu()
-				.setEnableElement(enable);
+				.setEnableElement(types);
 	}
 
 	@Override
@@ -90,6 +94,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 
 	@Override
 	protected void init() {
+		setEnableTypesInFrame();
 		checkEnableElements();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(Style.BORDER_PANEL);
@@ -122,6 +127,14 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 			add(scrollPane);
 		}
 
+	}
+
+	private void setEnableTypesInFrame() {
+		for (JPanel jPanel : panels) {
+			if (jPanel instanceof EnableElement) {
+				frame.setEnableTypes(((EnableElement) jPanel).getEnableTypes());
+			}
+		}
 	}
 
 }

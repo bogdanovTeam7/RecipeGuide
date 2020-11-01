@@ -12,8 +12,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import recipeguide.exceptions.ModelException;
-import recipeguide.gui.MainButton;
 import recipeguide.gui.MainFrame;
+import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.Quantity;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.Ingredient;

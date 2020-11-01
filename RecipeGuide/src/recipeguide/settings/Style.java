@@ -51,6 +51,7 @@ public final class Style {
 	public static final int PADDING_DIALOG_GRID_VERTICAL = 10;
 	public static final int PADDING_LEFT_PANEL_INFO_PANEL = 5;
 	public static final int PADDING_RIGHT_PANEL = 10;
+	public static final int PADDING_BOOK_PANEL = 30;
 	public static final int PADDING_TABLE_ROW_ADD = 15;
 	public static final int PADDING_SEARCH_PANEL_HORIZONTAL = 15;
 

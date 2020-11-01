@@ -1,18 +1,20 @@
 package recipeguide.gui.menu;
 
-import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
 import recipeguide.gui.EnableElement;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
 import recipeguide.gui.handler.Handler;
 import recipeguide.gui.handler.MenuFileHandler;
+import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
@@ -21,8 +23,9 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame frame;
-	private JMenuItem menuEdit;
-	private JMenuItem menuDelete;
+	private MenuItem menuAdd;
+	private MenuItem menuEdit;
+	private MenuItem menuDelete;
 
 	public MainMenu(MainFrame frame) {
 		this.frame = frame;
@@ -47,10 +50,13 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		addMenuItem(file, Text.get("menuFileExit"), Style.ICON_MENU_FILE_EXIT, HandlerCode.MENU_FILE_EXIT,
 				new MenuFileHandler(frame), KeyEvent.VK_E);
 
-		addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.MENU_EDIT_ADD);
-		menuEdit = addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT, HandlerCode.MENU_EDIT_EDIT);
+		menuAdd = addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.MENU_EDIT_ADD,
+				ButtonType.ADD);
+		menuEdit = addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT, HandlerCode.MENU_EDIT_EDIT,
+				ButtonType.EDIT);
 		menuDelete = addMenuItem(edit, Text.get("menuEditDelete"), Style.ICON_MENU_EDIT_DELETE,
-				HandlerCode.MENU_EDIT_DELETE);
+				HandlerCode.MENU_EDIT_DELETE, ButtonType.DELETE);
+		menuAdd.setEnabled(false);
 		menuEdit.setEnabled(false);
 		menuDelete.setEnabled(false);
 
@@ -67,7 +73,6 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		addMenuItem(view, Text.get("menuViewRecipes"), Style.ICON_MENU_VIEW_RECIPES, HandlerCode.MENU_VIEW_RECIPES,
 				KeyEvent.VK_R);
 		addMenuItem(view, Text.get("menuViewSearchRecipes"), Style.ICON_MENU_VIEW_SEARCH, HandlerCode.MENU_VIEW_SEARCH);
-
 		addMenuItem(help, Text.get("menuHelpAbout"), Style.ICON_MENU_HELP_ABOUT, HandlerCode.MENU_HELP_ABOUT);
 
 		setBackground(Style.COLOR_MAIN_MENU);
@@ -86,42 +91,65 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		return menu;
 	}
 
-	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener, int key) {
-		JMenuItem item = new JMenuItem();
-		item.setText(title);
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener, int key,
+			ButtonType type) {
+		MenuItem item = MenuItem.builder()
+				.withTitle(title)
+				.withIcon(icon)
+				.withAction(action)
+				.withListener(listener)
+				.withKey(key)
+				.withAction(action)
+				.build();
 		item.setFont(Style.FONT_MENU_ITEM);
-		item.setIcon(icon);
-		item.setActionCommand(action);
-		item.addActionListener(listener);
-		if (key != 0) {
-			int modifiers = Toolkit.getDefaultToolkit()
-					.getMenuShortcutKeyMaskEx();
-			KeyStroke hotKey = KeyStroke.getKeyStroke(key, modifiers);
-			item.setAccelerator(hotKey);
-		}
+
 		menu.add(item);
 		menu.addSeparator();
 		return item;
 	}
 
-	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action) {
-		return addMenuItem(menu, title, icon, action, null, 0);
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener, int key) {
+		return addMenuItem(menu, title, icon, action, listener, key, ButtonType.UNSPECIFIED);
 	}
 
-	private JMenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, int key) {
-		return addMenuItem(menu, title, icon, action, null, key);
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, ButtonType type) {
+		return addMenuItem(menu, title, icon, action, null, 0, type);
 	}
 
-	@Override
-	public void setEnableElement(boolean enable) {
-		menuEdit.setEnabled(enable);
-		menuDelete.setEnabled(enable);
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, int key) {
+		return addMenuItem(menu, title, icon, action, null, key, ButtonType.UNSPECIFIED);
+	}
+
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action) {
+		return addMenuItem(menu, title, icon, action, null, 0, ButtonType.UNSPECIFIED);
 	}
 
 	@Override
 	public void refresh() {
 		removeAll();
 		init();
+	}
+
+	@Override
+	public void setEnableElement(List<ButtonType> types) {
+		menuAdd.setEnabled(types.contains(menuAdd.getType()));
+		menuEdit.setEnabled(types.contains(menuEdit.getType()));
+		menuDelete.setEnabled(types.contains(menuDelete.getType()));
+	}
+
+	@Override
+	public List<ButtonType> getEnableTypes() {
+		List<ButtonType> enableTypes = new ArrayList<>();
+		if (menuAdd.isEnabled()) {
+			enableTypes.add(menuAdd.getType());
+		}
+		if (menuEdit.isEnabled()) {
+			enableTypes.add(menuEdit.getType());
+		}
+		if (menuDelete.isEnabled()) {
+			enableTypes.add(menuDelete.getType());
+		}
+		return enableTypes;
 	}
 
 }

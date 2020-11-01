@@ -1,15 +1,18 @@
 package recipeguide.gui.panel;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import recipeguide.gui.MainFrame;
+import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.entities.Book;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.Style;
@@ -30,13 +33,13 @@ public class BookDataPanel extends AbstractPanel {
 		book = SaveData.getInstance()
 				.getBook();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		add(createMonoPanel("bookName", Style.ICON_RIGHT_PANEL_BOOK_NAME, book.getNameToDisplay(), true));
-		add(createMonoPanel("bookAuthor", Style.ICON_RIGHT_PANEL_BOOK_AUTHOR, book.getAuthor(), true));
-		add(createMonoPanel("startedAt", Style.ICON_RIGHT_PANEL_BOOK_STARTED_AT, book.getFormattedStartedAt(), false));
-		add(createMonoPanel("lastEditedAt", Style.ICON_RIGHT_PANEL_BOOK_EDITED_AT, book.getFormattedLastEditedAt(), false));
+		add(createMonoPanel("bookName", Style.ICON_RIGHT_PANEL_BOOK_NAME, book.getNameToDisplay()));
+		add(createMonoPanel("bookAuthor", Style.ICON_RIGHT_PANEL_BOOK_AUTHOR, book.getAuthor()));
+		add(createMonoPanel("startedAt", Style.ICON_RIGHT_PANEL_BOOK_STARTED_AT, book.getFormattedStartedAt()));
+		add(createMonoPanel("lastEditedAt", Style.ICON_RIGHT_PANEL_BOOK_EDITED_AT, book.getFormattedLastEditedAt()));
 	}
 
-	private JPanel createMonoPanel(String title, ImageIcon icon, String text, boolean isEditable) {
+	private JPanel createMonoPanel(String title, ImageIcon icon, String text) {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(Style.BORDER_PANEL);
 
@@ -47,16 +50,13 @@ public class BookDataPanel extends AbstractPanel {
 		label.setIcon(icon);
 		panel.add(label, BorderLayout.WEST);
 
-		panel.add(Box.createHorizontalStrut(Style.PADDING_RIGHT_PANEL));
+		panel.add(Box.createHorizontalStrut(Style.PADDING_BOOK_PANEL));
 
 		JTextArea textArea = new JTextArea(text);
+		textArea.setAlignmentX(RIGHT_ALIGNMENT);
 		textArea.setFont(Style.FONT_RIGHT_PANEL_TITLE);
-		if (!isEditable) {
-			textArea.setBackground(panel.getBackground());
-		} else {
-			textArea.setPreferredSize(Style.DIMENSION_DIALOG_TEXT_FIELD);
-		}
-		textArea.setEditable(isEditable);
+		textArea.setBackground(panel.getBackground());
+		textArea.setEditable(false);
 
 		panel.add(textArea, BorderLayout.EAST);
 

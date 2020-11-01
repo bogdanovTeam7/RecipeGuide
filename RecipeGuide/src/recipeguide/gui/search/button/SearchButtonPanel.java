@@ -4,9 +4,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 
-import recipeguide.gui.MainButton;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.panel.AbstractPanel;
+import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 

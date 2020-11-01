@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map.Entry;
 
 import javax.swing.JButton;
@@ -32,6 +33,7 @@ import recipeguide.gui.panel.RightPanel;
 import recipeguide.gui.panel.SearchPanel;
 import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
+import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.model.Quantity;
 import recipeguide.model.entities.FoodCategory;
 import recipeguide.model.entities.Ingredient;
@@ -53,6 +55,7 @@ public class MainFrame extends JFrame implements Refresh {
 	private LeftPanel leftPanel;
 	private RightPanel rightPanel;
 	private MainToolbar mainToolbar;
+	private List<ButtonType> enableTypes;
 
 	public MainFrame() {
 		super(Text.get("ProgramName"));
@@ -116,12 +119,20 @@ public class MainFrame extends JFrame implements Refresh {
 		}
 	}
 
+	public List<ButtonType> getEnableTypes() {
+		return enableTypes;
+	}
+
+	public void setEnableTypes(List<ButtonType> enableTypes) {
+		this.enableTypes = enableTypes;
+	}
+
 	@Override
 	public void refresh() {
 		SwingUtilities.updateComponentTreeUI(this);
-		menubar.refresh();
 		leftPanel.refresh();
 		rightPanel.refresh();
+		menubar.refresh();
 		pack();
 
 	}

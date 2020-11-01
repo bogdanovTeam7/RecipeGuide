@@ -1,38 +1,55 @@
 package recipeguide.gui.toolbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import recipeguide.gui.EnableElement;
-import recipeguide.gui.MainButton;
-import recipeguide.settings.HandlerCode;
+import recipeguide.gui.toolbar.button.ButtonType;
+import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.settings.Style;
-import recipeguide.settings.Text;
 
 public final class EditorToolbar extends AbstractToolbar implements EnableElement {
 
 	private static final long serialVersionUID = 1L;
 
-	private MainButton editButton;
-	private MainButton deleteButton;
+	private List<ButtonType> types;
+	private List<MainButton> buttons;
 
-	public EditorToolbar() {
+	public EditorToolbar(List<ButtonType> types) {
 		super(Style.BORDER_TOOLBAR_EDITOR);
+		this.types = types;
 		init();
 	}
 
 	@Override
-	public void setEnableElement(boolean enable) {
-		editButton.setEnabled(enable);
-		deleteButton.setEnabled(enable);
+	protected void init() {
+		buttons = new ArrayList<>();
+		for (ButtonType type : types) {
+			buttons.add(addToolBarButton(type));
+		}
+
 	}
 
 	@Override
-	protected void init() {
+	public void setEnableElement(List<ButtonType> types) {
+		for (MainButton button : buttons) {
+			if (types.contains(button.getType())) {
+				button.setEnabled(true);
+			} else {
+				button.setEnabled(false);
+			}
+		}
+	}
 
-		addMainButton(Text.get("toolbarAdd"), Style.ICON_TOOLBAR_ADD, HandlerCode.TOOLBAR_ADD, "", false);
-		editButton = addMainButton(Text.get("toolbarEdit"), Style.ICON_TOOLBAR_EDIT, HandlerCode.TOOLBAR_EDIT, "",
-				false);
-		deleteButton = addMainButton(Text.get("toolbarDelete"), Style.ICON_TOOLBAR_DELETE, HandlerCode.TOOLBAR_DELETE,
-				"", false);
-
+	@Override
+	public List<ButtonType> getEnableTypes() {
+		List<ButtonType> enableTypes = new ArrayList<>();
+		for (MainButton button : buttons) {
+			if (button.isEnabled()) {
+				enableTypes.add(button.getType());
+			}
+		}
+		return enableTypes;
 	}
 
 }

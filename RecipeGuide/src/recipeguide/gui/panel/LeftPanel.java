@@ -68,6 +68,8 @@ public class LeftPanel extends AbstractPanel {
 			JTextField infoField = new JTextField(entry.getValue());
 			infoField.setFont(Style.FONT_LEFT_PANEL_INFO_PANEL);
 			infoField.setBorder(Style.BORDER_PANEL);
+			infoField.setEditable(false);
+			infoField.setBackground(Style.COLOR_LEFT_PANEL_INFO_PANEL);
 			infoPanel.add(infoField, BorderLayout.EAST);
 
 			add(infoPanel);

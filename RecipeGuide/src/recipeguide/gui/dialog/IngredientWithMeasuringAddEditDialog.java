@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 import recipeguide.exceptions.ModelException;
-import recipeguide.gui.MainButton;
 import recipeguide.gui.MainFrame;
+import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.IngredientWithQuantity;
 import recipeguide.saveload.SaveData;
