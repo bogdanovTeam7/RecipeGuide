@@ -13,8 +13,8 @@ public class BookPanel extends RightPanel {
 	private static final long serialVersionUID = 1L;
 
 	public BookPanel(MainFrame frame) {
-		super(frame, Text.get("bookDatas"), Style.ICON_RIGHT_PANEL_BOOK,
-				List.of(new BookDataPanel(frame), new EditorToolbar(List.of(ButtonType.EDIT))));
+		super(frame, Text.get("bookDatas"), Style.ICON_RIGHT_PANEL_BOOK, List.of(new BookDataPanel(frame),
+				new EditorToolbar(List.of(ButtonType.EDIT), List.of(ButtonType.EDIT))));
 	}
 
 }

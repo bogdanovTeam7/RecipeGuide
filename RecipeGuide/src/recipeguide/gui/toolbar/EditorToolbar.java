@@ -13,11 +13,13 @@ public final class EditorToolbar extends AbstractToolbar implements EnableElemen
 	private static final long serialVersionUID = 1L;
 
 	private List<ButtonType> types;
+	private List<ButtonType> enableTypes;
 	private List<MainButton> buttons;
 
-	public EditorToolbar(List<ButtonType> types) {
+	public EditorToolbar(List<ButtonType> types, List<ButtonType> enableTypes) {
 		super(Style.BORDER_TOOLBAR_EDITOR);
 		this.types = types;
+		this.enableTypes = enableTypes;
 		init();
 	}
 
@@ -26,6 +28,7 @@ public final class EditorToolbar extends AbstractToolbar implements EnableElemen
 		buttons = new ArrayList<>();
 		for (ButtonType type : types) {
 			buttons.add(addToolBarButton(type));
+			setEnableElement(enableTypes);
 		}
 
 	}
@@ -33,7 +36,7 @@ public final class EditorToolbar extends AbstractToolbar implements EnableElemen
 	@Override
 	public void setEnableElement(List<ButtonType> types) {
 		for (MainButton button : buttons) {
-			if (types.contains(button.getType())) {
+			if (types != null && types.contains(button.getType())) {
 				button.setEnabled(true);
 			} else {
 				button.setEnabled(false);

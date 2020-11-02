@@ -23,9 +23,7 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame frame;
-	private MenuItem menuAdd;
-	private MenuItem menuEdit;
-	private MenuItem menuDelete;
+	private List<MenuItem> editorItems;
 
 	public MainMenu(MainFrame frame) {
 		this.frame = frame;
@@ -50,15 +48,14 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		addMenuItem(file, Text.get("menuFileExit"), Style.ICON_MENU_FILE_EXIT, HandlerCode.MENU_FILE_EXIT,
 				new MenuFileHandler(frame), KeyEvent.VK_E);
 
-		menuAdd = addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.MENU_EDIT_ADD,
-				ButtonType.ADD);
-		menuEdit = addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT, HandlerCode.MENU_EDIT_EDIT,
-				ButtonType.EDIT);
-		menuDelete = addMenuItem(edit, Text.get("menuEditDelete"), Style.ICON_MENU_EDIT_DELETE,
-				HandlerCode.MENU_EDIT_DELETE, ButtonType.DELETE);
-		menuAdd.setEnabled(false);
-		menuEdit.setEnabled(false);
-		menuDelete.setEnabled(false);
+		editorItems = new ArrayList<>();
+		editorItems.add(addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.MENU_EDIT_ADD,
+				ButtonType.ADD));
+		editorItems.add(addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT,
+				HandlerCode.MENU_EDIT_EDIT, ButtonType.EDIT));
+		editorItems.add(addMenuItem(edit, Text.get("menuEditDelete"), Style.ICON_MENU_EDIT_DELETE,
+				HandlerCode.MENU_EDIT_DELETE, ButtonType.DELETE));
+		setEnableElement(frame.getEnableTypes());
 
 		addMenuItem(view, Text.get("menuViewBook"), Style.ICON_MENU_VIEW_BOOK, HandlerCode.MENU_VIEW_BOOK,
 				KeyEvent.VK_B);
@@ -100,6 +97,7 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 				.withListener(listener)
 				.withKey(key)
 				.withAction(action)
+				.withType(type)
 				.build();
 		item.setFont(Style.FONT_MENU_ITEM);
 
@@ -132,24 +130,19 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 
 	@Override
 	public void setEnableElement(List<ButtonType> types) {
-		menuAdd.setEnabled(types.contains(menuAdd.getType()));
-		menuEdit.setEnabled(types.contains(menuEdit.getType()));
-		menuDelete.setEnabled(types.contains(menuDelete.getType()));
+		for (MenuItem item : editorItems) {
+			item.setEnabled(types != null && types.contains(item.getType()));
+		}
 	}
 
 	@Override
 	public List<ButtonType> getEnableTypes() {
 		List<ButtonType> enableTypes = new ArrayList<>();
-		if (menuAdd.isEnabled()) {
-			enableTypes.add(menuAdd.getType());
-		}
-		if (menuEdit.isEnabled()) {
-			enableTypes.add(menuEdit.getType());
-		}
-		if (menuDelete.isEnabled()) {
-			enableTypes.add(menuDelete.getType());
+		for (MenuItem item : editorItems) {
+			if (item.isEnabled()) {
+				enableTypes.add(item.getType());
+			}
 		}
 		return enableTypes;
 	}
-
 }

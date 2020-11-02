@@ -58,12 +58,12 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	}
 
 	private void checkEnableElements() {
-		List<ButtonType> types = List.of(ButtonType.ADD);
-		setEnableElements(types);
+		setEnableElements(frame.getEnableTypes());
 		if (tableData != null) {
 			if (tableData.getSelectedRow() != -1) {
 				List<ButtonType> of = List.of(ButtonType.ADD, ButtonType.EDIT, ButtonType.DELETE);
-				setEnableElements(of);
+				frame.setEnableTypes(of);
+				setEnableElements(frame.getEnableTypes());
 			}
 
 		}
@@ -130,6 +130,13 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	}
 
 	private void setEnableTypesInFrame() {
+		for (JPanel jPanel : panels) {
+			if (jPanel instanceof EnableElement) {
+				frame.setEnableTypes(((EnableElement) jPanel).getEnableTypes());
+			}
+		}
+	}
+	protected void setEnableTypesInToolBar(List<ButtonType> enableTypes) {
 		for (JPanel jPanel : panels) {
 			if (jPanel instanceof EnableElement) {
 				frame.setEnableTypes(((EnableElement) jPanel).getEnableTypes());

@@ -15,7 +15,8 @@ public class IngredientTypesPanel extends RightPanel {
 
 	public IngredientTypesPanel(MainFrame frame) {
 		super(frame, new IngredientTypeTableData(), Text.get("ingredientTypes"), Style.ICON_RIGHT_PANEL_INGREDIENT_TYPE,
-				List.of(new EditorToolbar(List.of(ButtonType.ADD, ButtonType.EDIT, ButtonType.DELETE))));
+				List.of(new EditorToolbar(List.of(ButtonType.ADD, ButtonType.EDIT, ButtonType.DELETE),
+						List.of(ButtonType.ADD))));
 	}
 
 }

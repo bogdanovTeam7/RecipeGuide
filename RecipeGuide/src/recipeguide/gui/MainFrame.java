@@ -3,48 +3,21 @@ package recipeguide.gui;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map.Entry;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.border.TitledBorder;
-
-import recipeguide.gui.dialog.AboutDialog;
-import recipeguide.gui.dialog.ConfirmDialog;
-import recipeguide.gui.dialog.DialogType;
-import recipeguide.gui.dialog.ErrorDialog;
-import recipeguide.gui.dialog.FoodCategoryAddEditDialog;
-import recipeguide.gui.dialog.IngredientAddEditDialog;
-import recipeguide.gui.dialog.IngredientTypeAddEditDialog;
-import recipeguide.gui.dialog.IngredientWithMeasuringAddEditDialog;
-import recipeguide.gui.dialog.MeasuryUnitAddEditDialog;
-import recipeguide.gui.dialog.RecipeAddEditDialog;
 import recipeguide.gui.menu.MainMenu;
 import recipeguide.gui.panel.BookPanel;
-import recipeguide.gui.panel.IngredientTypesPanel;
-import recipeguide.gui.panel.IngredientsPanel;
 import recipeguide.gui.panel.LeftPanel;
 import recipeguide.gui.panel.RecipePanel;
 import recipeguide.gui.panel.RightPanel;
-import recipeguide.gui.panel.SearchPanel;
-import recipeguide.gui.toolbar.EditorToolbar;
 import recipeguide.gui.toolbar.MainToolbar;
 import recipeguide.gui.toolbar.button.ButtonType;
-import recipeguide.model.Quantity;
-import recipeguide.model.entities.FoodCategory;
-import recipeguide.model.entities.Ingredient;
-import recipeguide.model.entities.IngredientType;
-import recipeguide.model.entities.IngredientWithQuantity;
-import recipeguide.model.entities.MeasuryUnit;
-import recipeguide.model.entities.Recipe;
-import recipeguide.saveload.SaveData;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
-import recipeguide.tests.TestDialogs;
 
 public class MainFrame extends JFrame implements Refresh {
 
@@ -86,7 +59,7 @@ public class MainFrame extends JFrame implements Refresh {
 		leftPanel = new LeftPanel(this);
 		add(leftPanel, constraints);
 
-		setRightPanel(new BookPanel(this));
+		setRightPanel(new RecipePanel(this));
 
 		// TODO leftpanel
 		pack();
