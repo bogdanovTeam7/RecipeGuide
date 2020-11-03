@@ -23,6 +23,10 @@ public class IngredientAddEditDialog extends AddEditDialog {
 		super(frame, type);
 	}
 
+	public IngredientAddEditDialog(MainFrame frame) {
+		super(frame, null);
+	}
+
 	@Override
 	public void setEntity(Entity entity) {
 		super.entity = entity;
@@ -34,7 +38,7 @@ public class IngredientAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("ingredientName", new JTextField());
 		MainComboBox ingredientTypesBox = new MainComboBox(new ArrayList<>(SaveData.getInstance()
 				.getTypes()));
@@ -42,13 +46,13 @@ public class IngredientAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 		icons.put("ingredientName", Style.ICON_DIALOG_INGREDIENT);
 		icons.put("ingredientType", Style.ICON_DIALOG_INGREDIENT);
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && ingredient != null) {
 			values.put("ingredientName", ingredient.getName());
 			values.put("ingredientType", ingredient.getType());
@@ -56,7 +60,7 @@ public class IngredientAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		String name = ((JTextField) components.get("ingredientName")).getText();
 		JComboBox<?> jComboBox = (JComboBox<?>) components.get("ingredientType");
 		IngredientType type = (IngredientType) jComboBox.getSelectedItem();

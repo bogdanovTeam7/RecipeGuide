@@ -95,7 +95,10 @@ public class MainButton extends JButton implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		((MainButton) e.getSource()).setBackground(Style.COLOR_BUTTON_BG_HOVER);
+		MainButton button = (MainButton) e.getSource();
+		if (button.isEnabled()) {
+			button.setBackground(Style.COLOR_BUTTON_BG_HOVER);
+		}
 	}
 
 	@Override

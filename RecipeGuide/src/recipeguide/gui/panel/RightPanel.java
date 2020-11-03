@@ -16,8 +16,10 @@ import javax.swing.event.ListSelectionListener;
 import recipeguide.gui.EnableElement;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
+import recipeguide.gui.dialog.AddEditDialog;
 import recipeguide.gui.table.TableDate;
 import recipeguide.gui.toolbar.button.ButtonType;
+import recipeguide.model.entities.Entity;
 import recipeguide.settings.Style;
 
 abstract public class RightPanel extends AbstractPanel implements Refresh {
@@ -28,6 +30,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	private String title;
 	private ImageIcon icon;
 	protected List<JPanel> panels;
+	protected AddEditDialog dialog;
 
 	public RightPanel(MainFrame frame, TableDate<?> tableData, String title, ImageIcon icon, List<JPanel> panels) {
 		super(frame);
@@ -35,7 +38,6 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 		this.title = title;
 		this.icon = icon;
 		this.panels = panels;
-
 		init();
 	}
 
@@ -136,12 +138,31 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 			}
 		}
 	}
+
 	protected void setEnableTypesInToolBar(List<ButtonType> enableTypes) {
 		for (JPanel jPanel : panels) {
 			if (jPanel instanceof EnableElement) {
 				frame.setEnableTypes(((EnableElement) jPanel).getEnableTypes());
 			}
 		}
+	}
+
+	public AddEditDialog getDialog() {
+		return dialog;
+	}
+
+	abstract void setDialog();
+
+	public TableDate<?> getTableData() {
+		return tableData;
+	}
+
+	public Entity getSelectedeEtity() {
+		if (tableData == null) {
+			return null;
+		}
+		return (Entity) tableData.getModel()
+				.getValueAtIndex(tableData.getSelectedRow());
 	}
 
 }

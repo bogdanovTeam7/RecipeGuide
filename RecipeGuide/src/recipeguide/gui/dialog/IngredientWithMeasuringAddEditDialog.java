@@ -31,7 +31,7 @@ public class IngredientWithMeasuringAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("ingredient", new MainComboBox(new ArrayList<>(SaveData.getInstance()
 				.getIngredients())));
 		components.put("ingredientNew", MainButton.builder()
@@ -46,7 +46,7 @@ public class IngredientWithMeasuringAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 		icons.put("ingredient", Style.ICON_DIALOG_INGREDIENT);
 		icons.put("ingredientNew", Style.ICON_DIALOG_ADD);
 		icons.put("measuryUnit", Style.ICON_DIALOG_MEASURY_UNIT);
@@ -55,7 +55,7 @@ public class IngredientWithMeasuringAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		values.put("amount", Format.measury(0));
 		if (dialogType.equals(DialogType.EDIT) && ingredientWithQuantity != null) {
 			values.put("ingredient", ingredientWithQuantity.getIngredient());
@@ -67,7 +67,7 @@ public class IngredientWithMeasuringAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -6,6 +6,7 @@ import recipeguide.exceptions.ModelException;
 import recipeguide.gui.MainFrame;
 import recipeguide.model.entities.Book;
 import recipeguide.model.entities.Entity;
+import recipeguide.saveload.SaveData;
 import recipeguide.settings.Style;
 
 public class BookDialog extends AddEditDialog {
@@ -17,20 +18,24 @@ public class BookDialog extends AddEditDialog {
 		super(frame, type);
 	}
 
+	public BookDialog(MainFrame frame) {
+		super(frame, null);
+	}
+
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("bookName", new JTextField());
 		components.put("bookAuthor", new JTextField());
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 		icons.put("bookName", Style.ICON_DIALOG_BOOK_NAME);
 		icons.put("bookAuthor", Style.ICON_DIALOG_BOOK_AUTHOR);
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && book != null) {
 			values.put("bookName", book.getNameToDisplay());
 			values.put("bookAuthor", book.getAuthor());
@@ -38,7 +43,7 @@ public class BookDialog extends AddEditDialog {
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		String name = ((JTextField) components.get("bookName")).getText();
 		String author = ((JTextField) components.get("bookAuthor")).getText();
 		Book newBook = new Book();
@@ -48,7 +53,7 @@ public class BookDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setEntity(Entity entity) {
+	public void setEntity(Entity entity) {
 		super.entity = entity;
 		if (entity != null && entity instanceof Book) {
 			book = (Book) entity;

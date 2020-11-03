@@ -5,6 +5,7 @@ public enum ButtonType {
 	EDIT,
 	DELETE,
 	CANCEL,
+	SEARCH,
 	UNSPECIFIED;
 
 }

@@ -6,7 +6,7 @@ import recipeguide.settings.Format;
 
 public class Book extends AbstractEntity {
 
-	private String name = "";
+//	private String name = "";
 	private String author = "";
 	private Date startedAt = new Date();
 	private Date lastEditedAt = new Date();
@@ -15,7 +15,7 @@ public class Book extends AbstractEntity {
 	}
 
 	public Book(String name, String author, Date startedAt, Date lastEditedAt) {
-		this.name = name;
+		super.name = name;
 		this.author = author;
 		this.startedAt = startedAt;
 		this.lastEditedAt = lastEditedAt;
@@ -34,7 +34,7 @@ public class Book extends AbstractEntity {
 	}
 
 	public void setAuthor(String author) {
-		this.author = name;
+		this.author = author;
 	}
 
 	public Date getStartedAt() {

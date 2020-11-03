@@ -1,5 +1,6 @@
 package recipeguide.gui.table;
 
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -7,7 +8,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
+import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
+import recipeguide.gui.handler.EditorHandler;
+import recipeguide.gui.handler.Handler;
 import recipeguide.gui.renderer.TableCellRenderer;
 import recipeguide.gui.renderer.TableHeaderCellRenderer;
 import recipeguide.gui.table.model.MainTableModel;
@@ -20,7 +24,7 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 	protected Map<String, ImageIcon> columns;
 	protected MainTableModel<E> model;
 
-	public TableDate(Map<String, ImageIcon> columns, MainTableModel<E> model) {
+	public TableDate(MainFrame frame, Map<String, ImageIcon> columns, MainTableModel<E> model) {
 		model.setColumns(new ArrayList<>(columns.keySet()));
 		this.model = model;
 		super.setModel(model);
@@ -33,11 +37,15 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 		setPreferredScrollableViewportSize(Style.DIMENSION_TABLE);
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+		EditorHandler handler = new EditorHandler(frame);
+		addMouseListener(handler);
+		addKeyListener(handler);
+
 		setHeaderRenderer();
-		
+
 		setDefaultRenderer(String.class, new TableCellRenderer());
 		setDefaultRenderer(Number.class, new TableCellRenderer());
-		
+
 //		setToolTipRenderer();
 	}
 
@@ -51,6 +59,10 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 		}
 	}
 
+	public MainTableModel<E> getModel() {
+		return model;
+	}
+
 	@Override
 	public void refresh() {
 		int selectedRow = getSelectedRow();
@@ -59,6 +71,7 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 		if (model.contains(temp)) {
 			setRowSelectionInterval(model.getIndexOf(temp), model.getIndexOf(temp));
 		}
+		setHeaderRenderer();
 
 	}
 

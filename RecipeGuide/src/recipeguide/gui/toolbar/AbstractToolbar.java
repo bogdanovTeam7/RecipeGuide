@@ -1,13 +1,14 @@
 package recipeguide.gui.toolbar;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
+import recipeguide.gui.handler.EditorHandler;
+import recipeguide.gui.handler.Handler;
 import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.settings.HandlerCode;
@@ -17,40 +18,48 @@ import recipeguide.settings.Text;
 public abstract class AbstractToolbar extends JPanel implements Refresh {
 
 	private static final long serialVersionUID = 1L;
+	protected MainFrame frame;
 
-	public AbstractToolbar(EmptyBorder border) {
+	public AbstractToolbar(MainFrame frame, EmptyBorder border) {
 		super();
+		this.frame = frame;
 		setBorder(border);
 	}
 
-	abstract void init();
+	protected abstract void init();
 
 	protected MainButton addToolBarButton(ButtonType type) {
 		String title = "";
 		ImageIcon icon = null;
-		ActionListener listener = null;
+		Handler listener = null;
 		String action = "";
 
 		switch (type) {
 		case ADD:
 			title = "toolbarAdd";
 			icon = Style.ICON_TOOLBAR_ADD;
-			listener = HandlerCode.TOOLBAR_ADD;
-			action = "";
+			listener = new EditorHandler(frame);
+			action = HandlerCode.ADD;
 			break;
 		case EDIT:
 			title = "toolbarEdit";
 			icon = Style.ICON_TOOLBAR_EDIT;
-			listener = HandlerCode.TOOLBAR_EDIT;
-			action = "";
+			listener = new EditorHandler(frame);
+			action = HandlerCode.EDIT;
 			break;
 		case DELETE:
 			title = "toolbarDelete";
 			icon = Style.ICON_TOOLBAR_DELETE;
-			listener = HandlerCode.TOOLBAR_DELETE;
-			action = "";
+			listener = new EditorHandler(frame);
+			action = HandlerCode.DELETE;
 			break;
 		case CANCEL:
+			break;
+		case SEARCH:
+			title = "search";
+			icon = Style.ICON_TOOLBAR_SEARCH;
+			listener = null;
+			action = HandlerCode.SEARCH;
 			break;
 		case UNSPECIFIED:
 			break;
@@ -60,7 +69,7 @@ public abstract class AbstractToolbar extends JPanel implements Refresh {
 		return addMainButton(Text.get(title), icon, listener, action, false, type);
 	}
 
-	protected MainButton addMainButton(String title, ImageIcon icon, ActionListener listener, String action,
+	protected MainButton addMainButton(String title, ImageIcon icon, Handler listener, String action,
 			boolean isImageOnTop, ButtonType type) {
 		MainButton mainButton = MainButton.builder()
 				.withAction(action)

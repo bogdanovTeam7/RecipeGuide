@@ -17,6 +17,10 @@ public class MeasuryUnitAddEditDialog extends AddEditDialog {
 		super(frame, type);
 	}
 
+	public MeasuryUnitAddEditDialog(MainFrame frame) {
+		super(frame, null);
+	}
+
 	@Override
 	public void setEntity(Entity entity) {
 		super.entity = entity;
@@ -28,19 +32,19 @@ public class MeasuryUnitAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("measuryUnitName", new JTextField());
 		components.put("measuryUnitAbbreviation", new JTextField());
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 		icons.put("measuryUnitName", Style.ICON_DIALOG_MEASURY_UNIT);
 		icons.put("measuryUnitAbbreviation", Style.ICON_DIALOG_MEASURY_UNIT);
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && unit != null) {
 			values.put("measuryUnitName", unit.getName());
 			values.put("measuryUnitAbbreviation", unit.getAbbreviation());
@@ -48,7 +52,7 @@ public class MeasuryUnitAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		String name = ((JTextField) components.get("measuryUnitName")).getText();
 		String abbreviation = ((JTextField) components.get("measuryUnitAbbreviation")).getText();
 		return new MeasuryUnit(name, abbreviation);

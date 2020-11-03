@@ -1,18 +1,14 @@
 package recipeguide.gui.panel;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import recipeguide.gui.MainFrame;
-import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.entities.Book;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.Style;

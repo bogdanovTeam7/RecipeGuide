@@ -130,6 +130,7 @@ final public class Text {
 		data.put("errorFileFormat", "Hibas fájl formatuma");
 		data.put("errorTitleEmpty", "Üres a megnevezés");
 		data.put("errorIsExist", "Ilyen nev már létezik");
+		data.put("errorBasicEntityInvalidToDelete", "Ez az alap bejegyzés és nem törölhető");
 		data.put("errorNumberFormat", "Hibás szám");
 		data.put("errorMesuryEmpty", "Üres mérték egység");
 		data.put("errorTypeEmpty", "Üres típus");
@@ -169,7 +170,8 @@ final public class Text {
 
 		data.put("dialogAboutTitle", "Programról");
 		data.put("aboutProgramm", "Programról");
-		data.put("confirmExitIntention", "Biztos ki akar lépni? Vannak nem mentett adatok!");
+		data.put("confirmExitIntention", "Biztos, hogy ki akar lépni? Vannak nem mentett adatok!");
+		data.put("confirmationOfDelete", "Biztos, hogy ki akar törölni?");
 		data.put("confirmationOfIntent", "Szandék megerősítése");
 
 	}

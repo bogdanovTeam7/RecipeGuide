@@ -1,5 +1,9 @@
 package recipeguide.gui.dialog;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Image;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import recipeguide.exceptions.ModelException;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.entities.Entity;
@@ -25,12 +28,7 @@ import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Image;
-
-public abstract class AddEditDialog extends JDialog {
+public abstract class AddEditDialog extends JDialog implements Dialog {
 
 	private static final long serialVersionUID = 1L;
 
@@ -43,25 +41,21 @@ public abstract class AddEditDialog extends JDialog {
 	protected Font font = Style.FONT_ADD_EDIT_DIALOG;
 
 	public AddEditDialog(MainFrame frame, DialogType type) {
-		super(frame, Text.get(type.getAction()), true);
+		super(frame, true);
 		this.frame = frame;
 		this.dialogType = type;
+		setTitle(type);
 		setResizable(false);
 	}
 
-	abstract void setComponents();
-
-	abstract void setIcons();
-
-	abstract void setValues();
-
-	abstract Entity getEntityFromForm() throws ModelException;
+	public void setTitle(DialogType type) {
+		String title = (type != null) ? Text.get(type.getAction()) : "";
+		setTitle(title);
+	}
 
 	public Entity getEntity() {
 		return entity;
 	}
-
-	abstract void setEntity(Entity entity);
 
 	public DialogType getDialogType() {
 		return dialogType;
@@ -69,6 +63,7 @@ public abstract class AddEditDialog extends JDialog {
 
 	public void setDialogType(DialogType dialogType) {
 		this.dialogType = dialogType;
+		setTitle(dialogType);
 	}
 
 	public void showDialog() {
@@ -87,6 +82,7 @@ public abstract class AddEditDialog extends JDialog {
 
 	private void setDialog() {
 		getContentPane().removeAll();
+		removeDatas();
 
 		setComponents();
 		setIcons();
@@ -105,21 +101,16 @@ public abstract class AddEditDialog extends JDialog {
 
 			JComponent component = (JComponent) entry.getValue();
 			Object item = values.get(key);
-
 			if (component instanceof JTextField) {
-				((JTextField) component).setText((values.containsKey(key)) ? ("" + item) : "");
+				((JTextField) component).setText("" + (values.getOrDefault(key, "")));
 				component.setPreferredSize(Style.DIMENSION_DIALOG_TEXT_FIELD);
 
 			} else if (component instanceof JComboBox) {
 				if (values.containsKey(key)) {
 					JComboBox<?> box = (JComboBox<?>) component;
-					System.out.println("item " + item);
 					box.setSelectedItem(item);
-					System.out.println("box.setSelectedItem(item) " + box.getSelectedItem());
 					if (!box.getSelectedItem()
 							.equals(item)) {
-						System.out.println("box.setSelectedItem(item).equals(item) " + box.getSelectedItem()
-								.equals(item));
 						((JComboBox<?>) component).setSelectedIndex(-1);
 					}
 				} else {
@@ -162,6 +153,12 @@ public abstract class AddEditDialog extends JDialog {
 		add(buttonPanel);
 		pack();
 		setLocationRelativeTo(null);
+	}
+
+	private void removeDatas() {
+		components.clear();
+		icons.clear();
+		values.clear();
 	}
 
 	private String chooseHandlerCode() {

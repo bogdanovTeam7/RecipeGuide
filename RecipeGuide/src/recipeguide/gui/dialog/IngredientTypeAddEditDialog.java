@@ -17,6 +17,10 @@ public class IngredientTypeAddEditDialog extends AddEditDialog {
 		super(frame, type);
 	}
 
+	public IngredientTypeAddEditDialog(MainFrame frame) {
+		super(frame, null);
+	}
+
 	@Override
 	public void setEntity(Entity entity) {
 		super.entity = entity;
@@ -28,24 +32,24 @@ public class IngredientTypeAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("ingredientType", new JTextField());
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 		icons.put("ingredientType", Style.ICON_DIALOG_INGREDIENT_TYPE);
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && ingredientType != null) {
 			values.put("ingredientType", ingredientType.getName());
 		}
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		String name = ((JTextField) components.get("ingredientType")).getText();
 		return new IngredientType(name);
 	}

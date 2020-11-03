@@ -2,6 +2,7 @@ package recipeguide.gui.table;
 
 import java.util.LinkedHashMap;
 
+import recipeguide.gui.MainFrame;
 import recipeguide.gui.table.model.RecipeTableModel;
 import recipeguide.model.entities.Recipe;
 import recipeguide.settings.Style;
@@ -11,8 +12,8 @@ public class RecipeTableData extends TableDate<Recipe> {
 
 	private static final long serialVersionUID = 1L;
 
-	public RecipeTableData() {
-		super(new LinkedHashMap<>() {
+	public RecipeTableData(MainFrame frame) {
+		super(frame, new LinkedHashMap<>() {
 
 			private static final long serialVersionUID = 1L;
 			{

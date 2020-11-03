@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import recipeguide.gui.Refresh;
+import recipeguide.model.entities.Entity;
 
 public abstract class MainTableModel<E> extends AbstractTableModel implements Refresh {
 

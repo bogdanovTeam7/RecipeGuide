@@ -1,5 +1,6 @@
 package recipeguide.gui.toolbar;
 
+import recipeguide.gui.MainFrame;
 import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Style;
@@ -9,8 +10,8 @@ public final class MainToolbar extends AbstractToolbar {
 
 	private static final long serialVersionUID = 1L;
 
-	public MainToolbar() {
-		super(Style.BORDER_TOOLBAR_MAIN);
+	public MainToolbar(MainFrame frame) {
+		super(frame, Style.BORDER_TOOLBAR_MAIN);
 		init();
 	}
 

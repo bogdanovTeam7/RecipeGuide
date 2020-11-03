@@ -49,7 +49,7 @@ public class MainFrame extends JFrame implements Refresh {
 		constraints.gridy = 0;
 		constraints.gridwidth = 2;
 
-		mainToolbar = new MainToolbar();
+		mainToolbar = new MainToolbar(this);
 		add(mainToolbar, constraints);
 
 		constraints.gridy = 1;
@@ -59,14 +59,14 @@ public class MainFrame extends JFrame implements Refresh {
 		leftPanel = new LeftPanel(this);
 		add(leftPanel, constraints);
 
-		setRightPanel(new RecipePanel(this));
+		setRightPanel(new BookPanel(this));
 
 		// TODO leftpanel
 		pack();
 		setLocationRelativeTo(null);
 	}
 
-	private void setRightPanel(RightPanel panel) {
+	public void setRightPanel(RightPanel panel) {
 		if (rightPanel != null) {
 			remove(rightPanel);
 		}
@@ -100,14 +100,18 @@ public class MainFrame extends JFrame implements Refresh {
 		this.enableTypes = enableTypes;
 	}
 
+	public RightPanel getRightPanel() {
+		return rightPanel;
+	}
+
 	@Override
 	public void refresh() {
 		SwingUtilities.updateComponentTreeUI(this);
+		menubar.refresh();
 		leftPanel.refresh();
 		rightPanel.refresh();
-		menubar.refresh();
 		pack();
-
+		setLocationRelativeTo(null);
 	}
 
 }

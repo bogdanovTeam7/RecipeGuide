@@ -8,12 +8,14 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+
 import recipeguide.gui.EnableElement;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
+import recipeguide.gui.handler.EditorHandler;
 import recipeguide.gui.handler.Handler;
-import recipeguide.gui.handler.MenuFileHandler;
+import recipeguide.gui.handler.ViewHandler;
+import recipeguide.gui.handler.FileHandler;
 import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Style;
@@ -39,38 +41,43 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		JMenu view = addMenu(Text.get("menuView"), Style.ICON_MENU_VIEW);
 		JMenu help = addMenu(Text.get("menuHelp"), Style.ICON_MENU_HELP);
 
-		addMenuItem(file, Text.get("menuFileNew"), Style.ICON_MENU_FILE_NEW, HandlerCode.MENU_FILE_NEW,
-				new MenuFileHandler(frame), KeyEvent.VK_N);
-		addMenuItem(file, Text.get("menuFileOpen"), Style.ICON_MENU_FILE_OPEN, HandlerCode.MENU_FILE_OPEN,
-				new MenuFileHandler(frame), KeyEvent.VK_O);
-		addMenuItem(file, Text.get("menuFileSave"), Style.ICON_MENU_FILE_SAVE, HandlerCode.MENU_FILE_SAVE,
-				new MenuFileHandler(frame), KeyEvent.VK_S);
-		addMenuItem(file, Text.get("menuFileExit"), Style.ICON_MENU_FILE_EXIT, HandlerCode.MENU_FILE_EXIT,
-				new MenuFileHandler(frame), KeyEvent.VK_E);
+		FileHandler fileHandler = new FileHandler(frame);
+		addMenuItem(file, Text.get("menuFileNew"), Style.ICON_MENU_FILE_NEW, HandlerCode.MENU_FILE_NEW, fileHandler,
+				KeyEvent.VK_N);
+		addMenuItem(file, Text.get("menuFileOpen"), Style.ICON_MENU_FILE_OPEN, HandlerCode.MENU_FILE_OPEN, fileHandler,
+				KeyEvent.VK_O);
+		addMenuItem(file, Text.get("menuFileSave"), Style.ICON_MENU_FILE_SAVE, HandlerCode.MENU_FILE_SAVE, fileHandler,
+				KeyEvent.VK_S);
+		addMenuItem(file, Text.get("menuFileExit"), Style.ICON_MENU_FILE_EXIT, HandlerCode.MENU_FILE_EXIT, fileHandler,
+				KeyEvent.VK_E);
 
 		editorItems = new ArrayList<>();
-		editorItems.add(addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.MENU_EDIT_ADD,
-				ButtonType.ADD));
-		editorItems.add(addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT,
-				HandlerCode.MENU_EDIT_EDIT, ButtonType.EDIT));
-		editorItems.add(addMenuItem(edit, Text.get("menuEditDelete"), Style.ICON_MENU_EDIT_DELETE,
-				HandlerCode.MENU_EDIT_DELETE, ButtonType.DELETE));
+		EditorHandler editorHandler = new EditorHandler(frame);
+		editorItems.add(addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.ADD,
+				editorHandler, ButtonType.ADD));
+		editorItems.add(addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT, HandlerCode.EDIT,
+				editorHandler, ButtonType.EDIT));
+		editorItems.add(addMenuItem(edit, Text.get("menuEditDelete"), Style.ICON_MENU_EDIT_DELETE, HandlerCode.DELETE,
+				editorHandler, ButtonType.DELETE));
 		setEnableElement(frame.getEnableTypes());
 
-		addMenuItem(view, Text.get("menuViewBook"), Style.ICON_MENU_VIEW_BOOK, HandlerCode.MENU_VIEW_BOOK,
+		ViewHandler viewHandler = new ViewHandler(frame);
+		addMenuItem(view, Text.get("menuViewBook"), Style.ICON_MENU_VIEW_BOOK, HandlerCode.MENU_VIEW_BOOK, viewHandler,
 				KeyEvent.VK_B);
 		addMenuItem(view, Text.get("menuViewIngredientTypes"), Style.ICON_MENU_VIEW_INGREDIENT_TYPES,
-				HandlerCode.MENU_INGREDIENT_TYPES, KeyEvent.VK_T);
+				HandlerCode.MENU_VIEW_INGREDIENT_TYPES, viewHandler, KeyEvent.VK_T);
 		addMenuItem(view, Text.get("menuViewIngredients"), Style.ICON_MENU_VIEW_INGREDIENTS,
-				HandlerCode.MENU_VIEW_INGREDIENTS, KeyEvent.VK_I);
+				HandlerCode.MENU_VIEW_INGREDIENTS, viewHandler, KeyEvent.VK_I);
 		addMenuItem(view, Text.get("menuViewMeasuryUnits"), Style.ICON_MENU_VIEW_MEASURY_UNITS,
-				HandlerCode.MENU_VIEW_MEASURY_UNITS, KeyEvent.VK_M);
+				HandlerCode.MENU_VIEW_MEASURY_UNITS, viewHandler, KeyEvent.VK_M);
 		addMenuItem(view, Text.get("menuViewFoodCategories"), Style.ICON_MENU_VIEW_FOOD_CATEGORIES,
-				HandlerCode.MENU_VIEW_FOOD_CATEGORIES, KeyEvent.VK_C);
+				HandlerCode.MENU_VIEW_FOOD_CATEGORIES, viewHandler, KeyEvent.VK_C);
 		addMenuItem(view, Text.get("menuViewRecipes"), Style.ICON_MENU_VIEW_RECIPES, HandlerCode.MENU_VIEW_RECIPES,
-				KeyEvent.VK_R);
-		addMenuItem(view, Text.get("menuViewSearchRecipes"), Style.ICON_MENU_VIEW_SEARCH, HandlerCode.MENU_VIEW_SEARCH);
-		addMenuItem(help, Text.get("menuHelpAbout"), Style.ICON_MENU_HELP_ABOUT, HandlerCode.MENU_HELP_ABOUT);
+				viewHandler, KeyEvent.VK_R);
+		addMenuItem(view, Text.get("menuViewSearchRecipes"), Style.ICON_MENU_VIEW_SEARCH, HandlerCode.MENU_VIEW_SEARCH,
+				viewHandler);
+
+		addMenuItem(help, Text.get("menuHelpAbout"), Style.ICON_MENU_HELP_ABOUT, HandlerCode.MENU_HELP_ABOUT, null);
 
 		setBackground(Style.COLOR_MAIN_MENU);
 	}
@@ -110,16 +117,13 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		return addMenuItem(menu, title, icon, action, listener, key, ButtonType.UNSPECIFIED);
 	}
 
-	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, ButtonType type) {
-		return addMenuItem(menu, title, icon, action, null, 0, type);
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener,
+			ButtonType type) {
+		return addMenuItem(menu, title, icon, action, listener, 0, type);
 	}
 
-	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, int key) {
-		return addMenuItem(menu, title, icon, action, null, key, ButtonType.UNSPECIFIED);
-	}
-
-	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action) {
-		return addMenuItem(menu, title, icon, action, null, 0, ButtonType.UNSPECIFIED);
+	private MenuItem addMenuItem(JMenu menu, String title, ImageIcon icon, String action, Handler listener) {
+		return addMenuItem(menu, title, icon, action, listener, 0, ButtonType.UNSPECIFIED);
 	}
 
 	@Override

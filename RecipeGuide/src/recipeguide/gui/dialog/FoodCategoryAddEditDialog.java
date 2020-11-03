@@ -28,24 +28,24 @@ public class FoodCategoryAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("foodCategory", new JTextField());
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 		icons.put("foodCategory", Style.ICON_DIALOG_FOOD_CATEGORY);
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && category != null) {
 			values.put("foodCategory", category.getName());
 		}
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		String name = ((JTextField) components.get("foodCategory")).getText();
 		return new FoodCategory(name);
 	}

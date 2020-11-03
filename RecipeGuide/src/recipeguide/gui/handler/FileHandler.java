@@ -15,11 +15,11 @@ import recipeguide.saveload.SaveData;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Settings;
 
-public class MenuFileHandler extends Handler {
+public class FileHandler extends Handler {
 
 	private MainFileChooser fileChooser;
 
-	public MenuFileHandler(MainFrame frame) {
+	public FileHandler(MainFrame frame) {
 		super(frame);
 		fileChooser = new MainFileChooser(frame);
 	}

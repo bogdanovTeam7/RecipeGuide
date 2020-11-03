@@ -32,6 +32,10 @@ public class RecipeAddEditDialog extends AddEditDialog {
 		super(frame, type);
 	}
 
+	public RecipeAddEditDialog(MainFrame frame) {
+		super(frame, null);
+	}
+
 	@Override
 	public void setEntity(Entity entity) {
 		if (entity != null && entity instanceof Recipe) {
@@ -42,7 +46,7 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setComponents() {
+	public void setComponents() {
 		components.put("recipeName", new JTextField());
 		MainComboBox categoryBox = new MainComboBox(new ArrayList<>(SaveData.getInstance()
 				.getCategories()));
@@ -91,7 +95,7 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setIcons() {
+	public void setIcons() {
 
 		icons.put("recipeName", Style.ICON_DIALOG_RECIPE_NAME);
 		icons.put("foodCategory", Style.ICON_DIALOG_FOOD_CATEGORY);
@@ -101,7 +105,7 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	void setValues() {
+	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && recipe != null) {
 			values.put("recipeName", recipe.getNameToDisplay());
 			values.put("foodCategory", recipe.getCategory());
@@ -110,7 +114,7 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
-	Entity getEntityFromForm() throws ModelException {
+	public Entity getEntityFromForm() throws ModelException {
 		// TODO Auto-generated method stub
 		return null;
 	}

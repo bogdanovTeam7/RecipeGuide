@@ -93,6 +93,7 @@ public final class Style {
 	public static final ImageIcon ICON_TOOLBAR_ADD = new ImageIcon("images/toolbarAdd.png");
 	public static final ImageIcon ICON_TOOLBAR_EDIT = new ImageIcon("images/toolbarEdit.png");
 	public static final ImageIcon ICON_TOOLBAR_DELETE = new ImageIcon("images/toolbarDelete.png");
+	public static final ImageIcon ICON_TOOLBAR_SEARCH = new ImageIcon("images/toolbarSearch.png");
 
 	public static final ImageIcon ICON_BUTTON_ADD = new ImageIcon("images/buttonAdd.png");
 	public static final ImageIcon ICON_BUTTON_EDIT = new ImageIcon("images/buttonEdit.png");
@@ -118,6 +119,7 @@ public final class Style {
 	public static final ImageIcon ICON_RIGHT_PANEL_INGREDIENT = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_INGREDIENT_TYPE = new ImageIcon(
 			"images/menuViewIngredientTypes.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_MEASURY_UNIT = new ImageIcon("images/menuViewMeasuryUnits.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_RECIPE = new ImageIcon("images/menuViewRecipes.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_BOOK = new ImageIcon("images/rightPanelBook.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_NAME = new ImageIcon("images/dialogBookName.png");
@@ -139,6 +141,10 @@ public final class Style {
 	public static final ImageIcon ICON_TABLE_RECIPE_TIME = new ImageIcon("images/tableRecipeTime.png");
 	public static final ImageIcon ICON_TABLE_COOKING_TIME = new ImageIcon("images/tableRecipeTime.png");
 
+	public static final ImageIcon ICON_TABLE_MEASURY_UNIT_NAME = new ImageIcon("images/tableMeasuryUnit.png");
+	public static final ImageIcon ICON_TABLE_MEASURY_UNIT_ABBREVIATION = new ImageIcon(
+			"images/tableMeasuryUnitAbbreviation.png");
+
 	public static final ImageIcon ICON_SEARCH_MAIN = new ImageIcon("images/searchMain.png");
 
 	public static final int PADDING_SEARCH_PANEL_VERTICAL = 0;
@@ -146,5 +152,6 @@ public final class Style {
 	public static final Icon ICON_SEARCH_CATEGORY = null;
 	public static final Icon ICON_SEARCH_INGREDIENT = null;
 	public static final Icon ICON_SEARCH_INGREDIENT_TYPE = null;
+	public static final ImageIcon ICON_TABLE_MEASURY_UNIT = null;
 
 }

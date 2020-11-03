@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <data>
     <book>
-        <author></author>
-        <lastEditedAt>1000-09-27T17:17:08.042+01:00</lastEditedAt>
-        <name></name>
+        <author>Vova</author>
+        <lastEditedAt>1000-09-21T17:17:08.042+01:00</lastEditedAt>
+        <name>MyBook</name>
         <startedAt>2020-10-27T17:17:08.042+01:00</startedAt>
     </book>
     <categories>
@@ -60,21 +60,6 @@
         <ingredientsWihQuantity>
             <entry>
                 <key>
-                    <name>salt</name>
-                    <type>
-                        <name>spice</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>approx</abbreviation>
-                        <name>mesure by eye</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
                     <name>egg</name>
                     <type>
                         <name>other</name>
@@ -85,6 +70,21 @@
                     <unit>
                         <abbreviation>pc</abbreviation>
                         <name>piece</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>salt</name>
+                    <type>
+                        <name>spice</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
+                    <unit>
+                        <abbreviation>approx</abbreviation>
+                        <name>mesure by eye</name>
                     </unit>
                 </value>
             </entry>
@@ -102,21 +102,6 @@
         <ingredientsWihQuantity>
             <entry>
                 <key>
-                    <name>sugar</name>
-                    <type>
-                        <name>spice</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>g</abbreviation>
-                        <name>gram</name>
-                    </unit>
-                </value>
-            </entry>
-            <entry>
-                <key>
                     <name>milk</name>
                     <type>
                         <name>milk product</name>
@@ -127,6 +112,21 @@
                     <unit>
                         <abbreviation>dl</abbreviation>
                         <name>deciliter</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>sugar</name>
+                    <type>
+                        <name>spice</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>5.0</amount>
+                    <unit>
+                        <abbreviation>g</abbreviation>
+                        <name>gram</name>
                     </unit>
                 </value>
             </entry>
@@ -142,21 +142,6 @@
         <cookingTimeInSeconds>120</cookingTimeInSeconds>
         <description>Just boiled</description>
         <ingredientsWihQuantity>
-            <entry>
-                <key>
-                    <name>no ingredient</name>
-                    <type>
-                        <name>no type</name>
-                    </type>
-                </key>
-                <value>
-                    <amount>5.0</amount>
-                    <unit>
-                        <abbreviation>pc</abbreviation>
-                        <name>piece</name>
-                    </unit>
-                </value>
-            </entry>
             <entry>
                 <key>
                     <name>salt</name>
@@ -189,13 +174,13 @@
             </entry>
             <entry>
                 <key>
-                    <name>potato</name>
+                    <name>no ingredient</name>
                     <type>
-                        <name>vegetables</name>
+                        <name>no type</name>
                     </type>
                 </key>
                 <value>
-                    <amount>2.0</amount>
+                    <amount>5.0</amount>
                     <unit>
                         <abbreviation>pc</abbreviation>
                         <name>piece</name>
@@ -214,6 +199,21 @@
                     <unit>
                         <abbreviation>dl</abbreviation>
                         <name>deciliter</name>
+                    </unit>
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    <name>potato</name>
+                    <type>
+                        <name>vegetables</name>
+                    </type>
+                </key>
+                <value>
+                    <amount>2.0</amount>
+                    <unit>
+                        <abbreviation>pc</abbreviation>
+                        <name>piece</name>
                     </unit>
                 </value>
             </entry>
