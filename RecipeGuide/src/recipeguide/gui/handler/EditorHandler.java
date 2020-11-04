@@ -14,12 +14,12 @@ import recipeguide.gui.dialog.AddEditDialog;
 import recipeguide.gui.dialog.ConfirmDialog;
 import recipeguide.gui.dialog.DialogType;
 import recipeguide.gui.dialog.ErrorDialog;
+import recipeguide.gui.dialog.RecipeOverviewDialog;
 import recipeguide.gui.table.TableDate;
-import recipeguide.gui.table.model.MainTableModel;
 import recipeguide.model.entities.Entity;
+import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.HandlerCode;
-import recipeguide.settings.Text;
 
 public class EditorHandler extends Handler implements MouseListener, KeyListener {
 
@@ -41,7 +41,16 @@ public class EditorHandler extends Handler implements MouseListener, KeyListener
 			break;
 		case HandlerCode.DELETE:
 			delete();
+		case HandlerCode.DETAILS_OVERVIEW:
+			detailsOverView();
 			break;
+		}
+	}
+
+	private void detailsOverView() {
+		Entity e = getSelectedEntity();
+		if (e != null && e instanceof Recipe) {
+			new RecipeOverviewDialog((Recipe) e).setVisible(true);
 		}
 	}
 
@@ -104,7 +113,7 @@ public class EditorHandler extends Handler implements MouseListener, KeyListener
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() instanceof TableDate<?> && e.getClickCount() >= 2 && e.getButton() == e.BUTTON1) {
+		if (e.getSource() instanceof TableDate<?> && e.getClickCount() >= 2 && e.getButton() == MouseEvent.BUTTON1) {
 			edit();
 		}
 	}

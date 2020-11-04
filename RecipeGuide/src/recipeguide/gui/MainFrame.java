@@ -9,10 +9,12 @@ import java.util.Map.Entry;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+
+import recipeguide.gui.handler.MainWindowHandler;
 import recipeguide.gui.menu.MainMenu;
 import recipeguide.gui.panel.BookPanel;
 import recipeguide.gui.panel.LeftPanel;
-import recipeguide.gui.panel.RecipePanel;
 import recipeguide.gui.panel.RightPanel;
 import recipeguide.gui.toolbar.MainToolbar;
 import recipeguide.gui.toolbar.button.ButtonType;
@@ -35,7 +37,7 @@ public class MainFrame extends JFrame implements Refresh {
 
 		setResizable(false);
 		setIconImage(Style.ICON_MAIN.getImage());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBackground(Style.COLOR_MAIN_FRAME);
 
 		menubar = new MainMenu(this);
@@ -61,9 +63,10 @@ public class MainFrame extends JFrame implements Refresh {
 
 		setRightPanel(new BookPanel(this));
 
-		// TODO leftpanel
 		pack();
 		setLocationRelativeTo(null);
+
+		addWindowListener(new MainWindowHandler());
 	}
 
 	public void setRightPanel(RightPanel panel) {

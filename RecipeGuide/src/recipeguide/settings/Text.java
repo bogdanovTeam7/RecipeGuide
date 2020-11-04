@@ -33,11 +33,13 @@ final public class Text {
 		data.put("measuryUnitAbbreviation", "Mérési egység rövíditése");
 
 		data.put("foodCategory", "Ételek csoportja");
+		data.put("foodCategories", "Ételek csoportjai");
 
 		data.put("recipe", "Recept");
 		data.put("recipes", "Receptek");
 		data.put("recipesTotal", "Receptek összesen:");
 		data.put("recipeName", "Recept megnevezése");
+		data.put("recipeDetails", "Recept részletei");
 
 		data.put("menuFile", "Könyvtár");
 		data.put("menuEdit", "Szerkesztés");
@@ -80,17 +82,22 @@ final public class Text {
 		data.put("name", "Név");
 		data.put("category", "Kategória");
 		data.put("ration", "Adagok száma");
-		data.put("preparingTimeInSeconds", "Előkeszítési idő");
-		data.put("cookingTimeInSeconds", "Főzési idő");
+		data.put("preparingTimeInSeconds", "Előkeszítési idő percben");
+		data.put("preparingTime", "Előkeszítési idő");
+		data.put("cookingTimeInSeconds", "Főzési idő percben");
+		data.put("cookingTime", "Főzési idő");
 
 		data.put("yes", "Igen");
 		data.put("no", "Nem");
 
 		data.put("add", "Hozzaadás");
 		data.put("addIngredientWihQuantity", "Új alapanyg és mennyiségét hozzaadása");
+		data.put("saveToExternFile", "Mentés külső fájlba");
 		data.put("edit", "Modosítás");
 		data.put("delete", "Törlés");
 		data.put("cancel", "Visszavonás");
+		data.put("close", "Zárás");
+		data.put("detailsOverview", "Részletek megtekintése");
 
 		data.put("actualBook:", "Kiválasztótt könyv:");
 		data.put("bookDatas", "Könyv adatai");
@@ -149,8 +156,8 @@ final public class Text {
 		data.put("FileChooserSaveButtonToolTipText", "Kiválasztótt fájl mentése");
 		data.put("FileChooserOpenButtonText", "Nyítás");
 		data.put("FileChooserOpenButtonToolTipText", "Kiválasztótt fájl nyítása");
-		data.put("FileChooserCancelButtonText", "Törlés");
-		data.put("FileChooserCancelButtonToolTipText", "Kiválasztótt fájl törlése");
+		data.put("FileChooserCancelButtonText", "Kilépés");
+		data.put("FileChooserCancelButtonToolTipText", "Kilépés");
 		data.put("FileChooserFileNameLabelText", "Fájl neve:");
 		data.put("FileChooserFilesOfTypeLabelText", "Fájl típusa:");
 		data.put("FileChooserLookInLabelText", "Könyvtár:");
@@ -170,6 +177,7 @@ final public class Text {
 
 		data.put("dialogAboutTitle", "Programról");
 		data.put("aboutProgramm", "Programról");
+
 		data.put("confirmExitIntention", "Biztos, hogy ki akar lépni? Vannak nem mentett adatok!");
 		data.put("confirmationOfDelete", "Biztos, hogy ki akar törölni?");
 		data.put("confirmationOfIntent", "Szandék megerősítése");

@@ -14,6 +14,7 @@ import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
 import recipeguide.gui.handler.EditorHandler;
 import recipeguide.gui.handler.Handler;
+import recipeguide.gui.handler.HelpAboutHandler;
 import recipeguide.gui.handler.ViewHandler;
 import recipeguide.gui.handler.FileHandler;
 import recipeguide.gui.toolbar.button.ButtonType;
@@ -41,7 +42,7 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		JMenu view = addMenu(Text.get("menuView"), Style.ICON_MENU_VIEW);
 		JMenu help = addMenu(Text.get("menuHelp"), Style.ICON_MENU_HELP);
 
-		FileHandler fileHandler = new FileHandler(frame);
+		Handler fileHandler = new FileHandler(frame);
 		addMenuItem(file, Text.get("menuFileNew"), Style.ICON_MENU_FILE_NEW, HandlerCode.MENU_FILE_NEW, fileHandler,
 				KeyEvent.VK_N);
 		addMenuItem(file, Text.get("menuFileOpen"), Style.ICON_MENU_FILE_OPEN, HandlerCode.MENU_FILE_OPEN, fileHandler,
@@ -52,7 +53,7 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 				KeyEvent.VK_E);
 
 		editorItems = new ArrayList<>();
-		EditorHandler editorHandler = new EditorHandler(frame);
+		Handler editorHandler = new EditorHandler(frame);
 		editorItems.add(addMenuItem(edit, Text.get("menuEditAdd"), Style.ICON_MENU_EDIT_ADD, HandlerCode.ADD,
 				editorHandler, ButtonType.ADD));
 		editorItems.add(addMenuItem(edit, Text.get("menuEditEdit"), Style.ICON_MENU_EDIT_EDIT, HandlerCode.EDIT,
@@ -61,7 +62,7 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 				editorHandler, ButtonType.DELETE));
 		setEnableElement(frame.getEnableTypes());
 
-		ViewHandler viewHandler = new ViewHandler(frame);
+		Handler viewHandler = new ViewHandler(frame);
 		addMenuItem(view, Text.get("menuViewBook"), Style.ICON_MENU_VIEW_BOOK, HandlerCode.MENU_VIEW_BOOK, viewHandler,
 				KeyEvent.VK_B);
 		addMenuItem(view, Text.get("menuViewIngredientTypes"), Style.ICON_MENU_VIEW_INGREDIENT_TYPES,
@@ -77,7 +78,9 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		addMenuItem(view, Text.get("menuViewSearchRecipes"), Style.ICON_MENU_VIEW_SEARCH, HandlerCode.MENU_VIEW_SEARCH,
 				viewHandler);
 
-		addMenuItem(help, Text.get("menuHelpAbout"), Style.ICON_MENU_HELP_ABOUT, HandlerCode.MENU_HELP_ABOUT, null);
+		Handler helpAboutHandler = new HelpAboutHandler(frame);
+		addMenuItem(help, Text.get("menuHelpAbout"), Style.ICON_MENU_HELP_ABOUT, HandlerCode.HELP_ABOUT,
+				helpAboutHandler);
 
 		setBackground(Style.COLOR_MAIN_MENU);
 	}

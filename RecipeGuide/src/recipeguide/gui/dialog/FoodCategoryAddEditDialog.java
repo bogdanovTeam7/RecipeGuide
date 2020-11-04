@@ -17,6 +17,10 @@ public class FoodCategoryAddEditDialog extends AddEditDialog {
 		super(frame, type);
 	}
 
+	public FoodCategoryAddEditDialog(MainFrame frame) {
+		super(frame, null);
+	}
+
 	@Override
 	public void setEntity(Entity entity) {
 		super.entity = entity;

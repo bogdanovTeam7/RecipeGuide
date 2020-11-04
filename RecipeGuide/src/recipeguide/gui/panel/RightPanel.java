@@ -63,7 +63,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 		setEnableElements(frame.getEnableTypes());
 		if (tableData != null) {
 			if (tableData.getSelectedRow() != -1) {
-				List<ButtonType> of = List.of(ButtonType.ADD, ButtonType.EDIT, ButtonType.DELETE);
+				List<ButtonType> of = List.of(ButtonType.values());
 				frame.setEnableTypes(of);
 				setEnableElements(frame.getEnableTypes());
 			}

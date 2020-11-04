@@ -22,6 +22,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import recipeguide.gui.MainFrame;
+import recipeguide.gui.handler.AddEditDialogHandler;
+import recipeguide.gui.handler.Handler;
 import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.entities.Entity;
 import recipeguide.settings.HandlerCode;
@@ -38,13 +40,16 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 	protected Map<String, Object> values = new LinkedHashMap<>();
 	protected Entity entity;
 	protected DialogType dialogType;
+	protected AddEditDialogHandler handler;
 	protected Font font = Style.FONT_ADD_EDIT_DIALOG;
 
 	public AddEditDialog(MainFrame frame, DialogType type) {
 		super(frame, true);
 		this.frame = frame;
 		this.dialogType = type;
+		handler = new AddEditDialogHandler(frame, this);
 		setTitle(type);
+		addWindowListener(handler);
 		setResizable(false);
 	}
 
@@ -78,6 +83,9 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 		icons.clear();
 		values.clear();
 		dispose();
+		if (frame != null) {
+			frame.refresh();
+		}
 	}
 
 	private void setDialog() {
@@ -124,6 +132,7 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 				((JTextArea) component).setText(text);
 			}
 
+			component.addKeyListener(handler);
 			component.setAlignmentX(JComponent.LEFT_ALIGNMENT);
 			component.setFont(font);
 			add(label);
@@ -136,12 +145,14 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 				.withTitle(Text.get(dialogType.getAction()))
 				.withIcon(chooseImageIcon())
 				.withAction(chooseHandlerCode())
+				.withActionListener(handler)
 				.build();
 
 		MainButton cancelButton = MainButton.builder()
 				.withTitle(Text.get("cancel"))
 				.withIcon(Style.ICON_BUTTON_CANCEL)
 				.withAction(HandlerCode.CANCEL)
+				.withActionListener(handler)
 				.build();
 
 		JPanel buttonPanel = new JPanel();

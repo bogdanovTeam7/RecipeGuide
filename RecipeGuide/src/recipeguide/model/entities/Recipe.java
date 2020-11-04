@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import recipeguide.model.Quantity;
+import recipeguide.settings.Text;
 
 import java.util.Collections;
 
@@ -203,23 +204,45 @@ public class Recipe extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		StringBuilder builder2 = new StringBuilder();
-		builder2.append("Recipe [name=");
-		builder2.append(name);
-		builder2.append(", category=");
-		builder2.append(category);
-		builder2.append(", ingredientsWihQuantity=");
-		builder2.append(ingredientsWihQuantity);
-		builder2.append(", ration=");
-		builder2.append(ration);
-		builder2.append(", description=");
-		builder2.append(description);
-		builder2.append(", preparingTimeInSeconds=");
-		builder2.append(preparingTimeInSeconds);
-		builder2.append(", cookingTimeInSeconds=");
-		builder2.append(cookingTimeInSeconds);
-		builder2.append("]");
-		return builder2.toString();
+		StringBuilder text = new StringBuilder();
+		text.append(name);
+		text.append("\n\n");
+		text.append(Text.get("category"));
+		text.append(": ");
+		text.append(category.getName());
+		text.append("\n");
+		text.append(Text.get("ration"));
+		text.append(": ");
+		text.append(ration);
+		text.append("\n");
+		text.append(Text.get("preparingTime"));
+		text.append(": ");
+		text.append(preparingTimeInSeconds);
+		text.append("\n");
+		text.append(Text.get("cookingTime"));
+		text.append(": ");
+		text.append(cookingTimeInSeconds);
+		text.append("\n");
+		text.append(Text.get("ingredientsWithMeasure"));
+		text.append(":\n");
+
+		for (Map.Entry<Ingredient, Quantity> entry : ingredientsWihQuantity.entrySet()) {
+			text.append("\t");
+			text.append(entry.getKey()
+					.getNameToDisplay());
+			text.append(": ");
+			text.append(entry.getValue()
+					.getAmount());
+			text.append(" ");
+			text.append(entry.getValue()
+					.getUnit()
+					.getNameToDisplay());
+			text.append("\n");
+		}
+		text.append(Text.get("description"));
+		text.append(":\n\t");
+		text.append(description);
+		return text.toString();
 	}
 
 }

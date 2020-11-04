@@ -16,7 +16,8 @@ public class RecipePanel extends RightPanel {
 
 	public RecipePanel(MainFrame frame) {
 		super(frame, new RecipeTableData(frame), Text.get("recipes"), Style.ICON_RIGHT_PANEL_RECIPE,
-				List.of(new EditorToolbar(frame, List.of(ButtonType.ADD, ButtonType.EDIT, ButtonType.DELETE),
+				List.of(new EditorToolbar(frame,
+						List.of(ButtonType.ADD, ButtonType.DETAILS_OVERVIEW, ButtonType.EDIT, ButtonType.DELETE),
 						List.of(ButtonType.ADD))));
 	}
 

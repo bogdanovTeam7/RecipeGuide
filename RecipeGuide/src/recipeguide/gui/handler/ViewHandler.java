@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.panel.BookPanel;
+import recipeguide.gui.panel.FoodCategoriesPanel;
 import recipeguide.gui.panel.IngredientTypesPanel;
 import recipeguide.gui.panel.IngredientsPanel;
 import recipeguide.gui.panel.MeasuryUnitsPanel;
@@ -58,9 +59,7 @@ public class ViewHandler extends Handler {
 	}
 
 	private void showCategoriesPanel() {
-//		frame.setRightPanel(new CategoriesPanel(frame));
-		// TODO Auto-generated method stub
-
+		frame.setRightPanel(new FoodCategoriesPanel(frame));
 	}
 
 	private void showIngredientsPanel() {

@@ -1,6 +1,5 @@
 package recipeguide.gui.table;
 
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -11,7 +10,6 @@ import javax.swing.ListSelectionModel;
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.Refresh;
 import recipeguide.gui.handler.EditorHandler;
-import recipeguide.gui.handler.Handler;
 import recipeguide.gui.renderer.TableCellRenderer;
 import recipeguide.gui.renderer.TableHeaderCellRenderer;
 import recipeguide.gui.table.model.MainTableModel;

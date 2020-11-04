@@ -2,8 +2,10 @@
 <data>
     <book>
         <author></author>
-        <lastEditedAt>2020-10-27T22:49:14.891+01:00</lastEditedAt>
-        <name></name>
-        <startedAt>2020-10-27T22:49:14.891+01:00</startedAt>
+        <lastEditedAt>2020-11-04T22:39:03.373+01:00</lastEditedAt>
+        <startedAt>2020-11-04T22:39:03.373+01:00</startedAt>
     </book>
+    <types>
+        <name>tejtermék</name>
+    </types>
 </data>

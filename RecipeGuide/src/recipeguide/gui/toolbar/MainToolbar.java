@@ -1,6 +1,8 @@
 package recipeguide.gui.toolbar;
 
 import recipeguide.gui.MainFrame;
+import recipeguide.gui.handler.Handler;
+import recipeguide.gui.handler.ViewHandler;
 import recipeguide.gui.toolbar.button.ButtonType;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Style;
@@ -17,20 +19,21 @@ public final class MainToolbar extends AbstractToolbar {
 
 	@Override
 	protected void init() {
-		addMainButton(Text.get("toolbarBook"), Style.ICON_TOOLBAR_BOOK, HandlerCode.TOOLBAR_BOOK, "", true,
+		Handler viewHandler = new ViewHandler(frame);
+		addMainButton(Text.get("toolbarBook"), Style.ICON_TOOLBAR_BOOK, viewHandler, HandlerCode.MENU_VIEW_BOOK, true,
 				ButtonType.UNSPECIFIED);
-		addMainButton(Text.get("toolbarMeasuryUnits"), Style.ICON_TOOLBAR_MEASURY_UNITS,
-				HandlerCode.TOOLBAR_MEASURY_UNITS, "", true, ButtonType.UNSPECIFIED);
-		addMainButton(Text.get("toolbarIngredientTypes"), Style.ICON_TOOLBAR_INGREDIENT_TYPES,
-				HandlerCode.TOOLBAR_INGREDIENT_TYPES, "", true, ButtonType.UNSPECIFIED);
-		addMainButton(Text.get("toolbarIngredients"), Style.ICON_TOOLBAR_INGREDIENTS, HandlerCode.TOOLBAR_INGREDIENTS,
-				"", true, ButtonType.UNSPECIFIED);
-		addMainButton(Text.get("toolbarFoodCategories"), Style.ICON_TOOLBAR_FOOD_CATEGORIES,
-				HandlerCode.TOOLBAR_FOOD_CATEGORIES, "", true, ButtonType.UNSPECIFIED);
-		addMainButton(Text.get("toolbarRecipes"), Style.ICON_TOOLBAR_RECIPES, HandlerCode.TOOLBAR_RECIPES, "", true,
-				ButtonType.UNSPECIFIED);
-		addMainButton(Text.get("toolbarSearchRecipes"), Style.ICON_TOOLBAR_SEARCH_RECIPES,
-				HandlerCode.TOOLBAR_SEARCH_RECIPES, "", true, ButtonType.UNSPECIFIED);
+		addMainButton(Text.get("toolbarMeasuryUnits"), Style.ICON_TOOLBAR_MEASURY_UNITS, viewHandler,
+				HandlerCode.MENU_VIEW_MEASURY_UNITS, true, ButtonType.UNSPECIFIED);
+		addMainButton(Text.get("toolbarIngredientTypes"), Style.ICON_TOOLBAR_INGREDIENT_TYPES, viewHandler,
+				HandlerCode.MENU_VIEW_INGREDIENT_TYPES, true, ButtonType.UNSPECIFIED);
+		addMainButton(Text.get("toolbarIngredients"), Style.ICON_TOOLBAR_INGREDIENTS, viewHandler,
+				HandlerCode.MENU_VIEW_INGREDIENTS, true, ButtonType.UNSPECIFIED);
+		addMainButton(Text.get("toolbarFoodCategories"), Style.ICON_TOOLBAR_FOOD_CATEGORIES, viewHandler,
+				HandlerCode.MENU_VIEW_FOOD_CATEGORIES, true, ButtonType.UNSPECIFIED);
+		addMainButton(Text.get("toolbarRecipes"), Style.ICON_TOOLBAR_RECIPES, viewHandler,
+				HandlerCode.MENU_VIEW_RECIPES, true, ButtonType.UNSPECIFIED);
+		addMainButton(Text.get("toolbarSearchRecipes"), Style.ICON_TOOLBAR_SEARCH_RECIPES, viewHandler,
+				HandlerCode.MENU_VIEW_SEARCH, true, ButtonType.UNSPECIFIED);
 	}
 
 }

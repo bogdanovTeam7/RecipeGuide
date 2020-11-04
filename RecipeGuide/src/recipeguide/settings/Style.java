@@ -26,6 +26,7 @@ public final class Style {
 	public static final Font FONT_ERROR_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_CONFIRM_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
 	public static final Font FONT_ABOUT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 12);
+	public static final Font FONT_RECIPE_DETAILS_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 14);
 	public static final Font FONT_ADD_EDIT_DIALOG = new Font(Settings.FONT_NAME, Font.BOLD, 14);
 	public static final Font FONT_LEFT_PANEL_TITLE = new Font(Settings.FONT_NAME, Font.BOLD, 14);
 	public static final Font FONT_LEFT_PANEL_INFO_PANEL = new Font(Settings.FONT_NAME, Font.BOLD, 12);
@@ -94,8 +95,10 @@ public final class Style {
 	public static final ImageIcon ICON_TOOLBAR_EDIT = new ImageIcon("images/toolbarEdit.png");
 	public static final ImageIcon ICON_TOOLBAR_DELETE = new ImageIcon("images/toolbarDelete.png");
 	public static final ImageIcon ICON_TOOLBAR_SEARCH = new ImageIcon("images/toolbarSearch.png");
+	public static final ImageIcon ICON_TOOLBAR_DETAILS_OVERVIEW = new ImageIcon("images/toolbarDetailsOverview.png");
 
 	public static final ImageIcon ICON_BUTTON_ADD = new ImageIcon("images/buttonAdd.png");
+	public static final ImageIcon ICON_BUTTON_SAVE = new ImageIcon("images/buttonSave.png");
 	public static final ImageIcon ICON_BUTTON_EDIT = new ImageIcon("images/buttonEdit.png");
 	public static final ImageIcon ICON_BUTTON_CANCEL = new ImageIcon("images/buttonCancel.png");
 	public static final ImageIcon ICON_BUTTON_SEARCH = new ImageIcon("images/buttonSearch.png");
@@ -113,6 +116,7 @@ public final class Style {
 	public static final ImageIcon ICON_DIALOG_AMOUNT = new ImageIcon("images/dialogAmount.png");
 	public static final ImageIcon ICON_DIALOG_BOOK_NAME = new ImageIcon("images/dialogBookName.png");
 	public static final ImageIcon ICON_DIALOG_BOOK_AUTHOR = new ImageIcon("images/dialogBookAuthor.png");
+	public static final ImageIcon ICON_DIALOG_RECIPE_DETAILS = new ImageIcon("images/menuView.png");
 
 	public static final ImageIcon ICON_LEFT_PANEL_TITLE = new ImageIcon("images/leftPanelTitle.png");
 
@@ -127,6 +131,7 @@ public final class Style {
 	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_STARTED_AT = new ImageIcon(
 			"images/rightPanelBookStartedAt.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_EDITED_AT = new ImageIcon("images/rightPanelBookStartedAt.png");
+	public static final ImageIcon ICON_RIGHT_PANEL_FOOD_CATEGORY = new ImageIcon("images/menuViewFoodCategories.png");
 
 	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
@@ -140,6 +145,8 @@ public final class Style {
 	public static final ImageIcon ICON_TABLE_RECIPE_DESCRIPTION = new ImageIcon("images/tableRecipeDescription.png");
 	public static final ImageIcon ICON_TABLE_RECIPE_TIME = new ImageIcon("images/tableRecipeTime.png");
 	public static final ImageIcon ICON_TABLE_COOKING_TIME = new ImageIcon("images/tableRecipeTime.png");
+
+	public static final ImageIcon ICON_TABLE_FOOD_CATEGORY_NAME = new ImageIcon("images/tableRecipeFoodCategories.png");
 
 	public static final ImageIcon ICON_TABLE_MEASURY_UNIT_NAME = new ImageIcon("images/tableMeasuryUnit.png");
 	public static final ImageIcon ICON_TABLE_MEASURY_UNIT_ABBREVIATION = new ImageIcon(

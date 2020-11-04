@@ -6,7 +6,6 @@ import recipeguide.exceptions.ModelException;
 import recipeguide.gui.MainFrame;
 import recipeguide.model.entities.Book;
 import recipeguide.model.entities.Entity;
-import recipeguide.saveload.SaveData;
 import recipeguide.settings.Style;
 
 public class BookDialog extends AddEditDialog {

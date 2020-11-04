@@ -1,11 +1,14 @@
 package recipeguide.gui.toolbar.button;
 
 public enum ButtonType {
+	UNSPECIFIED,
 	ADD,
 	EDIT,
 	DELETE,
 	CANCEL,
 	SEARCH,
-	UNSPECIFIED;
+	DETAILS_OVERVIEW,
+	CLOSE,
+	SAVE;
 
 }

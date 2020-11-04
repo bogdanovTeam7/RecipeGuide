@@ -53,6 +53,12 @@ public abstract class AbstractToolbar extends JPanel implements Refresh {
 			listener = new EditorHandler(frame);
 			action = HandlerCode.DELETE;
 			break;
+		case DETAILS_OVERVIEW:
+			title = "detailsOverview";
+			icon = Style.ICON_TOOLBAR_DETAILS_OVERVIEW;
+			listener = new EditorHandler(frame);
+			action = HandlerCode.DETAILS_OVERVIEW;
+			break;
 		case CANCEL:
 			break;
 		case SEARCH:

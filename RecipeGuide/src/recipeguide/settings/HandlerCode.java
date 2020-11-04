@@ -12,9 +12,13 @@ public final class HandlerCode {
 	public static final String ADD = "add";
 	public static final String EDIT = "edit";
 	public static final String SAVE = "save";
+	public static final String SAVE_TO_EXTERN_FILE = "saveToExternFile";
 	public static final String CANCEL = "cancel";
+	public static final String CLOSE = "close";
 	public static final String DELETE = "delete";
 	public static final String SEARCH = "search";
+	public static final String DETAILS_OVERVIEW = "detailsOverview";
+	public static final String HELP_ABOUT = "menuHelpAbout";
 
 	public static final String MENU_EDIT_ADD = null;
 	public static final String MENU_EDIT_EDIT = null;
@@ -28,7 +32,6 @@ public final class HandlerCode {
 	public static final String MENU_VIEW_RECIPES = "menuViewRecipes";
 	public static final String MENU_VIEW_SEARCH = "menuViewSearch";
 
-	public static final String MENU_HELP_ABOUT = "menuHelpAbout";
 
 	public static final Handler TOOLBAR_OVERVIEW = null;
 	public static final Handler TOOLBAR_MEASURY_UNITS = null;
@@ -41,5 +44,6 @@ public final class HandlerCode {
 	public static final Handler TOOLBAR_DELETE = null;
 	public static final Handler TOOLBAR_BOOK = null;
 	public static final Handler TOOLBAR_SEARCH_RECIPES = null;
+	
 
 }

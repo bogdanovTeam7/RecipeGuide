@@ -3,7 +3,6 @@ package recipeguide.gui.table;
 import java.util.LinkedHashMap;
 
 import recipeguide.gui.MainFrame;
-import recipeguide.gui.handler.EditorHandler;
 import recipeguide.gui.table.model.IngredientsTableModel;
 import recipeguide.model.entities.Ingredient;
 import recipeguide.settings.Style;
