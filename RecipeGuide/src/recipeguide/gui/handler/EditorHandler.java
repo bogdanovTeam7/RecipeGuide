@@ -41,6 +41,7 @@ public class EditorHandler extends Handler implements MouseListener, KeyListener
 			break;
 		case HandlerCode.DELETE:
 			delete();
+			break;
 		case HandlerCode.DETAILS_OVERVIEW:
 			detailsOverView();
 			break;
@@ -63,9 +64,8 @@ public class EditorHandler extends Handler implements MouseListener, KeyListener
 					SaveData.getInstance()
 							.delete(e);
 					frame.refresh();
-				} catch (ModelException e1) {
-					ErrorDialog.show(frame, "errorBasicEntityInvalidToDelete");
-					e1.printStackTrace();
+				} catch (ModelException exception) {
+					ErrorDialog.show(frame, exception.getMessage());
 				}
 			}
 		}
@@ -73,10 +73,12 @@ public class EditorHandler extends Handler implements MouseListener, KeyListener
 
 	private void edit() {
 		Entity e = getSelectedEntity();
-		setDialog();
-		dialog.setDialogType(DialogType.EDIT);
-		dialog.setEntity(e);
-		dialog.showDialog();
+		if (e != null) {
+			setDialog();
+			dialog.setDialogType(DialogType.EDIT);
+			dialog.setEntity(e);
+			dialog.showDialog();
+		}
 	}
 
 	private void add() {

@@ -1,5 +1,7 @@
 package recipeguide.model.entities;
 
+import java.util.Objects;
+
 import recipeguide.saveload.SaveData;
 
 public class Ingredient extends AbstractEntity {
@@ -31,6 +33,17 @@ public class Ingredient extends AbstractEntity {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Ingredient)) {
+			return false;
+		}
+		return name.equals(((Ingredient) obj).getName());
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Ingredient [name=");
@@ -42,18 +55,20 @@ public class Ingredient extends AbstractEntity {
 	}
 
 	@Override
-	public void postEdit(SaveData saveData) {
-		for (Ingredient ingredient : saveData.getIngredients()) {
-			if (ingredient.equals((Ingredient) saveData.getOldEntity())) {
+	public void postEdit() {
+		for (Ingredient ingredient : SaveData.getInstance()
+				.getIngredients()) {
+			if (ingredient.equals((Ingredient) SaveData.getInstance()
+					.getOldEntity())) {
 //				ingredient
 			}
 		}
 	}
 
 	@Override
-	public void postDelete(SaveData saveData) {
+	public void postDelete() {
 		// TODO Auto-generated method stub
-		super.postDelete(saveData);
+		super.postDelete();
 	}
 
 }

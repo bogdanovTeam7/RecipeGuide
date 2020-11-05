@@ -1,12 +1,12 @@
 package recipeguide.model.entities;
 
 import java.util.Date;
+import java.util.Objects;
 
 import recipeguide.settings.Format;
 
 public class Book extends AbstractEntity {
 
-//	private String name = "";
 	private String author = "";
 	private Date startedAt = new Date();
 	private Date lastEditedAt = new Date();
@@ -59,6 +59,22 @@ public class Book extends AbstractEntity {
 
 	public String getFormattedLastEditedAt() {
 		return Format.getFormattedDate(lastEditedAt);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(author) + super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Book)) {
+			return false;
+		}
+		return author.equals(((Book) obj).getAuthor()) && name.equals(((Book) obj).getName());
 	}
 
 	@Override

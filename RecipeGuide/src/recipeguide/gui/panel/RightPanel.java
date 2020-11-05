@@ -62,7 +62,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	private void checkEnableElements() {
 		setEnableElements(frame.getEnableTypes());
 		if (tableData != null) {
-			if (tableData.getSelectedRow() != -1) {
+			if (tableData.getSelectedRow() >= 0) {
 				List<ButtonType> of = List.of(ButtonType.values());
 				frame.setEnableTypes(of);
 				setEnableElements(frame.getEnableTypes());
@@ -92,6 +92,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 				((Refresh) jPanel).refresh();
 			}
 		}
+		checkEnableElements();
 	}
 
 	@Override
@@ -158,7 +159,7 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 	}
 
 	public Entity getSelectedeEtity() {
-		if (tableData == null) {
+		if (tableData == null || tableData.getSelectedRow() < 0) {
 			return null;
 		}
 		return (Entity) tableData.getModel()

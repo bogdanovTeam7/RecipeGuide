@@ -30,23 +30,37 @@ public class IngredientType extends AbstractEntity {
 	}
 
 	@Override
-	public void postEdit(SaveData saveData) {
-		for (Ingredient ingredient : saveData.getIngredients()) {
+	public void postEdit() {
+		for (Ingredient ingredient : SaveData.getInstance()
+				.getIngredients()) {
 			if (ingredient.getType()
-					.equals((IngredientType) saveData.getOldEntity())) {
+					.equals((IngredientType) SaveData.getInstance()
+							.getOldEntity())) {
 				ingredient.setType(this);
 			}
 		}
 	}
 
 	@Override
-	public void postDelete(SaveData saveData) {
-		for (Ingredient ingredient : saveData.getIngredients()) {
+	public void postDelete() {
+		for (Ingredient ingredient : SaveData.getInstance()
+				.getIngredients()) {
 			if (ingredient.getType()
 					.equals(this)) {
 				ingredient.setType(Settings.INGREDIENT_TYPE_DEFAULT);
 			}
 		}
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof IngredientType)) {
+			return false;
+		}
+		return name.equals(((IngredientType) obj).getName());
 	}
 
 }

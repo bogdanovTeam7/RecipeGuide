@@ -65,12 +65,12 @@ public class MainMenu extends JMenuBar implements Refresh, EnableElement {
 		Handler viewHandler = new ViewHandler(frame);
 		addMenuItem(view, Text.get("menuViewBook"), Style.ICON_MENU_VIEW_BOOK, HandlerCode.MENU_VIEW_BOOK, viewHandler,
 				KeyEvent.VK_B);
+		addMenuItem(view, Text.get("menuViewMeasuryUnits"), Style.ICON_MENU_VIEW_MEASURY_UNITS,
+				HandlerCode.MENU_VIEW_MEASURY_UNITS, viewHandler, KeyEvent.VK_M);
 		addMenuItem(view, Text.get("menuViewIngredientTypes"), Style.ICON_MENU_VIEW_INGREDIENT_TYPES,
 				HandlerCode.MENU_VIEW_INGREDIENT_TYPES, viewHandler, KeyEvent.VK_T);
 		addMenuItem(view, Text.get("menuViewIngredients"), Style.ICON_MENU_VIEW_INGREDIENTS,
 				HandlerCode.MENU_VIEW_INGREDIENTS, viewHandler, KeyEvent.VK_I);
-		addMenuItem(view, Text.get("menuViewMeasuryUnits"), Style.ICON_MENU_VIEW_MEASURY_UNITS,
-				HandlerCode.MENU_VIEW_MEASURY_UNITS, viewHandler, KeyEvent.VK_M);
 		addMenuItem(view, Text.get("menuViewFoodCategories"), Style.ICON_MENU_VIEW_FOOD_CATEGORIES,
 				HandlerCode.MENU_VIEW_FOOD_CATEGORIES, viewHandler, KeyEvent.VK_C);
 		addMenuItem(view, Text.get("menuViewRecipes"), Style.ICON_MENU_VIEW_RECIPES, HandlerCode.MENU_VIEW_RECIPES,

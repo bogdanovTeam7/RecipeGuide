@@ -47,6 +47,7 @@ public class AddEditDialogHandler extends Handler implements KeyListener, Window
 				dialog.close();
 				break;
 			}
+			frame.refresh();
 		} catch (ModelException exception) {
 			ErrorDialog.show(frame, exception.getMessage());
 		}

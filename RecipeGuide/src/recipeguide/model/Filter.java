@@ -14,17 +14,12 @@ import recipeguide.settings.Settings;
 
 public class Filter {
 
-	private SaveData saveData;
-
-	public Filter(SaveData saveData) {
-		this.saveData = saveData;
-	}
-
 	public Filter() {
 	}
 
 	public IngredientType getType(String name) {
-		for (IngredientType type : saveData.getTypes()) {
+		for (IngredientType type : SaveData.getInstance()
+				.getTypes()) {
 			if (type.getName()
 					.equals(name)) {
 				return type;
@@ -34,7 +29,8 @@ public class Filter {
 	}
 
 	public FoodCategory getCategory(String name) {
-		for (FoodCategory category : saveData.getCategories()) {
+		for (FoodCategory category : SaveData.getInstance()
+				.getCategories()) {
 			if (category.getName()
 					.equals(name)) {
 				return category;
@@ -45,7 +41,8 @@ public class Filter {
 
 	public List<Recipe> getRecipesByCategory(FoodCategory category) {
 		List<Recipe> result = new ArrayList<>();
-		for (Recipe recipe : saveData.getRecipes()) {
+		for (Recipe recipe : SaveData.getInstance()
+				.getRecipes()) {
 			if (recipe.getCategory()
 					.equals(category)) {
 				result.add(recipe);
@@ -56,7 +53,8 @@ public class Filter {
 
 	public List<Recipe> getRecipesByIngredientType(IngredientType type) {
 		List<Recipe> result = new ArrayList<>();
-		for (Recipe recipe : saveData.getRecipes()) {
+		for (Recipe recipe : SaveData.getInstance()
+				.getRecipes()) {
 			for (IngredientType iType : recipe.getIngredientTypes()) {
 				if (iType.equals(type)) {
 					result.add(recipe);
@@ -68,7 +66,8 @@ public class Filter {
 
 	public List<Ingredient> getIngredientsByIngredientType(IngredientType type) {
 		List<Ingredient> result = new ArrayList<>();
-		for (Ingredient ingredient : saveData.getIngredients()) {
+		for (Ingredient ingredient : SaveData.getInstance()
+				.getIngredients()) {
 			if (ingredient.getType()
 					.equals(type)) {
 				result.add(ingredient);
@@ -79,7 +78,8 @@ public class Filter {
 
 	public List<Recipe> getRecipesByIngredient(Ingredient ingredient) {
 		List<Recipe> result = new ArrayList<>();
-		for (Recipe recipe : saveData.getRecipes()) {
+		for (Recipe recipe : SaveData.getInstance()
+				.getRecipes()) {
 			for (Ingredient ing : recipe.getIngredients()) {
 				if (ing.equals(ingredient)) {
 					result.add(recipe);
@@ -90,7 +90,8 @@ public class Filter {
 	}
 
 	public Ingredient getIngredient(String name) {
-		for (Ingredient ingredient : saveData.getIngredients()) {
+		for (Ingredient ingredient : SaveData.getInstance()
+				.getIngredients()) {
 			if (ingredient.getName()
 					.equals(name)) {
 				return ingredient;
@@ -100,7 +101,8 @@ public class Filter {
 	}
 
 	public MeasuryUnit getMeasuryUnit(String name) {
-		for (MeasuryUnit unit : saveData.getUnits()) {
+		for (MeasuryUnit unit : SaveData.getInstance()
+				.getUnits()) {
 			if (unit.getName()
 					.equals(name)) {
 				return unit;
@@ -125,7 +127,8 @@ public class Filter {
 
 	public List<Recipe> getRecipesByMesuryUnit(MeasuryUnit measuryUnit) {
 		List<Recipe> result = new ArrayList<>();
-		for (Recipe recipe : saveData.getRecipes()) {
+		for (Recipe recipe : SaveData.getInstance()
+				.getRecipes()) {
 			for (Quantity quantity : recipe.getIngredientsWihQuantity()
 					.values()) {
 				if (quantity.getUnit()
@@ -136,5 +139,5 @@ public class Filter {
 		}
 		return result;
 	}
-	
+
 }

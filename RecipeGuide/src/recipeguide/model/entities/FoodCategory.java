@@ -32,6 +32,9 @@ public class FoodCategory extends AbstractEntity {
 
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
 		if (obj instanceof FoodCategory) {
 			return name.equals(((FoodCategory) obj).getName());
 		}
@@ -39,17 +42,20 @@ public class FoodCategory extends AbstractEntity {
 	}
 
 	@Override
-	public void postEdit(SaveData saveData) {
-		for (Recipe recipe : saveData.getFilter()
-				.getRecipesByCategory((FoodCategory) saveData.getOldEntity())) {
+	public void postEdit() {
+		for (Recipe recipe : SaveData.getInstance()
+				.getFilter()
+				.getRecipesByCategory((FoodCategory) SaveData.getInstance()
+						.getOldEntity())) {
 			recipe.setCategory(this);
 			recipe.setDescription(Text.get("foodCategoryPostEdit") + "\n" + recipe.getDescription());
 		}
 	}
 
 	@Override
-	public void postDelete(SaveData saveData) {
-		for (Recipe recipe : saveData.getFilter()
+	public void postDelete() {
+		for (Recipe recipe : SaveData.getInstance()
+				.getFilter()
 				.getRecipesByCategory(this)) {
 			recipe.setCategory(Settings.FOOD_CATEGORY_DEFAULT);
 		}

@@ -66,7 +66,7 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 		int selectedRow = getSelectedRow();
 		E temp = model.getValueAtIndex(selectedRow);
 		model.refresh();
-		if (model.contains(temp)) {
+		if (temp != null && model.contains(temp)) {
 			setRowSelectionInterval(model.getIndexOf(temp), model.getIndexOf(temp));
 		}
 		setHeaderRenderer();

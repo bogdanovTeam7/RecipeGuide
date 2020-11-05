@@ -1,9 +1,15 @@
 package recipeguide.model.entities;
 
+import java.util.Objects;
+
 import recipeguide.saveload.SaveData;
 
 public abstract class AbstractEntity implements Entity {
 	protected String name;
+
+	private String getName() {
+		return name;
+	}
 
 	@Override
 	public String getNameToDisplay() {
@@ -11,15 +17,32 @@ public abstract class AbstractEntity implements Entity {
 	}
 
 	@Override
-	public void postAdd(SaveData saveData) {
+	public void postAdd() {
 	}
 
 	@Override
-	public void postEdit(SaveData saveData) {
+	public void postEdit() {
 	}
 
 	@Override
-	public void postDelete(SaveData saveData) {
+	public void postDelete() {
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof AbstractEntity)) {
+			return false;
+		}
+		AbstractEntity other = (AbstractEntity) obj;
+		return Objects.equals(name, other.getName());
 	}
 
 }

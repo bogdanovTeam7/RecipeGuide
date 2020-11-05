@@ -32,7 +32,7 @@ public final class SaveData {
 	private boolean isSaved;
 
 	private SaveData() {
-		filter = new Filter(instance);
+		filter = new Filter();
 		load();
 	}
 
@@ -166,16 +166,18 @@ public final class SaveData {
 		} else if (entity instanceof FoodCategory) {
 			categories.add((FoodCategory) entity);
 		} else if (entity instanceof Book) {
-			book = (Book) entity;
+			book = new Book();
+			book.setName(((Book) entity).getName());
+			book.setAuthor(((Book) entity).getAuthor());
 		}
-		entity.postAdd(this);
+		entity.postAdd();
 		sort();
 		isSaved = false;
 	}
 
 	public void delete(Entity entity) throws ModelException {
 		if (filter.isEntityDefault(entity)) {
-			throw new ModelException(ModelException.ENTITY_DEFAULT);
+			throw new ModelException(ModelException.ENTITY_BASIC_INVALID_TO_DELETE);
 		} else if (entity instanceof Ingredient) {
 			ingredients.remove((Ingredient) entity);
 		} else if (entity instanceof IngredientType) {
@@ -189,35 +191,64 @@ public final class SaveData {
 		} else if (entity instanceof Book) {
 			book = new Book();
 		}
-		entity.postDelete(this);
+		entity.postDelete();
 		isSaved = false;
 	}
 
 	public void edit(Entity entityOld, Entity entityNew) throws ModelException {
-		if (isEntityExist(entityNew)) {
+		if(entityOld==null) {
+			throw new ModelException(ModelException.ENTITY_TO_EDIT_DONT_CHOOSEN);
+			
+		}
+		if (!entityOld.equals(entityNew) && isEntityExist(entityNew)) {
 			throw new ModelException(ModelException.ENTITY_EXISTS);
-		} else if (entityNew instanceof Ingredient) {
-			oldEntity = ingredients.remove(ingredients.indexOf(entityOld));
+		}
+		if (entityNew instanceof Ingredient) {
+			oldEntity = ingredients.remove(ingredients.indexOf((Ingredient) entityOld));
+			ingredients.add((Ingredient) entityNew);
 		} else if (entityNew instanceof IngredientType) {
-			oldEntity = types.remove(types.indexOf(entityOld));
+			oldEntity = types.remove(types.indexOf((IngredientType) entityOld));
+			types.add((IngredientType) entityNew);
 		} else if (entityNew instanceof MeasuryUnit) {
-			oldEntity = units.remove(units.indexOf(entityOld));
+			oldEntity = units.remove(units.indexOf((MeasuryUnit) entityOld));
+			units.add((MeasuryUnit) entityNew);
 		} else if (entityNew instanceof Recipe) {
-			oldEntity = recipes.remove(recipes.indexOf(entityOld));
+			oldEntity = recipes.remove(recipes.indexOf((Recipe) entityOld));
+			recipes.add((Recipe) entityNew);
 		} else if (entityNew instanceof FoodCategory) {
-			oldEntity = categories.remove(categories.indexOf(entityOld));
+			oldEntity = categories.remove(categories.indexOf((FoodCategory) entityOld));
+			categories.add((FoodCategory) entityNew);
 		} else if (entityNew instanceof Book) {
 			oldEntity = book;
 			book = new Book();
+			book.setName(((Book) entityNew).getName());
+			book.setAuthor(((Book) entityNew).getAuthor());
 		}
-		entityNew.postEdit(this);
+		entityNew.postEdit();
 		sort();
 		isSaved = false;
 	}
 
 	private boolean isEntityExist(Entity entity) {
-		return ingredients.contains(entity) || types.contains(entity) || units.contains(entity)
-				|| recipes.contains(entity) || categories.contains(entity) || book.equals(entity);
+		if (entity instanceof Ingredient) {
+			return ingredients.contains((Ingredient) entity);
+		}
+		if (entity instanceof IngredientType) {
+			return types.contains((IngredientType) entity);
+		}
+		if (entity instanceof MeasuryUnit) {
+			return units.contains((MeasuryUnit) entity);
+		}
+		if (entity instanceof Recipe) {
+			return recipes.contains((Recipe) entity);
+		}
+		if (entity instanceof FoodCategory) {
+			return categories.contains((FoodCategory) entity);
+		}
+		if (entity instanceof Book) {
+			return book.equals((Book) entity);
+		}
+		return false;
 	}
 
 	public void clearAll() {

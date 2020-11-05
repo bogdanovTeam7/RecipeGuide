@@ -83,9 +83,6 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 		icons.clear();
 		values.clear();
 		dispose();
-		if (frame != null) {
-			frame.refresh();
-		}
 	}
 
 	private void setDialog() {

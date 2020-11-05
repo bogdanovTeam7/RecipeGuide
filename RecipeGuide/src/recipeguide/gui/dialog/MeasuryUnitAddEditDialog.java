@@ -53,9 +53,14 @@ public class MeasuryUnitAddEditDialog extends AddEditDialog {
 
 	@Override
 	public Entity getEntityFromForm() throws ModelException {
-		String name = ((JTextField) components.get("measuryUnitName")).getText();
+		String nameNew = ((JTextField) components.get("measuryUnitName")).getText()
+				.trim();
+		if (nameNew == null || nameNew.length() < 1) {
+			throw new ModelException(ModelException.TITLE_EMPTY);
+		}
 		String abbreviation = ((JTextField) components.get("measuryUnitAbbreviation")).getText();
-		return new MeasuryUnit(name, abbreviation);
+
+		return new MeasuryUnit(nameNew, abbreviation);
 	}
 
 }

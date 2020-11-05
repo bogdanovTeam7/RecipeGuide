@@ -1,14 +1,12 @@
 package recipeguide.model.entities;
 
-import recipeguide.saveload.SaveData;
-
 public interface Entity {
 
 	String getNameToDisplay();
 
-	void postAdd(SaveData saveData);
+	void postAdd();
 
-	void postEdit(SaveData saveData);
+	void postEdit();
 
-	void postDelete(SaveData saveData);
+	void postDelete();
 }
