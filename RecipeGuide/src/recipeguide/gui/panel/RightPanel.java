@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -102,22 +103,21 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(Style.BORDER_PANEL);
 
-		JLabel header = new JLabel(title);
-		header.setFont(Style.FONT_RIGHT_PANEL_TITLE);
-		header.setIcon(icon);
-		header.setAlignmentX(CENTER_ALIGNMENT);
-		add(header);
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.setPreferredSize(Style.DIMENSION_RIGHT_PANEL);
+		JLabel header = createHeader();
+		panel.add(header);
 
-		add(Box.createVerticalStrut(Style.PADDING_RIGHT_PANEL));
+		panel.add(Box.createVerticalStrut(Style.PADDING_RIGHT_PANEL));
 
 		for (JPanel jPanel : panels) {
-			add(jPanel);
-			add(Box.createVerticalStrut(Style.PADDING_RIGHT_PANEL));
+			panel.add(jPanel);
+			panel.add(Box.createVerticalStrut(Style.PADDING_RIGHT_PANEL));
 		}
 
 		if (tableData != null) {
-			JScrollPane scrollPane = new JScrollPane(tableData);
-			scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+			JScrollPane scrollPane = createScrollPaneForTable();
 			ListSelectionModel selectionModel = tableData.getSelectionModel();
 			selectionModel.addListSelectionListener(new ListSelectionListener() {
 
@@ -126,10 +126,25 @@ abstract public class RightPanel extends AbstractPanel implements Refresh {
 					checkEnableElements();
 				}
 			});
-
-			add(scrollPane);
+			panel.add(scrollPane);
 		}
 
+		add(panel);
+
+	}
+
+	public JScrollPane createScrollPaneForTable() {
+		JScrollPane scrollPane = new JScrollPane(tableData);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		return scrollPane;
+	}
+
+	public JLabel createHeader() {
+		JLabel header = new JLabel(title);
+		header.setFont(Style.FONT_RIGHT_PANEL_TITLE);
+		header.setIcon(icon);
+		header.setAlignmentX(CENTER_ALIGNMENT);
+		return header;
 	}
 
 	private void setEnableTypesInFrame() {

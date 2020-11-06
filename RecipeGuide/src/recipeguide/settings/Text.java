@@ -91,6 +91,7 @@ final public class Text {
 		data.put("no", "Nem");
 
 		data.put("add", "Hozzaadás");
+		data.put("create", "Létrehozás");
 		data.put("addIngredientWihQuantity", "Új alapanyg és mennyiségét hozzaadása");
 		data.put("saveToExternFile", "Mentés külső fájlba");
 		data.put("edit", "Modosítás");

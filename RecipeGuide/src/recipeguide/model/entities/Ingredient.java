@@ -1,7 +1,5 @@
 package recipeguide.model.entities;
 
-import java.util.Objects;
-
 import recipeguide.saveload.SaveData;
 
 public class Ingredient extends AbstractEntity {

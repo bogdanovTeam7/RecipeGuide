@@ -32,7 +32,7 @@ abstract public class TableDate<E> extends JTable implements Refresh {
 		getTableHeader().setFont(Style.FONT_TABLE_HEADER);
 		setRowHeight(getRowHeight() + Style.PADDING_TABLE_ROW_ADD);
 		setAutoCreateRowSorter(true);
-		setPreferredScrollableViewportSize(Style.DIMENSION_TABLE);
+		setPreferredScrollableViewportSize(Style.DIMENSION_RIGHT_PANEL);
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		EditorHandler handler = new EditorHandler(frame);

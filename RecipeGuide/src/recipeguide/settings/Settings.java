@@ -48,7 +48,8 @@ public final class Settings {
 	public static final String SAVE_FILE_EXT = "book";
 
 	private static final File FILE_SETTINGS = new File("saves/settings.ini");
-	private static File fileSave = new File("saves/default.book");
+	public static final File DEFAUL_FILE_SAVE = new File("saves/default.book");
+	private static File fileSave = DEFAUL_FILE_SAVE;
 
 	public static final File ABOUT_FILE = new File("res/aboutProgram.html");
 

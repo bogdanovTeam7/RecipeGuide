@@ -2,8 +2,10 @@ package recipeguide.gui.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +13,7 @@ import java.util.Map;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -20,6 +23,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import recipeguide.gui.MainFrame;
 import recipeguide.gui.handler.AddEditDialogHandler;
@@ -38,6 +42,7 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 	protected Map<String, JComponent> components = new LinkedHashMap<>();
 	protected Map<String, ImageIcon> icons = new LinkedHashMap<>();
 	protected Map<String, Object> values = new LinkedHashMap<>();
+	protected List<String> layoutX = new ArrayList<>();
 	protected Entity entity;
 	protected DialogType dialogType;
 	protected AddEditDialogHandler handler;
@@ -92,6 +97,7 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 		setComponents();
 		setIcons();
 		setValues();
+		setLayoutX();
 		Image image = chooseImageIcon().getImage();
 		setIconImage(image);
 		frame.setFont(font);
@@ -132,10 +138,23 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 			component.addKeyListener(handler);
 			component.setAlignmentX(JComponent.LEFT_ALIGNMENT);
 			component.setFont(font);
-			add(label);
-			add(Box.createVerticalStrut(Style.PADDING_DIALOG));
-			add(component);
-			add(Box.createVerticalStrut(Style.PADDING_DIALOG));
+
+			if (layoutX.contains(key)) {
+				JPanel panelX = new JPanel();
+
+				panelX.setLayout(new FlowLayout());
+				panelX.add(label);
+				panelX.add(Box.createHorizontalStrut(Style.PADDING_DIALOG));
+				panelX.add(component);
+				panelX.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+
+				add(panelX);
+			} else {
+				add(label);
+				add(Box.createVerticalStrut(Style.PADDING_DIALOG));
+				add(component);
+				add(Box.createVerticalStrut(Style.PADDING_DIALOG));
+			}
 		}
 
 		MainButton okButton = MainButton.builder()
@@ -167,6 +186,7 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 		components.clear();
 		icons.clear();
 		values.clear();
+		layoutX.clear();
 	}
 
 	private String chooseHandlerCode() {
@@ -175,6 +195,8 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 			return HandlerCode.EDIT;
 		case ADD:
 			return HandlerCode.ADD;
+		case CREATE:
+			return HandlerCode.CREATE;
 		default:
 			return null;
 		}
@@ -186,9 +208,15 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 			return Style.ICON_BUTTON_EDIT;
 		case ADD:
 			return Style.ICON_BUTTON_ADD;
+		case CREATE:
+			return Style.ICON_BUTTON_CREATE;
 		default:
 			return null;
 		}
+	}
+
+	@Override
+	public void setLayoutX() {
 	}
 
 	protected class MainComboBox extends JComboBox<Object> {

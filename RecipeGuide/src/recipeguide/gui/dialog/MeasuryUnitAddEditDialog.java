@@ -7,6 +7,7 @@ import recipeguide.gui.MainFrame;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.MeasuryUnit;
 import recipeguide.settings.Style;
+import recipeguide.validations.NotEmptyValidator;
 
 public class MeasuryUnitAddEditDialog extends AddEditDialog {
 
@@ -55,10 +56,13 @@ public class MeasuryUnitAddEditDialog extends AddEditDialog {
 	public Entity getEntityFromForm() throws ModelException {
 		String nameNew = ((JTextField) components.get("measuryUnitName")).getText()
 				.trim();
-		if (nameNew == null || nameNew.length() < 1) {
-			throw new ModelException(ModelException.TITLE_EMPTY);
+		new NotEmptyValidator(nameNew).test();
+
+		String abbreviation = ((JTextField) components.get("measuryUnitAbbreviation")).getText()
+				.trim();
+		if (abbreviation == null) {
+			abbreviation = "";
 		}
-		String abbreviation = ((JTextField) components.get("measuryUnitAbbreviation")).getText();
 
 		return new MeasuryUnit(nameNew, abbreviation);
 	}

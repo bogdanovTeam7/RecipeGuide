@@ -38,6 +38,11 @@ public class AddEditDialogHandler extends Handler implements KeyListener, Window
 						.add(dialog.getEntityFromForm());
 				dialog.close();
 				break;
+			case HandlerCode.CREATE:
+				SaveData.getInstance()
+				.add(dialog.getEntityFromForm());
+				dialog.close();
+				break;
 			case HandlerCode.EDIT:
 				SaveData.getInstance()
 						.edit(dialog.getEntity(), dialog.getEntityFromForm());

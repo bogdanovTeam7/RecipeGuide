@@ -1,6 +1,7 @@
 package recipeguide.gui.panel;
 
-import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -36,7 +37,7 @@ public class BookDataPanel extends AbstractPanel {
 	}
 
 	private JPanel createMonoPanel(String title, ImageIcon icon, String text) {
-		JPanel panel = new JPanel(new BorderLayout());
+		JPanel panel = new JPanel(new GridLayout());
 		panel.setBorder(Style.BORDER_PANEL);
 
 		panel.add(Box.createHorizontalStrut(Style.PADDING_RIGHT_PANEL));
@@ -44,9 +45,7 @@ public class BookDataPanel extends AbstractPanel {
 		JLabel label = new JLabel(Text.get(title));
 		label.setFont(Style.FONT_RIGHT_PANEL_TITLE);
 		label.setIcon(icon);
-		panel.add(label, BorderLayout.WEST);
-
-		panel.add(Box.createHorizontalStrut(Style.PADDING_BOOK_PANEL));
+		panel.add(label);
 
 		JTextArea textArea = new JTextArea(text);
 		textArea.setAlignmentX(RIGHT_ALIGNMENT);
@@ -54,7 +53,9 @@ public class BookDataPanel extends AbstractPanel {
 		textArea.setBackground(panel.getBackground());
 		textArea.setEditable(false);
 
-		panel.add(textArea, BorderLayout.EAST);
+		panel.add(Box.createHorizontalStrut(Style.PADDING_BOOK_PANEL));
+
+		panel.add(textArea);
 
 		return panel;
 	}

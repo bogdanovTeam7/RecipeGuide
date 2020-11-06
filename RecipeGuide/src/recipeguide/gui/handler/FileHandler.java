@@ -11,6 +11,7 @@ import recipeguide.gui.dialog.BookDialog;
 import recipeguide.gui.dialog.ConfirmDialog;
 import recipeguide.gui.dialog.DialogType;
 import recipeguide.gui.dialog.ErrorDialog;
+import recipeguide.model.entities.Book;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.HandlerCode;
 import recipeguide.settings.Settings;
@@ -97,11 +98,29 @@ public class FileHandler extends Handler {
 	}
 
 	public void createNewFile() {
-		Settings.setFileSave(null);
+		if (!SaveData.getInstance()
+				.isSaved()) {
+			int value = ConfirmDialog.show(frame, "confirmExitIntention", "confirmationOfIntent");
+			if (value != JOptionPane.YES_OPTION) {
+				return;
+			}
+		}
 		BookDialog dialog = new BookDialog(frame, DialogType.ADD);
-		SaveData.getInstance()
-				.clearAll();
+		Book oldBook = SaveData.getInstance()
+				.getBook();
 		dialog.showDialog();
+		Book newBook = SaveData.getInstance()
+				.getBook();
+		if (!oldBook.equals(newBook)) {
+			Settings.setFileSave(Settings.DEFAUL_FILE_SAVE);
+			SaveData.getInstance()
+					.clearAll();
+			SaveData.getInstance()
+					.load();
+			SaveData.getInstance()
+					.setBook(newBook);
+			Settings.setFileSave(null);
+		}
 		frame.refresh();
 	}
 

@@ -7,6 +7,7 @@ import recipeguide.gui.MainFrame;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.IngredientType;
 import recipeguide.settings.Style;
+import recipeguide.validations.NotEmptyValidator;
 
 public class IngredientTypeAddEditDialog extends AddEditDialog {
 
@@ -50,7 +51,9 @@ public class IngredientTypeAddEditDialog extends AddEditDialog {
 
 	@Override
 	public Entity getEntityFromForm() throws ModelException {
-		String name = ((JTextField) components.get("ingredientType")).getText();
+		String name = ((JTextField) components.get("ingredientType")).getText()
+				.trim();
+		new NotEmptyValidator(name).test();
 		return new IngredientType(name);
 	}
 

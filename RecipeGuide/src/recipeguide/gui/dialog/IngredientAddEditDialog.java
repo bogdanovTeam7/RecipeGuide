@@ -11,7 +11,9 @@ import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.Ingredient;
 import recipeguide.model.entities.IngredientType;
 import recipeguide.saveload.SaveData;
+import recipeguide.settings.Settings;
 import recipeguide.settings.Style;
+import recipeguide.validations.NotEmptyValidator;
 
 public class IngredientAddEditDialog extends AddEditDialog {
 
@@ -61,9 +63,14 @@ public class IngredientAddEditDialog extends AddEditDialog {
 
 	@Override
 	public Entity getEntityFromForm() throws ModelException {
-		String name = ((JTextField) components.get("ingredientName")).getText();
+		String name = ((JTextField) components.get("ingredientName")).getText()
+				.trim();
+		new NotEmptyValidator(name).test();
 		JComboBox<?> jComboBox = (JComboBox<?>) components.get("ingredientType");
 		IngredientType type = (IngredientType) jComboBox.getSelectedItem();
+		if (type == null) {
+			type = Settings.INGREDIENT_TYPE_DEFAULT;
+		}
 		return new Ingredient(name, type);
 	}
 

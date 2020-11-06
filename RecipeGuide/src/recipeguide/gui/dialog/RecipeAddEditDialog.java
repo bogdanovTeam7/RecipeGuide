@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -17,11 +18,14 @@ import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.Quantity;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.Ingredient;
+import recipeguide.model.entities.IngredientType;
 import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.Format;
+import recipeguide.settings.Settings;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
+import recipeguide.validations.NotEmptyValidator;
 
 public class RecipeAddEditDialog extends AddEditDialog {
 
@@ -46,11 +50,23 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	}
 
 	@Override
+	public void setLayoutX() {
+		layoutX.add("recipeName");
+		layoutX.add("foodCategory");
+		layoutX.add("ration");
+		layoutX.add("preparingTime");
+		layoutX.add("cookingTime");
+	}
+
+	@Override
 	public void setComponents() {
 		components.put("recipeName", new JTextField());
 		MainComboBox categoryBox = new MainComboBox(new ArrayList<>(SaveData.getInstance()
 				.getCategories()));
 		components.put("foodCategory", categoryBox);
+		components.put("ration", new JTextField());
+		components.put("preparingTime", new JTextField());
+		components.put("cookingTime", new JTextField());
 		JPanel ingredientsWithQuantityPanel = new JPanel();
 		ingredientsWithQuantityPanel.setLayout(new BoxLayout(ingredientsWithQuantityPanel, BoxLayout.Y_AXIS));
 		components.put("ingredientsWithMeasure", ingredientsWithQuantityPanel);
@@ -98,6 +114,9 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	public void setIcons() {
 
 		icons.put("recipeName", Style.ICON_DIALOG_RECIPE_NAME);
+		icons.put("ration", Style.ICON_DIALOG_RECIPE_RATION);
+		icons.put("preparingTime", Style.ICON_DIALOG_RECIPE_PREPARING_TIME);
+		icons.put("cookingTime", Style.ICON_DIALOG_RECIPE_COOCING_TIME);
 		icons.put("foodCategory", Style.ICON_DIALOG_FOOD_CATEGORY);
 		icons.put("ingredientsWithMeasure", Style.ICON_DIALOG_INGREDIENT_WITH_MEASURE);
 		icons.put("addIngredientWihQuantity", Style.ICON_DIALOG_ADD);
@@ -108,6 +127,9 @@ public class RecipeAddEditDialog extends AddEditDialog {
 	public void setValues() {
 		if (dialogType.equals(DialogType.EDIT) && recipe != null) {
 			values.put("recipeName", recipe.getNameToDisplay());
+			values.put("ration", recipe.getRation());
+			values.put("preparingTime", recipe.getPreparingTimeInSeconds());
+			values.put("cookingTime", recipe.getCookingTimeInSeconds());
 			values.put("foodCategory", recipe.getCategory());
 			values.put("description", recipe.getDescription());
 		}
@@ -115,6 +137,15 @@ public class RecipeAddEditDialog extends AddEditDialog {
 
 	@Override
 	public Entity getEntityFromForm() throws ModelException {
+		String name = ((JTextField) components.get("recipeName")).getText()
+				.trim();
+		new NotEmptyValidator(name).test();
+
+		JComboBox<?> jComboBox = (JComboBox<?>) components.get("foodCategory");
+		IngredientType type = (IngredientType) jComboBox.getSelectedItem();
+		if (type == null) {
+			type = Settings.INGREDIENT_TYPE_DEFAULT;
+		}
 		// TODO Auto-generated method stub
 		return null;
 	}

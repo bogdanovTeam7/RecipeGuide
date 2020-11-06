@@ -45,7 +45,7 @@ public final class Style {
 
 	public static final Dimension DIMENSION_DIALOG_TEXT_FIELD = new Dimension(300, 30);
 	public static final Dimension DIMENSION_SEARCH_TEXT_FIELD = new Dimension(570, 30);
-	public static final Dimension DIMENSION_TABLE = new Dimension(1000, 400);
+	public static final Dimension DIMENSION_RIGHT_PANEL = new Dimension(1000, 400);
 
 	public static final int PADDING_DIALOG = 15;
 	public static final int PADDING_DIALOG_GRID_HORIZONTAL = 10;
@@ -98,6 +98,7 @@ public final class Style {
 	public static final ImageIcon ICON_TOOLBAR_DETAILS_OVERVIEW = new ImageIcon("images/toolbarDetailsOverview.png");
 
 	public static final ImageIcon ICON_BUTTON_ADD = new ImageIcon("images/buttonAdd.png");
+	public static final ImageIcon ICON_BUTTON_CREATE = new ImageIcon("images/buttonCreate.png");
 	public static final ImageIcon ICON_BUTTON_SAVE = new ImageIcon("images/buttonSave.png");
 	public static final ImageIcon ICON_BUTTON_EDIT = new ImageIcon("images/buttonEdit.png");
 	public static final ImageIcon ICON_BUTTON_CANCEL = new ImageIcon("images/buttonCancel.png");
@@ -112,6 +113,9 @@ public final class Style {
 	public static final ImageIcon ICON_DIALOG_INGREDIENT = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_DIALOG_INGREDIENT_WITH_MEASURE = new ImageIcon("images/menuViewIngredients.png");
 	public static final ImageIcon ICON_DIALOG_RECIPE_NAME = new ImageIcon("images/menuViewRecipes.png");
+	public static final ImageIcon ICON_DIALOG_RECIPE_RATION = new ImageIcon("images/dialogRecipeRation.png");
+	public static final ImageIcon ICON_DIALOG_RECIPE_PREPARING_TIME = new ImageIcon("images/dialogRecipeTime.png");
+	public static final ImageIcon ICON_DIALOG_RECIPE_COOCING_TIME = new ImageIcon("images/dialogRecipeTime.png");
 	public static final ImageIcon ICON_DIALOG_DESCRIPTION = new ImageIcon("images/menuViewRecipes.png");
 	public static final ImageIcon ICON_DIALOG_AMOUNT = new ImageIcon("images/dialogAmount.png");
 	public static final ImageIcon ICON_DIALOG_BOOK_NAME = new ImageIcon("images/dialogBookName.png");
@@ -133,9 +137,9 @@ public final class Style {
 	public static final ImageIcon ICON_RIGHT_PANEL_BOOK_EDITED_AT = new ImageIcon("images/rightPanelBookStartedAt.png");
 	public static final ImageIcon ICON_RIGHT_PANEL_FOOD_CATEGORY = new ImageIcon("images/menuViewFoodCategories.png");
 
-	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/menuViewIngredients.png");
-	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/menuViewIngredientTypes.png");
-	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE_NAME = new ImageIcon("images/menuViewIngredientTypes.png");
+	public static final ImageIcon ICON_TABLE_INGREDIENT_NAME = new ImageIcon("images/tableIngredients.png");
+	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE = new ImageIcon("images/tableIngredientTypes.png");
+	public static final ImageIcon ICON_TABLE_INGREDIENT_TYPE_NAME = new ImageIcon("images/tableIngredientTypes.png");
 
 	public static final ImageIcon ICON_TABLE_RECIPE_NAME = new ImageIcon("images/tableRecipeName.png");
 	public static final ImageIcon ICON_TABLE_RECIPE_CATEGORY = new ImageIcon("images/tableRecipeFoodCategories.png");

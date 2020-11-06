@@ -4,11 +4,13 @@ import recipeguide.exceptions.ModelException;
 import recipeguide.model.entities.Entity;
 
 public interface Dialog {
-	abstract void setComponents();
+	void setComponents();
 
 	void setIcons();
 
 	void setValues();
+
+	void setLayoutX();
 
 	Entity getEntityFromForm() throws ModelException;
 

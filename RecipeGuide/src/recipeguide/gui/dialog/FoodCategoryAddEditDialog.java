@@ -7,6 +7,7 @@ import recipeguide.gui.MainFrame;
 import recipeguide.model.entities.Entity;
 import recipeguide.model.entities.FoodCategory;
 import recipeguide.settings.Style;
+import recipeguide.validations.NotEmptyValidator;
 
 public class FoodCategoryAddEditDialog extends AddEditDialog {
 
@@ -50,7 +51,9 @@ public class FoodCategoryAddEditDialog extends AddEditDialog {
 
 	@Override
 	public Entity getEntityFromForm() throws ModelException {
-		String name = ((JTextField) components.get("foodCategory")).getText();
+		String name = ((JTextField) components.get("foodCategory")).getText()
+				.trim();
+		new NotEmptyValidator(name).test();
 		return new FoodCategory(name);
 	}
 

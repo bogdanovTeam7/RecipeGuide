@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <data>
     <book>
-        <author></author>
-        <lastEditedAt>2020-11-04T22:39:03.373+01:00</lastEditedAt>
-        <startedAt>2020-11-04T22:39:03.373+01:00</startedAt>
+        <author>n</author>
+        <lastEditedAt>2020-11-06T18:15:46.313+01:00</lastEditedAt>
+        <name>n</name>
+        <startedAt>2020-11-06T18:15:46.313+01:00</startedAt>
     </book>
+    <ingredients>
+        <name>g</name>
+        <type>
+            <name>other</name>
+        </type>
+    </ingredients>
+    <ingredients>
+        <name>k</name>
+        <type>
+            <name>avv</name>
+        </type>
+    </ingredients>
+    <types>
+        <name>a</name>
+    </types>
+    <types>
+        <name>avv</name>
+    </types>
     <types>
         <name>tejtermék</name>
     </types>
+    <units>
+        <abbreviation></abbreviation>
+        <name>k</name>
+    </units>
+    <units>
+        <abbreviation>k</abbreviation>
+        <name>kk</name>
+    </units>
 </data>

@@ -7,6 +7,7 @@ import recipeguide.gui.MainFrame;
 import recipeguide.model.entities.Book;
 import recipeguide.model.entities.Entity;
 import recipeguide.settings.Style;
+import recipeguide.validations.NotEmptyValidator;
 
 public class BookDialog extends AddEditDialog {
 
@@ -43,11 +44,17 @@ public class BookDialog extends AddEditDialog {
 
 	@Override
 	public Entity getEntityFromForm() throws ModelException {
-		String name = ((JTextField) components.get("bookName")).getText();
-		String author = ((JTextField) components.get("bookAuthor")).getText();
+		String name = ((JTextField) components.get("bookName")).getText()
+				.trim();
+		new NotEmptyValidator(name).test();
+		String author = ((JTextField) components.get("bookAuthor")).getText()
+				.trim();
 		Book newBook = new Book();
-		newBook.setName(name != null ? name : "");
-		newBook.setAuthor(author != null ? author : "");
+		if (author == null) {
+			author = "";
+		}
+		newBook.setName(name);
+		newBook.setAuthor(author);
 		return newBook;
 	}
 

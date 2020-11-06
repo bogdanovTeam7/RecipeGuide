@@ -196,9 +196,9 @@ public final class SaveData {
 	}
 
 	public void edit(Entity entityOld, Entity entityNew) throws ModelException {
-		if(entityOld==null) {
+		if (entityOld == null) {
 			throw new ModelException(ModelException.ENTITY_TO_EDIT_DONT_CHOOSEN);
-			
+
 		}
 		if (!entityOld.equals(entityNew) && isEntityExist(entityNew)) {
 			throw new ModelException(ModelException.ENTITY_EXISTS);

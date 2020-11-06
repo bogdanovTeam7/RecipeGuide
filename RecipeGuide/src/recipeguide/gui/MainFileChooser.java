@@ -55,8 +55,6 @@ public class MainFileChooser extends JFileChooser {
 		UIManager.put("FileChooser.fileAttrHeaderText", Text.get("FileChooserFileAttrHeaderText"));
 		UIManager.put("FileChooser.acceptAllFilesFilterText", Text.get("FileChooserAcceptAllFilesFilterText"));
 
-		// TODO Auto-generated method stub
-
 	}
 
 	public int open() {
