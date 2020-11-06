@@ -1,7 +1,9 @@
 package recipeguide.gui.dialog;
 
 import java.awt.GridLayout;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -17,8 +19,8 @@ import recipeguide.gui.MainFrame;
 import recipeguide.gui.toolbar.button.MainButton;
 import recipeguide.model.Quantity;
 import recipeguide.model.entities.Entity;
+import recipeguide.model.entities.FoodCategory;
 import recipeguide.model.entities.Ingredient;
-import recipeguide.model.entities.IngredientType;
 import recipeguide.model.entities.Recipe;
 import recipeguide.saveload.SaveData;
 import recipeguide.settings.Format;
@@ -26,6 +28,8 @@ import recipeguide.settings.Settings;
 import recipeguide.settings.Style;
 import recipeguide.settings.Text;
 import recipeguide.validations.NotEmptyValidator;
+import recipeguide.validations.ParsebleToIntegerValidator;
+import recipeguide.validations.ParsebleToLongValidator;
 
 public class RecipeAddEditDialog extends AddEditDialog {
 
@@ -141,13 +145,41 @@ public class RecipeAddEditDialog extends AddEditDialog {
 				.trim();
 		new NotEmptyValidator(name).test();
 
+		String rationAsString = ((JTextField) components.get("ration")).getText()
+				.trim();
+		new ParsebleToIntegerValidator(rationAsString).test();
+		int ration = Integer.parseInt(rationAsString);
+
+		String preparingTimeInSecondsAsString = ((JTextField) components.get("preparingTime")).getText()
+				.trim();
+		new ParsebleToLongValidator(preparingTimeInSecondsAsString).test();
+		long secondsAsString = Long.parseLong(preparingTimeInSecondsAsString);
+		Duration preparingTime = Duration.ofSeconds(secondsAsString);
+
+		String cookingTimeInSecondsAsString = ((JTextField) components.get("cookingTime")).getText()
+				.trim();
+		new ParsebleToLongValidator(cookingTimeInSecondsAsString).test();
+		secondsAsString = Long.parseLong(cookingTimeInSecondsAsString);
+		Duration cookingTime = Duration.ofSeconds(secondsAsString);
+
 		JComboBox<?> jComboBox = (JComboBox<?>) components.get("foodCategory");
-		IngredientType type = (IngredientType) jComboBox.getSelectedItem();
-		if (type == null) {
-			type = Settings.INGREDIENT_TYPE_DEFAULT;
+		FoodCategory category = (FoodCategory) jComboBox.getSelectedItem();
+		if (category == null) {
+			category = Settings.FOOD_CATEGORY_DEFAULT;
 		}
-		// TODO Auto-generated method stub
-		return null;
+
+		String description = ((JTextArea) components.get("description")).getText();
+
+		Map<Ingredient, Quantity> ingredientsWihQuantity = new LinkedHashMap<>();
+		return Recipe.builder()
+				.withName(name)
+				.withRation(ration)
+				.withPreparingTime(preparingTime)
+				.withCookingTime(cookingTime)
+				.withCategory(category)
+				.withDescription(description)
+				.withIngredientsWihQuantity(ingredientsWihQuantity)
+				.build();
 	}
 
 }

@@ -190,6 +190,9 @@ public class Recipe extends AbstractEntity {
 	}
 
 	public String printIngredientsWithQuantity() {
+		if (ingredientsWihQuantity.isEmpty()) {
+			return "";
+		}
 		StringBuilder result = new StringBuilder();
 		for (Map.Entry<Ingredient, Quantity> entry : ingredientsWihQuantity.entrySet()) {
 			result.append(", ")

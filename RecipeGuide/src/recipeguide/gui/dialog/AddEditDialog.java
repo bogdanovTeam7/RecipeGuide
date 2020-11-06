@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -21,6 +22,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -133,6 +135,7 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 					text = (String) values.get(key);
 				}
 				((JTextArea) component).setText(text);
+				((JTextArea) component).setMaximumSize(Style.DIMENSION_RIGHT_PANEL);
 			}
 
 			component.addKeyListener(handler);
@@ -142,13 +145,14 @@ public abstract class AddEditDialog extends JDialog implements Dialog {
 			if (layoutX.contains(key)) {
 				JPanel panelX = new JPanel();
 
-				panelX.setLayout(new FlowLayout());
+				panelX.setLayout(new GridLayout(1, 2, Style.PADDING_DIALOG_GRID_HORIZONTAL, 0));
 				panelX.add(label);
-				panelX.add(Box.createHorizontalStrut(Style.PADDING_DIALOG));
+//				panelX.add(Box.createHorizontalStrut(Style.PADDING_DIALOG));
 				panelX.add(component);
 				panelX.setAlignmentX(JComponent.LEFT_ALIGNMENT);
 
 				add(panelX);
+				add(Box.createVerticalStrut(Style.PADDING_DIALOG));
 			} else {
 				add(label);
 				add(Box.createVerticalStrut(Style.PADDING_DIALOG));
